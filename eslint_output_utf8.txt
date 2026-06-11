@@ -1,0 +1,21 @@
+﻿
+C:\Users\Bruns\Documents\Orqio\rb_brand\rb_site\src\components\Header.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Bruns\Documents\Orqio\rb_brand\rb_site\src\components\Hero.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Bruns\Documents\Orqio\rb_brand\rb_site\src\components\Methodology.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Bruns\Documents\Orqio\rb_brand\rb_site\src\components\Philosophy.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Bruns\Documents\Orqio\rb_brand\rb_site\src\components\Results.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+C:\Users\Bruns\Documents\Orqio\rb_brand\rb_site\src\components\Trajectory.jsx
+  1:10  error  'motion' is defined but never used. Allowed unused vars must match /^[A-Z_]/u  no-unused-vars
+
+Ô£û 6 problems (6 errors, 0 warnings)
+

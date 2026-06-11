@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors - Clean & Elegant Fluidity Palette */
+  --color-obsidian: #0D1117;
+  /* Very soft premium dark slate (GitHub Dark) */
+  --color-ice: #F1F5F9;
+  /* Slate 50, crisp and elegant white */
+  --color-electric-blue: #7FB3FF;
+  /* Very light, elegant, frosty royal blue */
+  --color-glass-base: rgba(127, 179, 255, 0.05);
+  /* Softer blue tint for glass */
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+
+  --color-surface-dark: #161B22;
+  /* Slightly embossed slate */
+  --color-surface-light: #21262D;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Oswald', system-ui, sans-serif;
+  /* Utilities */
+  --blur-glass: 12px;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-ice);
+    --foreground: var(--color-obsidian);
+  }
+
+  .dark {
+    --background: var(--color-obsidian);
+    --foreground: var(--color-ice);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply font-sans antialiased;
+    overflow-x: hidden;
+  }
+
+  html {
+    /* Lenis handles smooth scrolling, removed scroll-behavior: smooth; to prevent conflicts */
+  }
+}
+
+@layer utilities {
+
+  /* Sharp Liquid Glass - Geometric and rigid, no smooth blobs */
+  .liquid-glass {
+    @apply relative overflow-hidden backdrop-blur-md bg-white/5 border border-white/10;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .liquid-glass-dark {
+    @apply relative overflow-hidden backdrop-blur-md bg-black/20 border border-white/5;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .liquid-glass-invert {
+    @apply relative overflow-hidden backdrop-blur-xl bg-white/60 border border-black/10;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Extremism geometry - NO ROUNDED CORNERS default */
+  .sharp-edge {
+    border-radius: 0px;
+  }
+
+  .micro-bevel {
+    border-radius: 2px;
+  }
+
+  /* Hover interactions */
+  .hover-sharp {
+    @apply transition-all duration-500 hover:-translate-y-2 hover:shadow-xl;
+    transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Performance rendering hints */
+  .will-change-transform {
+    will-change: transform, opacity;
+  }
+}

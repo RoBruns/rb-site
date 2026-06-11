@@ -1,0 +1,17 @@
+# Next.js static export (output: 'export') em Apache
+# Faz as URLs "limpas" (sem .html) resolverem para os arquivos .html exportados.
+
+Options -MultiViews
+RewriteEngine On
+
+# Não reescrever arquivos ou pastas que existem de verdade (CSS, JS, imagens, _next, etc.)
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# /pagina  ->  /pagina.html  (quando o .html existe)
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Página de erro 404
+ErrorDocument 404 /404.html
