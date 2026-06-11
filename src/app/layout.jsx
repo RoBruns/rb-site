@@ -1,5 +1,6 @@
 import { Inter, Oswald } from 'next/font/google';
 import './globals.css';
+import { MetaPixel } from '../components/MetaPixel';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,6 +22,9 @@ export const metadata = {
   icons: {
     icon: '/favico.ico',
   },
+  other: {
+    'facebook-domain-verification': '4jmg5qd6yj0iklihctbuml0wayn009',
+  },
 };
 
 export default function RootLayout({ children }) {
@@ -30,6 +34,7 @@ export default function RootLayout({ children }) {
         className="w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-white antialiased" 
         suppressHydrationWarning
       >
+        <MetaPixel />
         {children}
       </body>
     </html>

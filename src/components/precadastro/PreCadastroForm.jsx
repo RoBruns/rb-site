@@ -3,6 +3,13 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { cn } from "../../utils/cn";
+import {
+    getFbCookies,
+    getFbcFromUrl,
+    getUrlParams,
+    newEventId,
+    trackLead,
+} from "../../utils/tracking";
 
 /* ------------------------------------------------------------------ */
 /*  Animation primitives                                               */
@@ -276,6 +283,14 @@ export function PreCadastroForm() {
         if (submitting) return;
         setSubmitting(true);
         setSubmitError(false);
+
+        // Identidade única do evento, compartilhada entre Pixel e CAPI
+        // para que a Meta deduplique os dois disparos do "Lead".
+        const eventId = newEventId();
+        const { fbp, fbc } = getFbCookies();
+        const fbcResolved = fbc || getFbcFromUrl();
+        const urlParams = getUrlParams();
+
         try {
             const res = await fetch(WEBHOOK_URL, {
                 method: "POST",
@@ -287,9 +302,21 @@ export function PreCadastroForm() {
                     objetivo: data.objetivo.trim(),
                     origem: "pre-cadastro",
                     enviado_em: new Date().toISOString(),
+                    // --- Dados de tracking p/ o CAPI (server-side no n8n) ---
+                    event_name: "Lead",
+                    event_id: eventId,
+                    event_source_url:
+                        typeof window !== "undefined" ? window.location.href : "",
+                    fbp,
+                    fbc: fbcResolved,
+                    ...urlParams,
                 }),
             });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+            // Pixel client-side com o MESMO event_id (dedup com o CAPI).
+            trackLead({ eventId });
+
             go(3);
         } catch (err) {
             console.error("Falha ao enviar pré-cadastro:", err);
