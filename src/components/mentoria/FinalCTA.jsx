@@ -1,37 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect } from "react";
-
-const TALLY_SRC =
-    "https://tally.so/embed/rjvgvR?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+import { CandidaturaForm } from "./CandidaturaForm";
 
 export function FinalCTA() {
-    useEffect(() => {
-        const loadEmbeds = () => {
-            if (window.Tally) {
-                window.Tally.loadEmbeds();
-            }
-        };
-
-        const existing = document.querySelector(
-            'script[src="https://tally.so/widgets/embed.js"]'
-        );
-
-        if (existing) {
-            loadEmbeds();
-            return;
-        }
-
-        const script = document.createElement("script");
-        script.src = "https://tally.so/widgets/embed.js";
-        script.async = true;
-        script.onload = loadEmbeds;
-        // Fallback: if the script fails, the iframe still renders via data-tally-src on its own
-        script.onerror = loadEmbeds;
-        document.body.appendChild(script);
-    }, []);
-
     return (
         <section
             id="candidatura"
@@ -64,25 +36,15 @@ export function FinalCTA() {
                     seu momento, entro em contato com os próximos passos.
                 </motion.p>
 
-                {/* Formulário de qualificação (Tally) */}
+                {/* Formulário de candidatura (nativo) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                    className="mt-12 text-left border-t border-white/10 pt-10"
+                    className="mt-12 border-t border-white/10 pt-10"
                 >
-                    <iframe
-                        data-tally-src={TALLY_SRC}
-                        loading="lazy"
-                        width="100%"
-                        height="500"
-                        frameBorder="0"
-                        marginHeight="0"
-                        marginWidth="0"
-                        title="Candidatura para a Mentoria de Goleiros de Alto Rendimento"
-                        className="w-full"
-                    />
+                    <CandidaturaForm />
                 </motion.div>
 
                 <motion.p
