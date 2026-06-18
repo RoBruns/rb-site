@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 const stats = [
-    { value: "+10", label: "anos à frente dos goleiros do Red Bull Bragantino" },
+    { value: "+15", label: "Preparando os goleiros do Red Bull Bragantino" },
     { value: "+20", label: "anos dedicados à formação de atletas" },
     { value: "Licença A", label: "de treinador pela CBF" },
     { value: "Base ao pro", label: "uma só metodologia, do sub ao elenco principal" },

@@ -4,25 +4,30 @@ import { motion } from "framer-motion";
 
 const fixed = [
     {
-        n: "01",
-        title: "Metodologia & Planejamento",
-        desc: "Como estruturar o trabalho do goleiro ao longo da temporada, da periodização à sessão do dia.",
+        title: "Metodologia",
+        desc: "Como estruturar o treinamento de goleiros, de forma organizada e contextualizada com o jogo.",
     },
     {
-        n: "02",
+        title: "Mentalidade",
+        desc: "Entender e desenvolver uma mentalidade de crescimento no dia à dia.",
+    },
+    {
         title: "Defesa do Gol",
-        desc: "O fundamento central da posição: posicionamento, tomada de decisão e a técnica que sustenta a defesa.",
+        desc: "Identificar e desenvolver comportamentos decisivos para a defesa do gol",
     },
     {
-        n: "03",
         title: "Defesa do Espaço",
-        desc: "Leitura de profundidade, saídas e domínio da área para o goleiro que joga além da linha do gol.",
+        desc: "Melhorar a tomada de decisões dos goleiros na defesa do espaço.",
     },
     {
-        n: "04",
         title: "Jogo Ofensivo",
-        desc: "Construção com os pés, reposição e a participação do goleiro como ponto de partida do jogo da equipe.",
+        desc: "Aumentar o repertório dos goleiros na construção das jogadas.",
     },
+    {  
+        title: "Preparador de goleiros como analísta",
+        desc: "Aprender o que observar nos adversários, assim como na performace do próprio goleiro"
+        
+    }
 ];
 
 export function HowItWorks() {
@@ -36,7 +41,7 @@ export function HowItWorks() {
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                     className="font-display font-bold uppercase tracking-tight text-ice text-4xl md:text-6xl leading-[0.98] max-w-3xl"
                 >
-                    8 encontros. 1 método. <span className="text-electric-blue">Ao vivo, comigo.</span>
+                    8 encontros. <span className="text-electric-blue">Ao vivo, comigo.</span>
                 </motion.h2>
 
                 <motion.p
@@ -47,14 +52,13 @@ export function HowItWorks() {
                     className="mt-6 max-w-2xl text-base md:text-lg text-ice/70 leading-relaxed"
                 >
                     Quatro encontros de tema fixo, que constroem a base da metodologia. E quatro
-                    encontros de tema livre, onde a pauta é definida por você e pelo grupo, para
-                    resolver o que realmente importa no seu trabalho.
+                    encontros de tema livre, onde tiro suas dúvidas e te ajudo a evoluir.
                 </motion.p>
 
                 {/* Fixed themes as clean list */}
                 <div className="mt-16">
                     <p className="font-display uppercase tracking-[0.25em] text-xs font-bold text-electric-blue mb-2">
-                        Tema fixo
+                        Alguns temas abordados
                     </p>
                     <div className="border-t border-white/10">
                         {fixed.map((e, i) => (

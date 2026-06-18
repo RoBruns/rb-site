@@ -9,7 +9,7 @@ export const metadata = {
     openGraph: {
         title: "Mentoria de Preparação de Goleiros | Rodrigo Bruns",
         description:
-            "A metodologia que prepara goleiros da Série A, aberta para treinadores que miram o alto rendimento. 8 encontros ao vivo com Rodrigo Bruns.",
+            "A metodologia que prepara goleiros da Série A, aberta para PREPARADORES que miram o alto rendimento. 8 encontros ao vivo com Rodrigo Bruns.",
         images: ["/mentoria-hero.jpeg"],
         type: "website",
     },

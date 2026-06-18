@@ -48,9 +48,9 @@ export function MentoriaHero() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                    className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.35em] text-electric-blue mb-7"
+                    className="text-[15px] sm:text- font-semibold uppercase tracking-[0.35em] text-electric-blue mb-7"
                 >
-                    Para treinadores de goleiros · alto rendimento
+                    PREPARADOR de goleiros 
                 </motion.p>
 
                 <motion.h1
@@ -59,8 +59,8 @@ export function MentoriaHero() {
                     transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
                     className="font-display font-bold uppercase tracking-tight text-ice leading-[0.95] text-[12vw] sm:text-6xl md:text-7xl lg:text-[80px] max-w-4xl"
                 >
-                    Aprenda a treinar goleiros de{" "}
-                    <span className="text-electric-blue">elite.</span>
+                    Te ajudo na busca do  {" "}
+                    <span className="text-electric-blue">alto rendimento.</span>
                 </motion.h1>
 
                 <motion.p
@@ -69,9 +69,9 @@ export function MentoriaHero() {
                     transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.6 }}
                     className="mt-8 max-w-xl text-base md:text-lg text-ice/70 font-medium leading-relaxed"
                 >
-                    Há mais de 10 anos eu comando a preparação de goleiros do Red Bull Bragantino, da
-                    base ao profissional. Nesta mentoria, abro a metodologia que formou goleiros de
-                    Série A e seleção para você aplicar no seu trabalho.
+                    Mais de 20 anos no alto rendimento me ensinaram o que realmente faz diferença na preparação de goleiros.
+                    <br />
+                    Nesta mentoria, vou compartilhar esses aprendizados para que você atinja o próximo nível.
                 </motion.p>
 
                 <motion.div
@@ -89,10 +89,6 @@ export function MentoriaHero() {
                             →
                         </span>
                     </a>
-                    <p className="mt-5 text-xs text-ice/45 max-w-sm leading-relaxed">
-                        Vagas limitadas. Analiso cada candidatura. Você só recebe retorno se a mentoria
-                        fizer sentido para o seu momento.
-                    </p>
                 </motion.div>
             </motion.div>
         </section>

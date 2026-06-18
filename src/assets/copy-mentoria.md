@@ -1,11 +1,12 @@
 # Copy — Página de Vendas: Mentoria Rodrigo Bruns
 
-> **Página independente** da home institucional. Foco: vender a mentoria para treinadores de goleiros.
-> **Público:** treinadores de goleiros que já atuam ou querem atuar na área, em busca de técnicas e treinamentos voltados ao alto rendimento.
+> **Página independente** da home institucional. Foco: vender a mentoria para PREPARADORES de goleiros.
+> **Público:** PREPARADORES de goleiros que já atuam ou querem atuar na área, em busca de técnicas e treinamentos voltados ao alto rendimento.
 > **CTA único:** formulário de qualificação embedado. Quem faz sentido é retornado.
 > **Posicionamento:** premium e seletivo — sem soar agressivo. Nem todo mundo entra, mas o tom é de convite profissional, não de funil de pressão.
 
 > **Notas de edição:**
+>
 > - `[TEMA A/B/C/D]` → placeholders dos 4 encontros de tema fixo. Trocar pelos nomes reais depois.
 > - Trechos marcados com `[CONFIRMAR]` precisam da sua validação antes de publicar.
 
@@ -14,9 +15,10 @@
 ## 1. HERO (acima da dobra)
 
 **Tag (linha de topo):**
-PARA TREINADORES DE GOLEIROS QUE QUEREM CHEGAR AO ALTO RENDIMENTO
+PARA PREPARADORES DE GOLEIROS QUE QUEREM CHEGAR AO ALTO RENDIMENTO
 
 **Headline:**
+
 # Aprenda a treinar goleiros de elite com quem faz isso na elite do futebol brasileiro.
 
 **Subheadline:**
@@ -35,6 +37,7 @@ Vagas limitadas. As candidaturas passam por uma análise — você só recebe re
 ## 2. PROVA / AUTORIDADE (faixa de credenciais)
 
 **Headline da seção:**
+
 ## Quem está do outro lado da tela
 
 Faixa de números (cards curtos):
@@ -54,12 +57,13 @@ Goleiros que passaram pelo seu trabalho hoje defendem o elenco profissional e se
 ## 3. A VIRADA DE CHAVE (problema → tensão)
 
 **Headline:**
+
 ## Não falta esforço. Falta método.
 
 **Corpo:**
-Você estuda, assiste a vídeos, monta treinos no fim de semana e leva tudo para o campo na segunda. Mesmo assim, fica a dúvida: *isso que eu aplico aguenta o nível que eu quero alcançar?*
+Você estuda, assiste a vídeos, monta treinos no fim de semana e leva tudo para o campo na segunda. Mesmo assim, fica a dúvida: _isso que eu aplico aguenta o nível que eu quero alcançar?_
 
-A maioria dos treinadores de goleiros aprende por tentativa e erro. Junta um pedaço daqui, copia um exercício dali, e segue sem uma estrutura que conecte técnica, cabeça e o jogo da equipe.
+A maioria dos PREPARADORES de goleiros aprende por tentativa e erro. Junta um pedaço daqui, copia um exercício dali, e segue sem uma estrutura que conecte técnica, cabeça e o jogo da equipe.
 
 No alto rendimento não é assim. Lá existe método: planejamento, especificidade, leitura de jogo, controle emocional e integração ao sistema do time. É exatamente isso que separa um treino que "passa o tempo" de um treino que forma goleiro.
 
@@ -73,6 +77,7 @@ Treinar goleiro de elite não é dom. É processo. E processo se aprende.
 ## 4. A SOLUÇÃO (o que é a mentoria)
 
 **Headline:**
+
 ## A mentoria onde a metodologia do alto rendimento vira o seu método
 
 **Corpo:**
@@ -94,6 +99,7 @@ QUERO ME CANDIDATAR
 ## 5. COMO FUNCIONA (os 8 encontros)
 
 **Headline:**
+
 ## 8 encontros. 1 método. Ao vivo, com o Rodrigo.
 
 **Subheadline:**
@@ -131,15 +137,18 @@ GARANTIR MINHA CANDIDATURA
 ## 6. PARA QUEM É / PARA QUEM NÃO É
 
 **Headline:**
+
 ## Esta mentoria é para você?
 
 **A mentoria é para você que:**
+
 - Já treina goleiros e quer elevar o nível do que aplica em campo;
 - Quer atuar com goleiros e busca uma base metodológica séria para começar certo;
 - Mira o alto rendimento — categorias de base de clubes, profissional, formação de atletas para seleções;
 - Está disposto a estudar, aplicar e levar o trabalho a sério.
 
 **A mentoria não é para você que:**
+
 - Procura um curso gravado para assistir no automático, sem participar;
 - Quer fórmula mágica e não pretende aplicar nada no campo;
 - Não tem interesse real pela posição além do improviso de fim de semana.
@@ -151,6 +160,7 @@ GARANTIR MINHA CANDIDATURA
 ## 7. QUEM É O RODRIGO BRUNS
 
 **Headline:**
+
 ## Quem é Rodrigo Bruns
 
 **Corpo:**
@@ -161,6 +171,7 @@ Desde 2019, comanda a preparação de goleiros do Red Bull Bragantino, coordenan
 Reconhecido como uma das referências na preparação de goleiros no Brasil, Rodrigo já levou seu trabalho a palcos internacionais, palestrando sobre treinamento de goleiros. [CONFIRMAR: detalhe da palestra internacional — onde/quando — para usarmos com precisão.]
 
 **Citação (destaque):**
+
 > "Não há atalhos. Desempenho é resultado de método, repetição, análise e trabalho contínuo."
 > — Rodrigo Bruns
 
@@ -171,6 +182,7 @@ Reconhecido como uma das referências na preparação de goleiros no Brasil, Rod
 ## 8. ANCORAGEM DE VALOR (antes do CTA final)
 
 **Headline:**
+
 ## O que custa mais caro?
 
 **Corpo:**
@@ -185,6 +197,7 @@ O acesso direto a quem faz isso na elite — ao vivo, podendo perguntar e aplica
 ## 9. CTA FINAL
 
 **Headline:**
+
 ## As vagas são limitadas. A análise é individual.
 
 **Corpo:**
@@ -211,11 +224,13 @@ Rodrigo Bruns — Mentoria de Preparação de Goleiros
 ## Variações de Headline (para teste A/B)
 
 **Hero principal:**
+
 - **A (recomendada):** "Aprenda a treinar goleiros de elite com quem faz isso na elite do futebol brasileiro." — promessa + prova, direta.
-- **B:** "A metodologia que prepara goleiros da Série A, agora aberta para treinadores como você." — foca no acesso exclusivo.
+- **B:** "A metodologia que prepara goleiros da Série A, agora aberta para PREPARADORES como você." — foca no acesso exclusivo.
 - **C:** "Treinar goleiro de alto rendimento não é dom. É método — e o método se aprende aqui." — lidera com a big idea.
 
 **CTA:**
+
 - **A (recomendada):** "Quero me candidatar à mentoria" — claro e alinhado ao processo seletivo.
 - **B:** "Quero garantir minha vaga" — mais urgência, menos seletivo.
 - **C:** "Quero treinar goleiros de elite" — foca no desejo/resultado.

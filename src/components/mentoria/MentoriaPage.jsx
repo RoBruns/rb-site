@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import { MentoriaNav } from "./MentoriaNav";
 import { MentoriaHero } from "./MentoriaHero";
-import { Authority } from "./Authority";
 import { Problem } from "./Problem";
 import { Solution } from "./Solution";
 import { HowItWorks } from "./HowItWorks";
@@ -46,7 +45,6 @@ export function MentoriaPage() {
         <main className="w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
             <MentoriaNav />
             <MentoriaHero />
-            <Authority />
             <Problem />
             <Solution />
             <HowItWorks />

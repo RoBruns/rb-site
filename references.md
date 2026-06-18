@@ -23,7 +23,7 @@ profissional é o Augusto, que atua diretamente com os goleiros do elenco.
 Vale ressaltar que Rodrigo Bruns possui Licença A da CBF como treinador e mais de 20 anos de
 experiência na função (perfil profissional e redes sociais confirmam longa carreira). Sua formação
 acadêmica e vivência prática o colocaram entre as referências do país: o próprio podcast Os Goleiros o
-descreveu como “uma jovem referência entre os treinadores de goleiros no Brasil” , em
+descreveu como “uma jovem referência entre os PREPARADORES de goleiros no Brasil” , em
 reconhecimento ao seu empenho e resultados.
 Metodologia e resultados
 O trabalho de Bruns é reconhecido pelo clube e pela mídia especializada. Ele coordena toda a
@@ -42,7 +42,7 @@ de Rodrigo Bruns é também refletida em reconhecimento pela mídia: ele já foi
 preparador dedicado e atualizado, que constantemente busca a excelência no trabalho diário.
 Coordenador de goleiros: ocupa o cargo de treinador de goleiros do Red Bull Bragantino,
 cuidando da metodologia da posição em todo o clube .
-Referência nacional: apontado como “jovem referência” entre treinadores de goleiros no Brasil
+Referência nacional: apontado como “jovem referência” entre PREPARADORES de goleiros no Brasil
 .
 Formação de atletas: prepara nomes como Júlio César, Cleiton e Alex Alves (goleiros do elenco
 profissional) .
@@ -63,4 +63,4 @@ reflete não só em títulos como o acesso à Série A , mas também na ascensã
 por ele, que carregam em seu reconhecimento o nome do preparador – como evidenciado pela
 homenagem de Cleiton .
 Fontes: Informações extraídas de perfis e reportagens sobre o preparador Rodrigo Bruns, incluindo o
-podcast Os Goleiros e entrevistas/imprensa do Red Bull Bragantino 
+podcast Os Goleiros e entrevistas/imprensa do Red Bull Bragantino

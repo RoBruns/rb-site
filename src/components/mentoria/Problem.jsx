@@ -19,22 +19,19 @@ export function Problem() {
                 <div className="mt-10 space-y-6 text-base md:text-lg text-ice/70 leading-relaxed">
                     {[
                         <>
-                            Você estuda, assiste a vídeos, monta treinos no fim de semana e leva tudo
-                            para o campo na segunda. Mesmo assim, fica a dúvida:{" "}
+                            Você estuda, assiste a vídeos, monta treinos... Mas a dúvida permanece:{" "}
                             <span className="text-ice/90 font-semibold">
-                                isso que eu aplico aguenta o nível que eu quero alcançar?
+                                Será que esse é o melhor caminho?
                             </span>
                         </>,
                         <>
-                            A maioria dos treinadores de goleiros aprende por tentativa e erro. Junta um
-                            pedaço daqui, copia um exercício dali, e segue sem uma estrutura que conecte
-                            técnica, cabeça e o jogo da equipe.
+                            Muitos preparadores passam anos buscando evolução por tentativa e erro. Reúnem exercícios, 
+                            referências e experiências de diferentes fontes, mas sem uma estrutura que conecte tudo isso 
+                            em um processo claro de desenvolvimento.
                         </>,
                         <>
-                            No alto rendimento não é assim. Lá existe método: planejamento,
-                            especificidade, leitura de jogo, controle emocional e integração ao sistema
-                            do time. É isso que separa um treino que passa o tempo de um treino que
-                            forma goleiro.
+                            E é aí que muitos travam. Não por falta de dedicação. Não por falta de talento. Mas porque nunca 
+                            tiveram acesso a um método que integre contexto, intensidade, mentalidade e organização
                         </>,
                     ].map((p, i) => (
                         <motion.p
