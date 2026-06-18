@@ -4,16 +4,19 @@ import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 
 const isFor = [
-    "Já treina goleiros e quer elevar o nível do que aplica em campo.",
-    "Quer atuar com goleiros e busca uma base metodológica séria para começar certo.",
-    "Mira o alto rendimento: base de clubes, profissional, formação para seleções.",
+    "Quer trabalhar no padrão da Elite do Futebol Sul Americano.",
+    "Cansou de cursos superficiais e quer se aprofundar em uma metodologia moderna e atual.",
     "Está disposto a estudar, aplicar e levar o trabalho a sério.",
+    "Se sente inseguro sobre as estratégias que tem utilizado.",
+    "Entende que precisa estar preparado para as melhores oportunidades do mercado.",
 ];
 
 const isNotFor = [
-    "Procura um curso gravado para assistir no automático, sem participar.",
+    "Acredita que todas as metodologias são iguais.",
+    "Procura mais um curso gravado para assistir no automático, sem participar.",
     "Quer fórmula mágica e não pretende aplicar nada no campo.",
-    "Não tem interesse real pela posição além do improviso de fim de semana.",
+    "Entende que já sabe tudo o que precisa saber sobre a profissão e não precisa se atualizar.",
+    "Acha que a evolução na carreira depende APENAS de sorte.",
 ];
 
 export function ForWhom() {

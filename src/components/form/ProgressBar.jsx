@@ -1,11 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { cn } from "../../utils/cn";
 import { EASE } from "./motion";
 
-export function ProgressBar({ step, total }) {
+export function ProgressBar({ step, total, fixed = true }) {
     return (
-        <div className="fixed top-0 left-0 z-50 flex w-full gap-2 px-1 pt-1">
+        <div
+            className={cn(
+                "flex w-full gap-2",
+                fixed
+                    ? "fixed top-0 left-0 z-50 px-1 pt-1"
+                    : "relative mb-10"
+            )}
+        >
             {Array.from({ length: total }).map((_, i) => (
                 <div
                     key={i}

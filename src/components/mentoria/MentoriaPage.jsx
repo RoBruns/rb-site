@@ -45,11 +45,11 @@ export function MentoriaPage() {
         <main className="w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
             <MentoriaNav />
             <MentoriaHero />
+            <About />
             <Problem />
             <Solution />
             <HowItWorks />
             <ForWhom />
-            <About />
             <Anchor />
             <FinalCTA />
             <MentoriaFooter />

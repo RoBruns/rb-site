@@ -24,15 +24,15 @@ export function Anchor() {
                     className="mt-8 space-y-5 text-base md:text-lg text-ice/70 leading-relaxed"
                 >
                     <p>
-                        Caro é passar mais uma temporada aprendendo por tentativa e erro. Caro é ver um
-                        goleiro que você treina estacionar por falta de um método que você ainda não
-                        tem. Caro é ficar de fora das oportunidades de alto rendimento porque o seu
-                        trabalho não tem a estrutura que o nível exige.
+                        Passar mais uma temporada aprendendo por tentativa e erro, ver um goleiro
+                        estacionar por falta de um método que você ainda não tem, continuar inseguro
+                        quanto aos seus processos, levar anos (talvez décadas) até entender o que
+                        realmente funciona (se aprender), ficar de fora das melhores oportunidades do
+                        mercado porque o seu trabalho não tem a estrutura que o nível exige.
                     </p>
                     <p className="text-ice font-semibold">
-                        O acesso direto a quem faz isso na elite, ao vivo, podendo perguntar e aplicar,
-                        é o caminho mais curto e mais seguro entre onde você está e onde você quer
-                        chegar.
+                        Ou aprender uma metodologia moderna e completa, e ter acesso direto e ao vivo a
+                        quem já trilhou e conhece o caminho daquilo que você busca?
                     </p>
                 </motion.div>
             </div>

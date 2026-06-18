@@ -88,7 +88,7 @@ export function CandidaturaForm() {
 
     return (
         <div className="relative w-full text-left">
-            <ProgressBar step={step} total={TOTAL_STEPS - 1} />
+            <ProgressBar step={step} total={TOTAL_STEPS - 1} fixed={false} />
 
             <AnimatePresence mode="wait" custom={dir}>
                 {/* ----------------------------- STEP 0 — BOAS-VINDAS */}

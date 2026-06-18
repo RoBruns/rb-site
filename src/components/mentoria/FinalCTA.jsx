@@ -20,8 +20,8 @@ export function FinalCTA() {
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                     className="font-display font-bold uppercase tracking-tight text-ice text-4xl md:text-6xl leading-[0.98]"
                 >
-                    As vagas são limitadas.{" "}
-                    <span className="text-electric-blue">A análise é individual.</span>
+                    As vagas são limitadas e os{" "}
+                    <span className="text-electric-blue">participantes serão selecionados.</span>
                 </motion.h2>
 
                 <motion.p
@@ -31,9 +31,8 @@ export function FinalCTA() {
                     transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
                     className="mt-7 text-base md:text-lg text-ice/70 leading-relaxed"
                 >
-                    Nem todo mundo vai entrar, e é por isso que funciona. Preencha o formulário de
-                    candidatura abaixo. Eu analiso cada inscrição e, se a mentoria fizer sentido para o
-                    seu momento, entro em contato com os próximos passos.
+                    Nem todo mundo vai entrar, e é por isso que funciona. Eu analiso cada inscrição e, 
+                    se a mentoria fizer sentido para o seu momento, entro em contato para darmos o próximo passo.
                 </motion.p>
 
                 {/* Formulário de candidatura (nativo) */}

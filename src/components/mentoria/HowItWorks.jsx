@@ -63,7 +63,7 @@ export function HowItWorks() {
                     <div className="border-t border-white/10">
                         {fixed.map((e, i) => (
                             <motion.div
-                                key={e.n}
+                                key={e.title}
                                 initial={{ opacity: 0, y: 14 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.3 }}
@@ -71,7 +71,7 @@ export function HowItWorks() {
                                 className="grid grid-cols-[auto_1fr] md:grid-cols-[auto_1fr_2fr] gap-x-6 gap-y-1 items-baseline py-6 border-b border-white/10 group"
                             >
                                 <span className="font-display font-bold text-electric-blue/50 text-xl leading-none group-hover:text-electric-blue transition-colors duration-400">
-                                    {e.n}
+                                    {String(i + 1).padStart(2, "0")}
                                 </span>
                                 <h3 className="font-display font-bold uppercase tracking-tight text-ice text-lg md:text-xl">
                                     {e.title}
