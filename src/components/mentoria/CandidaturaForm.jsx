@@ -114,7 +114,7 @@ export function CandidaturaForm() {
                             >
                                 Seja bem vindo{" "}
                                 <span className="text-electric-blue">
-                                    Treinador de Goleiros
+                                    Preparador de Goleiros
                                 </span>{" "}
                                 de Alto Rendimento
                             </motion.h3>
@@ -320,9 +320,8 @@ export function CandidaturaForm() {
                                 variants={item}
                                 className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice sm:text-2xl"
                             >
-                                O investimento para participação do programa é R$5.000, que você pode
-                                parcelar em 12x de R$416,67 no cartão de crédito. Você tem capacidade
-                                de investir agora esse valor em você e na sua carreira?{" "}
+                                O investimento para participação do programa é de 12x de R$507,72 ou R$4.997,00 à vista. 
+                                Caso seja selecionado, você tem condições de realizar esse investimento?{" "}
                                 <span className="text-electric-blue">*</span>
                             </motion.h3>
 

@@ -42,7 +42,7 @@ export function Solution() {
                                 </span>
                                 , comigo. Você aprende, pergunta e aplica enquanto evolui.
                             </p>
-                            <p>A estrutura serve a dois objetivos que andam juntos.</p>
+                            <p>A estrutura serve a três objetivos que andam juntos.</p>
                         </motion.div>
 
                         <div className="mt-8 space-y-6">

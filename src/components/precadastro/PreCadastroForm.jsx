@@ -49,6 +49,35 @@ export function PreCadastroForm() {
     // E.164: +<dial><digits>, e.g. +5511942861882
     const whatsappE164 = `+${country.dial}${phoneDigits}`;
 
+    // Dados de contato compartilhados pelos dois disparos (etapa 1 e final),
+    // pra que o n8n case o mesmo lead no CRM nas duas pontas.
+    const contato = () => ({
+        nome: data.nome.trim(),
+        whatsapp: whatsappE164,
+        email: data.email.trim(),
+        origem: "pre-cadastro",
+    });
+
+    // Etapa 1 — assim que o lead preenche os dados pessoais, já registramos
+    // no CRM (status "dados_pessoais"). Fire-and-forget: não bloqueia a UX
+    // nem mostra erro; se falhar, o disparo final ainda cria/atualiza o lead.
+    const registrarDadosPessoais = () => {
+        try {
+            fetch(WEBHOOK_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                keepalive: true,
+                body: JSON.stringify({
+                    ...contato(),
+                    etapa: "dados_pessoais",
+                    enviado_em: new Date().toISOString(),
+                }),
+            }).catch(() => {});
+        } catch {
+            /* silencioso por design */
+        }
+    };
+
     const submit = async () => {
         if (submitting) return;
         setSubmitting(true);
@@ -66,11 +95,9 @@ export function PreCadastroForm() {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    nome: data.nome.trim(),
-                    whatsapp: whatsappE164,
-                    email: data.email.trim(),
+                    ...contato(),
+                    etapa: "completo",
                     objetivo: data.objetivo.trim(),
-                    origem: "pre-cadastro",
                     enviado_em: new Date().toISOString(),
                     // --- Dados de tracking p/ o CAPI (server-side no n8n) ---
                     event_name: "Lead",
@@ -209,7 +236,10 @@ export function PreCadastroForm() {
                                 <form
                                     onSubmit={(e) => {
                                         e.preventDefault();
-                                        if (dadosValid) go(2);
+                                        if (dadosValid) {
+                                            registrarDadosPessoais();
+                                            go(2);
+                                        }
                                     }}
                                     className="mt-10 space-y-8"
                                 >

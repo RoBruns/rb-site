@@ -15,7 +15,7 @@ export function About() {
         target: ref,
         offset: ["start end", "end start"],
     });
-    const imgY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+    const imgY = useTransform(scrollYProgress, [0, 1], ["-3%", "3%"]);
 
     return (
         <section className="relative w-full bg-obsidian py-20 md:py-28 px-6 border-t border-white/10 overflow-hidden">
@@ -50,7 +50,7 @@ export function About() {
                             className="relative flex-1 min-h-112 overflow-hidden"
                         >
                             <motion.img
-                                style={{ y: imgY, scale: 1.12 }}
+                                style={{ y: imgY, scale: 1.06 }}
                                 src="/mentoria-rodrigo.png"
                                 alt="Rodrigo Bruns, treinador de goleiros do projeto Red Bull"
                                 className="w-full h-full object-cover object-top will-change-transform grayscale-[0.15]"
