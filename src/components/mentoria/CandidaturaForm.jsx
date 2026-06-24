@@ -94,8 +94,16 @@ export function CandidaturaForm() {
         } catch {
             /* silencioso por design */
         }
-        // Pixel client-side com o MESMO event_id (dedup com o CAPI).
-        trackLead({ eventId });
+        // Pixel client-side com o MESMO event_id (dedup com o CAPI) +
+        // advanced matching (contato hasheado pelo browser).
+        trackLead({
+            eventId,
+            user: {
+                email: data.email.trim(),
+                phone: whatsappE164,
+                firstName: data.nome.trim().split(/\s+/)[0],
+            },
+        });
     };
 
     const dadosValid = useMemo(
@@ -139,8 +147,19 @@ export function CandidaturaForm() {
             });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
 
-            // Pixel client-side com o MESMO event_id (dedup com o CAPI).
-            trackSubmitApplication({ eventId, fit });
+            // Pixel client-side com o MESMO event_id (dedup com o CAPI) +
+            // advanced matching (contato hasheado pelo browser).
+            const partes = data.nome.trim().split(/\s+/);
+            trackSubmitApplication({
+                eventId,
+                fit,
+                user: {
+                    email: data.email.trim(),
+                    phone: whatsappE164,
+                    firstName: partes[0],
+                    lastName: partes.length > 1 ? partes[partes.length - 1] : undefined,
+                },
+            });
 
             go(6);
         } catch (err) {

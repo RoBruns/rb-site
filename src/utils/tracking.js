@@ -64,26 +64,45 @@ export function getUrlParams() {
     return out;
 }
 
+// Advanced Matching: re-inicializa o Pixel com os dados de contato (o próprio
+// browser hasheia em SHA-256 antes de enviar). Isso NÃO duplica o evento — a
+// dedup é por event_id + event_name, e o CAPI usa o MESMO event_id. Só enriquece
+// o match do lado navegador, espelhando o que o CAPI já manda server-side.
+// `user` aceita { email, phone, firstName, lastName }.
+function applyAdvancedMatching(user) {
+    if (!PIXEL_ID || !user) return;
+    const am = {};
+    if (user.email) am.em = String(user.email).trim().toLowerCase();
+    if (user.phone) am.ph = String(user.phone).replace(/\D/g, "");
+    if (user.firstName) am.fn = String(user.firstName).trim().toLowerCase();
+    if (user.lastName) am.ln = String(user.lastName).trim().toLowerCase();
+    if (Object.keys(am).length === 0) return;
+    // Re-init é idempotente: atualiza o advanced matching do pixel já carregado.
+    window.fbq("init", PIXEL_ID, am);
+}
+
 // Dispara um evento padrão no Pixel (client-side) com event_id p/ dedup
-// Pixel<>CAPI. `custom` são os parâmetros customizados do evento (ex.: { fit }).
-export function trackEvent(eventName, { eventId, custom = {} } = {}) {
+// Pixel<>CAPI. `custom` = parâmetros do evento (ex.: { fit }); `user` = dados de
+// contato p/ advanced matching (hasheados pelo browser).
+export function trackEvent(eventName, { eventId, custom = {}, user } = {}) {
     if (typeof window === "undefined" || typeof window.fbq !== "function") return;
+    applyAdvancedMatching(user);
     window.fbq("track", eventName, custom, { eventID: eventId });
 }
 
 // Dispara o evento "Lead" no Pixel (client-side) com event_id p/ dedup.
-export function trackLead({ eventId, value, currency = "BRL" } = {}) {
+export function trackLead({ eventId, value, currency = "BRL", user } = {}) {
     const custom = {};
     if (value != null) {
         custom.value = value;
         custom.currency = currency;
     }
-    trackEvent("Lead", { eventId, custom });
+    trackEvent("Lead", { eventId, custom, user });
 }
 
 // Dispara "SubmitApplication" (candidatura) com o parâmetro `fit` que distingue
 // quem respondeu "faz sentido" (sim) de "não faz sentido" (nao). A campanha
 // otimiza a conversão personalizada fit=sim; fit=nao alimenta retargeting.
-export function trackSubmitApplication({ eventId, fit } = {}) {
-    trackEvent("SubmitApplication", { eventId, custom: fit ? { fit } : {} });
+export function trackSubmitApplication({ eventId, fit, user } = {}) {
+    trackEvent("SubmitApplication", { eventId, custom: fit ? { fit } : {}, user });
 }
