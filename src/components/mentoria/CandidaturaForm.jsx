@@ -3,6 +3,14 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { cn } from "../../utils/cn";
+import {
+    getFbCookies,
+    getFbcFromUrl,
+    getUrlParams,
+    newEventId,
+    trackLead,
+    trackSubmitApplication,
+} from "../../utils/tracking";
 import { container, item, stepVariants } from "../form/motion";
 import { Field, inputBase } from "../form/Field";
 import { COUNTRIES, PhoneInput } from "../form/PhoneInput";
@@ -45,6 +53,51 @@ export function CandidaturaForm() {
     // E.164: +<dial><digits>, e.g. +5511942861882
     const whatsappE164 = `+${country.dial}${phoneDigits}`;
 
+    // Bloco de tracking p/ o CAPI (server-side no n8n): event_id compartilhado
+    // com o Pixel para dedup, cookies _fbp/_fbc e UTMs para enriquecer o match.
+    const trackingPayload = (eventName, eventId) => {
+        const { fbp, fbc } = getFbCookies();
+        return {
+            event_name: eventName,
+            event_id: eventId,
+            event_source_url:
+                typeof window !== "undefined" ? window.location.href : "",
+            fbp,
+            fbc: fbc || getFbcFromUrl(),
+            ...getUrlParams(),
+        };
+    };
+
+    // Etapa 1 — assim que o candidato preenche os dados pessoais, já registramos
+    // no CRM (etapa 'interesse' do Funil Mentoria, status "começou e não terminou").
+    // Dispara também o "Lead" (Pixel + CAPI via n8n) — esse é o sinal de topo que
+    // alimenta o público de abandono (quem tem Lead mas não SubmitApplication).
+    // Fire-and-forget: não bloqueia a UX nem mostra erro; se falhar, o envio final
+    // ainda cria/atualiza o lead. O n8n roteia por `etapa`.
+    const registrarDadosPessoais = () => {
+        const eventId = newEventId();
+        try {
+            fetch(WEBHOOK_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                keepalive: true,
+                body: JSON.stringify({
+                    etapa: "dados_pessoais",
+                    nome: data.nome.trim(),
+                    whatsapp: whatsappE164,
+                    email: data.email.trim(),
+                    origem: "candidatura-mentoria",
+                    enviado_em: new Date().toISOString(),
+                    ...trackingPayload("Lead", eventId),
+                }),
+            }).catch(() => {});
+        } catch {
+            /* silencioso por design */
+        }
+        // Pixel client-side com o MESMO event_id (dedup com o CAPI).
+        trackLead({ eventId });
+    };
+
     const dadosValid = useMemo(
         () =>
             data.nome.trim() &&
@@ -58,12 +111,19 @@ export function CandidaturaForm() {
         setSubmitting(true);
         setSubmitError(false);
 
+        // "faz sentido" (sim) vs "não faz sentido" (nao) — distingue a conversão
+        // otimizada (fit=sim) do público de retargeting do curso (fit=nao).
+        const fit =
+            data.investimento === "Não faz sentido pra mim" ? "nao" : "sim";
+        const eventId = newEventId();
+
         try {
             // Chaves espelham o que o workflow n8n mapeia (formato Tally: { value }).
             const res = await fetch(WEBHOOK_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
+                    etapa: "completo",
                     question_1EaMR1: { value: data.nome.trim() },
                     question_M5xLVk: { value: whatsappE164 },
                     question_J04LBK: { value: data.email.trim() },
@@ -73,9 +133,14 @@ export function CandidaturaForm() {
                     question_8elGEz: { value: data.validacao.trim() },
                     origem: "candidatura-mentoria",
                     enviado_em: new Date().toISOString(),
+                    fit,
+                    ...trackingPayload("SubmitApplication", eventId),
                 }),
             });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+            // Pixel client-side com o MESMO event_id (dedup com o CAPI).
+            trackSubmitApplication({ eventId, fit });
 
             go(6);
         } catch (err) {
@@ -157,7 +222,10 @@ export function CandidaturaForm() {
                             <form
                                 onSubmit={(e) => {
                                     e.preventDefault();
-                                    if (dadosValid) go(2);
+                                    if (dadosValid) {
+                                        registrarDadosPessoais();
+                                        go(2);
+                                    }
                                 }}
                                 className="mt-9 space-y-8"
                             >

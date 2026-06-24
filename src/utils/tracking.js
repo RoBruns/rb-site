@@ -64,13 +64,26 @@ export function getUrlParams() {
     return out;
 }
 
+// Dispara um evento padrão no Pixel (client-side) com event_id p/ dedup
+// Pixel<>CAPI. `custom` são os parâmetros customizados do evento (ex.: { fit }).
+export function trackEvent(eventName, { eventId, custom = {} } = {}) {
+    if (typeof window === "undefined" || typeof window.fbq !== "function") return;
+    window.fbq("track", eventName, custom, { eventID: eventId });
+}
+
 // Dispara o evento "Lead" no Pixel (client-side) com event_id p/ dedup.
 export function trackLead({ eventId, value, currency = "BRL" } = {}) {
-    if (typeof window === "undefined" || typeof window.fbq !== "function") return;
     const custom = {};
     if (value != null) {
         custom.value = value;
         custom.currency = currency;
     }
-    window.fbq("track", "Lead", custom, { eventID: eventId });
+    trackEvent("Lead", { eventId, custom });
+}
+
+// Dispara "SubmitApplication" (candidatura) com o parâmetro `fit` que distingue
+// quem respondeu "faz sentido" (sim) de "não faz sentido" (nao). A campanha
+// otimiza a conversão personalizada fit=sim; fit=nao alimenta retargeting.
+export function trackSubmitApplication({ eventId, fit } = {}) {
+    trackEvent("SubmitApplication", { eventId, custom: fit ? { fit } : {} });
 }
