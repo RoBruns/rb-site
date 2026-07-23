@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Campanha Mentoria — Plano de Teste</title>
+<style>
+  :root{
+    --ink:#0f172a; --muted:#475569; --line:#e2e8f0;
+    --blue:#1d4ed8; --blue-soft:#eff6ff;
+    --green:#15803d; --green-soft:#f0fdf4;
+    --amber:#b45309; --amber-soft:#fffbeb;
+    --red:#b91c1c; --red-soft:#fef2f2;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:#f1f5f9; color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.5; padding:24px;
+  }
+  .page{
+    max-width:900px; margin:0 auto; background:#fff; padding:40px 44px;
+    border-radius:14px; box-shadow:0 4px 24px rgba(15,23,42,.08);
+  }
+  header{border-bottom:3px solid var(--blue); padding-bottom:18px; margin-bottom:26px;}
+  header .tag{font-size:12px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--blue);}
+  header h1{margin:6px 0 4px; font-size:25px;}
+  header p{margin:0; color:var(--muted); font-size:14px;}
+  h2{font-size:15px; text-transform:uppercase; letter-spacing:.05em; color:var(--blue);
+     border-left:4px solid var(--blue); padding-left:10px; margin:28px 0 12px;}
+  p{margin:8px 0;}
+  .lead{font-size:15px; color:var(--muted);}
+  .funnel{display:flex; flex-wrap:wrap; gap:8px; margin:14px 0;}
+  .step{flex:1; min-width:120px; background:var(--blue-soft); border:1px solid #bfdbfe;
+        border-radius:10px; padding:11px; font-size:12.5px;}
+  .step b{display:block; font-size:12.5px; color:var(--blue); margin-bottom:3px;}
+  .step span{color:var(--muted);}
+  .step.win{background:var(--green-soft); border-color:#bbf7d0;}
+  .step.win b{color:var(--green);}
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:14px;}
+  th,td{text-align:left; padding:9px 11px; border-bottom:1px solid var(--line);}
+  th{background:#f8fafc; font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted);}
+  td.num{font-weight:700;}
+  .cards{display:flex; gap:14px; margin:16px 0;}
+  .card{flex:1; border-radius:12px; padding:16px; border:1px solid;}
+  .card h3{margin:0 0 4px; font-size:14px;}
+  .card .big{font-size:26px; font-weight:800; margin:6px 0 2px;}
+  .card .sub{font-size:12px; color:var(--muted);}
+  .card ul{margin:10px 0 0; padding-left:16px; font-size:12.5px; color:var(--muted);}
+  .card.bad{background:var(--red-soft); border-color:#fecaca;}   .card.bad h3,.card.bad .big{color:var(--red);}
+  .card.mid{background:var(--amber-soft); border-color:#fde68a;} .card.mid h3,.card.mid .big{color:var(--amber);}
+  .card.good{background:var(--green-soft); border-color:#bbf7d0;}.card.good h3,.card.good .big{color:var(--green);}
+  .box{background:#f8fafc; border:1px solid var(--line); border-radius:12px; padding:15px 18px; margin:14px 0;}
+  .box ul{margin:6px 0; padding-left:18px;} .box li{margin:5px 0;}
+  .highlight{background:var(--blue-soft); border:1px solid #bfdbfe; border-radius:12px; padding:15px 18px; margin:18px 0;}
+  .highlight b{color:var(--blue);}
+  .star{background:var(--green-soft); border:1px solid #bbf7d0; border-radius:12px; padding:15px 18px; margin:18px 0;}
+  .star b{color:var(--green);}
+  .two{display:flex; gap:18px;} .two>div{flex:1;}
+  .pill{display:inline-block; background:var(--blue); color:#fff; font-size:12px; font-weight:700; padding:3px 10px; border-radius:999px;}
+  footer{margin-top:28px; padding-top:14px; border-top:1px solid var(--line); font-size:11.5px; color:var(--muted);}
+  @media print{ body{background:#fff; padding:0;} .page{box-shadow:none; border-radius:0; padding:22px 26px; max-width:100%;} }
+  @media (max-width:640px){ .cards,.two{flex-direction:column;} .page{padding:24px;} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="tag">Plano de Teste · Tráfego Pago</div>
+    <h1>Teste de Captação — Mentoria de Alto Rendimento</h1>
+    <p>Período: <b>2 semanas</b> · Investimento: <b>R$ 50/dia (~R$ 700 total)</b> · Ticket do programa: <b>R$ 5.000</b></p>
+  </header>
+
+  <p class="lead">
+    Esta <b>não é uma operação de vendas</b> — é um <b>teste controlado de 2 semanas</b> para entender se o
+    anúncio atrai o público certo e, principalmente, <b>descobrir quanto custa atrair um candidato qualificado</b>.
+    O objetivo é sentir o comportamento da campanha e gerar dados reais antes de decidir se vale continuar e
+    aumentar o investimento. Risco baixo, gasto travado.
+  </p>
+
+  <h2>Como funciona o funil</h2>
+  <div class="funnel">
+    <div class="step"><b>1. Anúncio</b><span>Atrai preparadores de goleiros no Instagram/Facebook.</span></div>
+    <div class="step"><b>2. Aplicação</b><span>A pessoa preenche o formulário e vê o valor (R$ 5.000).</span></div>
+    <div class="step win"><b>3. "Faz sentido"</b><span>Candidato confirma que pode investir. <b>É aqui que miramos.</b></span></div>
+    <div class="step"><b>4. Avaliação</b><span>Rodrigo liga e valida o perfil.</span></div>
+    <div class="step win"><b>5. Matrícula</b><span>Aluno entra (pode entrar no meio da mentoria).</span></div>
+  </div>
+
+  <div class="star">
+    <b>O diferencial do nosso funil:</b> o formulário <b>já mostra o preço de R$ 5.000 antes</b> de a pessoa se
+    candidatar. Quem responde "faz sentido" já sabe quanto custa e do que se trata — por isso a taxa de fechamento
+    sobre esses candidatos é <b>alta (estimada em ~80%)</b>. Não perdemos tempo com curioso: o gargalo não é vender,
+    é <b>atrair o candidato certo</b>. Por isso a campanha é otimizada exatamente para isso.
+  </div>
+
+  <h2>Setup do teste</h2>
+  <table>
+    <tr><th>Item</th><th>Definição</th><th>Por quê</th></tr>
+    <tr><td><b>Objetivo</b></td><td>Cadastros (aplicações)</td><td>Gerar candidatos qualificados, não cliques.</td></tr>
+    <tr><td><b>Otimização</b></td><td>Evento "Aplicação com fit"</td><td>O Facebook busca quem responde "faz sentido".</td></tr>
+    <tr><td><b>Público</b></td><td>Aberto (Brasil, 24–55)</td><td>O algoritmo encontra o nicho melhor que filtro manual.</td></tr>
+    <tr><td><b>Investimento</b></td><td><span class="pill">R$ 50 / dia</span></td><td>Mínimo necessário para gerar dados confiáveis em 2 semanas.</td></tr>
+    <tr><td><b>Duração</b></td><td>14 dias</td><td>Tempo para o algoritmo aprender e medirmos o custo real.</td></tr>
+  </table>
+
+  <h2>O que define o sucesso do teste</h2>
+  <p class="lead">
+    A pergunta que este teste responde é uma só: <b>quanto custa gerar um candidato "faz sentido"?</b>
+    Esse número é o que decide se vale escalar. Como ~80% desses candidatos fecham, o custo por candidato
+    qualificado revela direto se a conta fecha.
+  </p>
+
+  <h2>Cenários — custo por candidato qualificado</h2>
+  <p class="lead">Com <b>R$ 700</b> investidos em 2 semanas. Cada candidato "faz sentido" tem ~80% de chance de
+     virar venda de <b>R$ 5.000</b>.</p>
+
+  <div class="cards">
+    <div class="card bad">
+      <h3>Cenário Cauteloso</h3>
+      <div class="big">2 candidatos</div>
+      <div class="sub">Custo ~R$ 350 cada</div>
+      <ul>
+        <li>~1 a 2 vendas (R$ 5–10 mil)</li>
+        <li>Retorno: <b>7x a 14x</b></li>
+        <li>Decisão: ajustar criativo e reavaliar</li>
+      </ul>
+    </div>
+    <div class="card mid">
+      <h3>Cenário Esperado</h3>
+      <div class="big">4 candidatos</div>
+      <div class="sub">Custo ~R$ 175 cada</div>
+      <ul>
+        <li>~3 vendas (R$ 15 mil)</li>
+        <li>Retorno: <b>~21x</b></li>
+        <li>Decisão: continuar e escalar</li>
+      </ul>
+    </div>
+    <div class="card good">
+      <h3>Cenário Bom</h3>
+      <div class="big">7 candidatos</div>
+      <div class="sub">Custo ~R$ 100 cada</div>
+      <ul>
+        <li>~5 a 6 vendas (R$ 25–30 mil)</li>
+        <li>Retorno: <b>35x a 42x</b></li>
+        <li>Decisão: escalar com confiança</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <b>Por que o risco é baixo:</b> mesmo no cenário cauteloso, <b>1 única venda de R$ 5.000 paga o teste
+    inteiro 7 vezes</b>. O investimento de R$ 700 serve para <b>comprar informação</b> — descobrir o custo real
+    por candidato. E o controle de quem entra na mentoria continua 100% conosco: a campanha só enche a fila de
+    avaliação, a aprovação é sempre nossa.
+  </div>
+
+  <h2>Controle e segurança</h2>
+  <div class="two">
+    <div class="box">
+      <b>Segurança financeira</b>
+      <ul>
+        <li>Gasto <b>travado em R$ 50/dia</b> — sem surpresa.</li>
+        <li>Pode pausar a qualquer momento, sem multa.</li>
+        <li>Teto total do teste: <b>~R$ 700</b>.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <b>O que vamos aprender</b>
+      <ul>
+        <li>Custo real por candidato qualificado.</li>
+        <li>Qual ângulo de anúncio atrai melhor.</li>
+        <li>Se a conta fecha para escalar com segurança.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Cronograma das 2 semanas</h2>
+  <table>
+    <tr><th>Período</th><th>O que acontece</th></tr>
+    <tr><td><b>Dias 1–4</b></td><td>Campanha sobe. Fase de aprendizado do algoritmo — não se mexe.</td></tr>
+    <tr><td><b>Dias 5–10</b></td><td>Primeiras aplicações chegam. Medimos custo e qualidade.</td></tr>
+    <tr><td><b>Dias 11–14</b></td><td>Ajuste fino. Fechamos a leitura do custo por candidato.</td></tr>
+    <tr><td><b>Decisão</b></td><td>Com dados reais: parar, ajustar ou escalar o investimento.</td></tr>
+  </table>
+
+  <div class="highlight">
+    <b>Resumo para decisão:</b> teste de <b>~R$ 700 em 2 semanas</b> para validar o funil e medir o custo por
+    candidato qualificado. Risco baixo (1 venda já paga o teste 7x), gasto travado, e a decisão de quem entra
+    na mentoria permanece nossa. Se os números fizerem sentido, continuamos e aumentamos o investimento com base
+    em dados reais — não em achismo.
+  </div>
+
+  <footer>
+    Estimativas conservadoras baseadas no nicho e no histórico do funil. Resultados reais dependem de criativo,
+    oferta e mercado, e serão acompanhados ao longo do teste. · Documento interno para aprovação.
+  </footer>
+
+</div>
+</body>
+</html>

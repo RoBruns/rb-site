@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Análise de Campanha — Mentoria (Dia 4)</title>
+<style>
+  :root{
+    --ink:#0f172a; --muted:#475569; --line:#e2e8f0; --soft:#f8fafc;
+    --blue:#1d4ed8; --blue-soft:#eff6ff;
+    --green:#15803d; --green-soft:#f0fdf4;
+    --amber:#b45309; --amber-soft:#fffbeb;
+    --red:#b91c1c; --red-soft:#fef2f2;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:#f1f5f9;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;padding:24px;}
+  .page{max-width:920px;margin:0 auto;background:#fff;padding:40px 46px;border-radius:14px;
+    box-shadow:0 4px 24px rgba(15,23,42,.08);}
+  header{border-bottom:3px solid var(--blue);padding-bottom:16px;margin-bottom:24px;}
+  header .tag{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);}
+  header h1{margin:6px 0 4px;font-size:25px;}
+  header p{margin:0;color:var(--muted);font-size:14px;}
+  h2{font-size:15px;text-transform:uppercase;letter-spacing:.05em;color:var(--blue);
+    border-left:4px solid var(--blue);padding-left:10px;margin:30px 0 12px;}
+  p{margin:8px 0;} .lead{font-size:15px;color:var(--muted);}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px;}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);}
+  th{background:var(--soft);font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);}
+  td.n{font-weight:700;text-align:right;} th.r{text-align:right;}
+  .kpis{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0;}
+  .kpi{flex:1;min-width:130px;background:var(--soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;}
+  .kpi .v{font-size:22px;font-weight:800;} .kpi .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .kpi.good .v{color:var(--green);} .kpi.bad .v{color:var(--red);} .kpi.warn .v{color:var(--amber);}
+  .funnel{margin:16px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .frow{display:flex;align-items:center;gap:14px;padding:11px 16px;border-bottom:1px solid var(--line);font-size:14px;}
+  .frow:last-child{border-bottom:none;}
+  .frow .step{flex:1;} .frow .num{font-weight:800;font-size:18px;min-width:54px;text-align:right;}
+  .frow .rate{font-size:12px;color:var(--muted);min-width:90px;text-align:right;}
+  .frow.win{background:var(--green-soft);} .frow.leak{background:var(--red-soft);}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:999px;margin-left:6px;}
+  .badge.red{background:#fee2e2;color:var(--red);} .badge.green{background:#dcfce7;color:var(--green);}
+  .badge.amber{background:#fef3c7;color:var(--amber);}
+  .box{border-radius:12px;padding:15px 18px;margin:14px 0;border:1px solid;}
+  .box.blue{background:var(--blue-soft);border-color:#bfdbfe;} .box.blue b{color:var(--blue);}
+  .box.red{background:var(--red-soft);border-color:#fecaca;} .box.red b{color:var(--red);}
+  .box.green{background:var(--green-soft);border-color:#bbf7d0;} .box.green b{color:var(--green);}
+  .box.amber{background:var(--amber-soft);border-color:#fde68a;} .box.amber b{color:var(--amber);}
+  ul{margin:8px 0;padding-left:20px;} li{margin:5px 0;}
+  .rec{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-bottom:1px solid var(--line);}
+  .rec:last-child{border-bottom:none;}
+  .rec .pri{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px;}
+  .rec .body{flex:1;} .rec .body b{display:block;margin-bottom:2px;}
+  footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font-size:11.5px;color:var(--muted);}
+  .verdict{background:#0f172a;color:#fff;border-radius:12px;padding:18px 20px;margin:20px 0;}
+  .verdict b{color:#7dd3fc;}
+  @media print{body{background:#fff;padding:0;}.page{box-shadow:none;border-radius:0;padding:22px 26px;max-width:100%;}}
+  @media (max-width:640px){.kpis{flex-direction:column;}.page{padding:24px;}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="tag">Análise de Performance · Dia 4 de 14</div>
+    <h1>Campanha Mentoria — Diagnóstico e Recomendação</h1>
+    <p>Período: 25 a 29/06/2026 · Investido: R$ 92,87 · Otimizando: "Aplicação com fit"</p>
+  </header>
+
+  <p class="lead">
+    Análise feita com framework de performance marketing (diagnóstico de funil + alavancas de otimização).
+    Resumo em uma linha: <b>o anúncio atrai muito bem e barato, mas o público atraído não tem perfil
+    financeiro para um ticket de R$ 5.000 — o vazamento está no meio do funil, não na entrada.</b>
+  </p>
+
+  <h2>Números-chave (4 dias)</h2>
+  <div class="kpis">
+    <div class="kpi good"><div class="v">R$ 0,71</div><div class="l">Custo por clique</div></div>
+    <div class="kpi good"><div class="v">R$ 5,46</div><div class="l">Custo por contato</div></div>
+    <div class="kpi good"><div class="v">17</div><div class="l">Contatos (topo)</div></div>
+    <div class="kpi bad"><div class="v">0</div><div class="l">Aplicação com fit 🎯</div></div>
+    <div class="kpi warn"><div class="v">2</div><div class="l">Aplicação sem fit</div></div>
+    <div class="kpi"><div class="v">R$ 92,87</div><div class="l">Gasto total</div></div>
+  </div>
+
+  <h2>O funil, passo a passo (onde vaza)</h2>
+  <div class="funnel">
+    <div class="frow"><span class="num">131</span><span class="step">Cliques no link</span><span class="rate">CPC R$ 0,71</span></div>
+    <div class="frow"><span class="num">103</span><span class="step">Viram a página de vendas</span><span class="rate">79% do clique</span></div>
+    <div class="frow win"><span class="num">17</span><span class="step">Preencheram o contato <span class="badge green">topo OK</span></span><span class="rate">R$ 5,46 cada</span></div>
+    <div class="frow leak"><span class="num">2</span><span class="step">Terminaram a aplicação <span class="badge red">vazamento aqui</span></span><span class="rate">15 desistiram</span></div>
+    <div class="frow leak"><span class="num">0</span><span class="step">Responderam "FAZ SENTIDO" <span class="badge red">0 de 2</span></span><span class="rate">no valor R$5k</span></div>
+  </div>
+  <div class="box red">
+    <b>Diagnóstico do vazamento:</b> dos 17 que começaram, <b>15 abandonaram ao ver o investimento de R$ 5.000</b>,
+    e os 2 que terminaram responderam "não faz sentido". Isso é um sinal claro: a campanha atrai interesse no
+    <i>tema</i>, mas não atrai poder de compra. O problema é de <b>qualificação financeira</b>, não de tráfego.
+  </div>
+
+  <h2>Performance por criativo</h2>
+  <table>
+    <tr><th>Criativo</th><th class="r">Gasto</th><th class="r">Impressões</th><th class="r">CTR link</th><th class="r">Contatos</th><th class="r">Com fit</th></tr>
+    <tr><td>🥇 <b>C1 — Método</b></td><td class="n">R$ 79,22</td><td class="n">5.050</td><td class="n">~2,3%</td><td class="n">15</td><td class="n">0</td></tr>
+    <tr><td>C2 — Autoridade</td><td class="n">R$ 5,62</td><td class="n">311</td><td class="n">~3,2%</td><td class="n">1</td><td class="n">0</td></tr>
+    <tr><td>C3 — Proximidade</td><td class="n">R$ 8,03</td><td class="n">465</td><td class="n">~1,1%</td><td class="n">1</td><td class="n">0</td></tr>
+  </table>
+  <p class="lead">A Meta concentrou 85% do orçamento no <b>C1 (Método)</b> — foi a decisão certa do algoritmo, é o de
+  melhor relação CTR/volume. C2 e C3 quase não rodaram: amostra pequena demais para conclusão.</p>
+
+  <h2>Leitura técnica (frameworks aplicados)</h2>
+  <div class="box blue">
+    <b>1. "O problema é pós-clique?" — Sim.</b> A regra de diagnóstico manda checar a landing antes de mexer no
+    anúncio quando o CPA está ruim. Aqui o tráfego é barato e a página converte clique em contato (17). O furo
+    aparece <b>na pergunta do valor</b> — ou seja, é objeção de preço/perfil, não de anúncio ou de página.
+  </div>
+  <div class="box blue">
+    <b>2. "Otimizando para a métrica certa, mas sem dados." </b> A campanha mira "Aplicação com fit", que tem
+    <b>0 eventos</b>. O algoritmo precisa de volume de conversões para aprender — com zero, ele está praticamente
+    às cegas e não vai estabilizar otimizando por um evento que não acontece.
+  </div>
+  <div class="box blue">
+    <b>3. "Maior alavanca = ângulo do criativo, não o título."</b> Na hierarquia de testes, mudar o <i>conceito</i>
+    do anúncio tem o maior impacto. O ângulo atual (método/técnica) atrai quem quer aprender, não quem está pronto
+    para investir. Falta um ângulo que pré-qualifique financeiramente.
+  </div>
+
+  <h2>Recomendação — o que eu faria no seu lugar</h2>
+
+  <div class="rec">
+    <div class="pri">1</div>
+    <div class="body">
+      <b>NÃO aumentar o orçamento.</b>
+      Jogar mais dinheiro numa estrutura que já mostrou o furo só amplia o desperdício. Mais verba = mais
+      gente do mesmo perfil errado travando no valor. Mantém R$ 35/dia.
+    </div>
+  </div>
+  <div class="rec">
+    <div class="pri">2</div>
+    <div class="body">
+      <b>NÃO trocar a otimização (ainda).</b>
+      Trocar para "Lead" ou "Aplicação completa" traria mais volume do público errado e <i>mascararia</i> o
+      problema com números de topo bonitos. O zero de "faz sentido" é um sinal honesto — não quero escondê-lo.
+    </div>
+  </div>
+  <div class="rec">
+    <div class="pri">3</div>
+    <div class="body">
+      <b>Atacar a raiz: 1 criativo novo que pré-qualifica pelo bolso.</b>
+      O ajuste de maior impacto. Um ângulo que deixe claro que é um <i>investimento sério de carreira</i> —
+      filtrando o curioso sem orçamento antes do clique. Mantém o público aberto (a Meta acha o perfil melhor
+      que segmentação de renda no Brasil).
+    </div>
+  </div>
+  <div class="rec">
+    <div class="pri">4</div>
+    <div class="body">
+      <b>Definir um critério de corte com o investidor, hoje.</b>
+      Regra objetiva: <b>se até ~R$ 200 gastos não vier nenhuma "Aplicação com fit", paramos</b> e repensamos a
+      oferta. Tira a decisão do emocional e protege o caixa.
+    </div>
+  </div>
+
+  <div class="verdict">
+    <b>Recomendação final em uma frase:</b> manter o orçamento e a otimização, subir <b>1 criativo que filtra
+    por capacidade de investir</b>, deixar rodar mais ~3 dias e <b>cortar em ~R$ 200 se não vier nenhum
+    "faz sentido"</b> — porque, nesse cenário, o problema deixa de ser o tráfego e passa a ser a <b>oferta
+    (preço/posicionamento)</b>.
+  </div>
+
+  <div class="box amber">
+    <b>A verdade desconfortável (de sócio para sócio):</b> se em ~7 dias e ~R$ 200 continuar zero "faz sentido",
+    o gargalo provavelmente <b>não é a campanha — é a oferta de R$ 5.000 para um público que ainda não percebe
+    esse valor</b>. A solução nesse caso não é mais anúncio: é repensar o funil — possivelmente entrar primeiro
+    com o <b>curso mais barato</b> e subir para a mentoria depois. Descobrir isso por R$ 200 é barato; descobrir
+    por R$ 2.000 não é.
+  </div>
+
+  <div class="box green">
+    <b>O lado positivo, que é real:</b> em 4 dias e R$ 93 o teste <b>já entregou seu maior valor</b> — revelou
+    com precisão onde está o gargalo (qualificação financeira no meio do funil). Isso era impossível saber sem
+    rodar. Os 2 "sem fit" e os 15 que travaram no valor já formam o público de <b>retargeting do curso</b> para
+    o futuro. Nada foi desperdiçado.
+  </div>
+
+  <footer>
+    Análise com framework de performance marketing (diagnóstico de funil, alavancas de otimização, hierarquia de
+    testes de criativo). Dados Meta Ads 25–29/06/2026. Números de plataforma têm atribuição inflada; decisões
+    finais cruzam com o CRM. Documento interno.
+  </footer>
+
+</div>
+</body>
+</html>

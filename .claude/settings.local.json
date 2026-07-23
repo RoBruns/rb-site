@@ -3,7 +3,8 @@
     "allow": [
       "PowerShell($tmp = Join-Path $env:TEMP \"boraoztunc-skills\"; if \\(Test-Path $tmp\\) { Remove-Item -Recurse -Force $tmp }; git clone --depth 1 https://github.com/boraoztunc/skills.git $tmp; if \\($?\\) { \"CLONE_OK\" })",
       "PowerShell($tmp = Join-Path $env:TEMP \"boraoztunc-skills\"; $dest = \"C:\\\\Users\\\\Bruns\\\\.claude\\\\skills\"; $installed=@\\(\\); $skipped=@\\(\\); Get-ChildItem -Path $tmp -Directory | Where-Object { Test-Path \\(Join-Path $_.FullName \"SKILL.md\"\\) } | ForEach-Object { $target = Join-Path $dest $_.Name; Copy-Item -Path $_.FullName -Destination $dest -Recurse -Force; $installed += $_.Name }; \"INSTALLED \\($\\($installed.Count\\)\\):\"; $installed -join \", \")",
-      "mcp__claude_ai_Firecrawl__firecrawl_scrape"
+      "mcp__claude_ai_Firecrawl__firecrawl_scrape",
+      "Bash(claude mcp *)"
     ]
   }
 }

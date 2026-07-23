@@ -29,3 +29,8 @@ out/
 build/
 .vercel
 
+.agent/
+.claude/
+
+public/*
+

@@ -1,6 +1,7 @@
 "use client";
 
 import Script from "next/script";
+import { usePathname } from "next/navigation";
 import { PIXEL_ID } from "../utils/tracking";
 
 /**
@@ -12,6 +13,17 @@ import { PIXEL_ID } from "../utils/tracking";
  * então é seguro em dev/preview sem o ID configurado.
  */
 export function MetaPixel() {
+    const pathname = usePathname();
+
+    // O funil da masterclass usa um pixel próprio (ver MasterclassPixel).
+    // Não carregamos o pixel global nessas rotas para não misturar tráfego.
+    if (
+        pathname?.startsWith("/masterclass") ||
+        pathname?.startsWith("/obrigado-masterclass")
+    ) {
+        return null;
+    }
+
     if (!PIXEL_ID) return null;
 
     return (
