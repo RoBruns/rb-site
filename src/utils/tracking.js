@@ -100,9 +100,7 @@ export function trackLead({ eventId, value, currency = "BRL", user } = {}) {
     trackEvent("Lead", { eventId, custom, user });
 }
 
-// Dispara "SubmitApplication" (candidatura) com o parâmetro `fit` que distingue
-// quem respondeu "faz sentido" (sim) de "não faz sentido" (nao). A campanha
-// otimiza a conversão personalizada fit=sim; fit=nao alimenta retargeting.
-export function trackSubmitApplication({ eventId, fit, user } = {}) {
-    trackEvent("SubmitApplication", { eventId, custom: fit ? { fit } : {}, user });
+// Dispara "SubmitApplication" (candidatura) — sinal de candidatura concluída.
+export function trackSubmitApplication({ eventId, user } = {}) {
+    trackEvent("SubmitApplication", { eventId, user });
 }

@@ -23,11 +23,7 @@ const WEBHOOK_URL =
     process.env.NEXT_PUBLIC_CANDIDATURA_WEBHOOK ||
     "https://primary-production-5215.up.railway.app/webhook/candidatura-mentoria";
 
-// Opções da pergunta de investimento — strings consumidas pelo Switch do n8n.
-// NÃO alterar: o nó "Switch" compara com "Não faz sentido pra mim".
-const INVESTIMENTO_OPCOES = ["Sim, faz sentido pra mim", "Não faz sentido pra mim"];
-
-const TOTAL_STEPS = 7; // 0 welcome · 1 dados · 2 oportunidade · 3 porqueVoce · 4 investimento · 5 validacao · 6 sucesso
+const TOTAL_STEPS = 6; // 0 welcome · 1 dados · 2 oportunidade · 3 porqueVoce · 4 validacao · 5 sucesso
 
 export function CandidaturaForm() {
     const [[step, dir], setStep] = useState([0, 0]);
@@ -36,7 +32,6 @@ export function CandidaturaForm() {
         email: "",
         oportunidade: "",
         porqueVoce: "",
-        investimento: "",
         validacao: "",
     });
     const [country, setCountry] = useState(COUNTRIES[0]); // Brasil default
@@ -119,10 +114,6 @@ export function CandidaturaForm() {
         setSubmitting(true);
         setSubmitError(false);
 
-        // "faz sentido" (sim) vs "não faz sentido" (nao) — distingue a conversão
-        // otimizada (fit=sim) do público de retargeting do curso (fit=nao).
-        const fit =
-            data.investimento === "Não faz sentido pra mim" ? "nao" : "sim";
         const eventId = newEventId();
 
         try {
@@ -137,11 +128,9 @@ export function CandidaturaForm() {
                     question_J04LBK: { value: data.email.trim() },
                     question_g4oLOD: { value: data.oportunidade.trim() },
                     question_yDax7X: { value: data.porqueVoce.trim() },
-                    question_XqbENL: { value: data.investimento },
                     question_8elGEz: { value: data.validacao.trim() },
                     origem: "candidatura-mentoria",
                     enviado_em: new Date().toISOString(),
-                    fit,
                     ...trackingPayload("SubmitApplication", eventId),
                 }),
             });
@@ -152,7 +141,6 @@ export function CandidaturaForm() {
             const partes = data.nome.trim().split(/\s+/);
             trackSubmitApplication({
                 eventId,
-                fit,
                 user: {
                     email: data.email.trim(),
                     phone: whatsappE164,
@@ -161,7 +149,7 @@ export function CandidaturaForm() {
                 },
             });
 
-            go(6);
+            go(5);
         } catch (err) {
             console.error("Falha ao enviar candidatura:", err);
             setSubmitError(true);
@@ -391,66 +379,8 @@ export function CandidaturaForm() {
                     </motion.div>
                 )}
 
-                {/* ----------------------------- STEP 4 — INVESTIMENTO */}
+                {/* ----------------------------- STEP 4 — VALIDAÇÃO FINAL */}
                 {step === 4 && (
-                    <motion.div
-                        key="investimento"
-                        custom={dir}
-                        variants={stepVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                    >
-                        <BackLink onClick={() => go(3)} />
-                        <motion.div variants={container} animate="center">
-                            <motion.h3
-                                variants={item}
-                                className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice sm:text-2xl"
-                            >
-                                O investimento para participação do programa é de 12x de R$507,72 ou R$4.997,00 à vista. 
-                                Caso seja selecionado, você tem condições de realizar esse investimento?{" "}
-                                <span className="text-electric-blue">*</span>
-                            </motion.h3>
-
-                            <motion.div variants={item} className="mt-8 space-y-3">
-                                {INVESTIMENTO_OPCOES.map((opcao, i) => {
-                                    const selected = data.investimento === opcao;
-                                    return (
-                                        <button
-                                            key={opcao}
-                                            type="button"
-                                            onClick={() => {
-                                                setData((d) => ({ ...d, investimento: opcao }));
-                                                go(5);
-                                            }}
-                                            className={cn(
-                                                "group flex w-full items-center gap-4 border px-5 py-4 text-left transition-all duration-300 micro-bevel",
-                                                selected
-                                                    ? "border-electric-blue/70 bg-electric-blue/10 text-ice"
-                                                    : "border-white/10 bg-surface-dark/70 text-ice/80 hover:border-electric-blue/40 hover:bg-surface-light/50"
-                                            )}
-                                        >
-                                            <span
-                                                className={cn(
-                                                    "flex h-7 w-7 shrink-0 items-center justify-center border text-xs font-bold uppercase transition-colors duration-300",
-                                                    selected
-                                                        ? "border-electric-blue bg-electric-blue text-obsidian"
-                                                        : "border-white/20 text-ice/50 group-hover:border-electric-blue/50"
-                                                )}
-                                            >
-                                                {String.fromCharCode(65 + i)}
-                                            </span>
-                                            <span className="text-base font-medium">{opcao}</span>
-                                        </button>
-                                    );
-                                })}
-                            </motion.div>
-                        </motion.div>
-                    </motion.div>
-                )}
-
-                {/* ----------------------------- STEP 5 — VALIDAÇÃO FINAL */}
-                {step === 5 && (
                     <motion.div
                         key="validacao"
                         custom={dir}
@@ -459,7 +389,7 @@ export function CandidaturaForm() {
                         animate="center"
                         exit="exit"
                     >
-                        <BackLink onClick={() => go(4)} />
+                        <BackLink onClick={() => go(3)} />
                         <motion.div variants={container} animate="center">
                             <motion.h3
                                 variants={item}
@@ -509,8 +439,8 @@ export function CandidaturaForm() {
                     </motion.div>
                 )}
 
-                {/* ----------------------------- STEP 6 — SUCESSO */}
-                {step === 6 && (
+                {/* ----------------------------- STEP 5 — SUCESSO */}
+                {step === 5 && (
                     <motion.div
                         key="sucesso"
                         custom={dir}
