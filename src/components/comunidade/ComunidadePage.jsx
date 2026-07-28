@@ -3,6 +3,17 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import { ComunidadeNav } from "./ComunidadeNav";
+import { ComunidadeHero } from "./ComunidadeHero";
+import { Problema } from "./Problema";
+import { Virada } from "./Virada";
+import { Transformacoes } from "./Transformacoes";
+import { QuemResponde } from "./QuemResponde";
+import { ComoFunciona } from "./ComoFunciona";
+import { NaoEPraVoce } from "./NaoEPraVoce";
+import { Oferta } from "./Oferta";
+import { FAQ } from "./FAQ";
+import { CtaFinal } from "./CtaFinal";
+import { StickyMobileCta } from "./StickyMobileCta";
 import { ComunidadeFooter } from "./ComunidadeFooter";
 
 export function ComunidadePage() {
@@ -42,6 +53,17 @@ export function ComunidadePage() {
     return (
         <main className="w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
             <ComunidadeNav />
+            <ComunidadeHero />
+            <Problema />
+            <Virada />
+            <Transformacoes />
+            <QuemResponde />
+            <ComoFunciona />
+            <NaoEPraVoce />
+            <Oferta />
+            <FAQ />
+            <CtaFinal />
+            <StickyMobileCta />
             <ComunidadeFooter />
         </main>
     );
