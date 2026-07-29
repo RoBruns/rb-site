@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "check:copy": "node scripts/check-copy.mjs"
+    "check:copy": "node scripts/check-copy.mjs",
+    "pdf": "node scripts/gerar-pdf.mjs"
   },
   "dependencies": {
     "clsx": "^2.1.1",
