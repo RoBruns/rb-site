@@ -23,7 +23,7 @@ export function ComunidadeHero() {
             <div className="cmn-mesh" />
 
             {/* Halo atrás da foto */}
-            <div className="pointer-events-none absolute right-[-10%] top-[8%] h-[55vw] max-h-[620px] w-[55vw] max-w-[620px] rounded-full bg-electric-blue/12 blur-[130px]" />
+            <div className="cmn-halo right-[-10%] top-[8%] h-[55vw] max-h-[620px] w-[55vw] max-w-[620px]" />
 
             <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
                 {/* ---------- Coluna de texto ---------- */}
@@ -132,7 +132,7 @@ export function ComunidadeHero() {
 
                     {/* Etiqueta flutuante sobre a foto */}
                     <div
-                        className="cmn-glass absolute -bottom-5 left-6 right-10 px-5 py-3.5"
+                        className="cmn-glass cmn-solid absolute -bottom-5 left-6 right-10 px-5 py-3.5"
                         style={{ borderRadius: "var(--cmn-r-md)" }}
                     >
                         <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">

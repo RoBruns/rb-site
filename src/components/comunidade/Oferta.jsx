@@ -39,7 +39,7 @@ export function Oferta() {
             id="oferta"
             className="cmn-grain relative w-full scroll-mt-24 overflow-hidden bg-obsidian py-24 md:py-36"
         >
-            <div className="pointer-events-none absolute left-1/2 top-1/4 h-[45vw] max-h-[560px] w-[75vw] max-w-[900px] -translate-x-1/2 rounded-full bg-electric-blue/12 blur-[150px]" />
+            <div className="cmn-halo left-1/2 top-1/4 h-[45vw] max-h-[560px] w-[75vw] max-w-[900px] -translate-x-1/2" />
 
             <div className="relative z-10 mx-auto max-w-4xl px-6">
                 <motion.div

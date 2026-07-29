@@ -55,6 +55,7 @@ export function QuemResponde() {
                                 style={{ y: imgY, scale: 1.08 }}
                                 src="/mentoria-rodrigo.png"
                                 alt="Rodrigo Bruns, coordenador da preparação de goleiros do Red Bull Bragantino"
+                                loading="lazy"
                                 className="h-full w-full object-cover object-top will-change-transform"
                             />
 

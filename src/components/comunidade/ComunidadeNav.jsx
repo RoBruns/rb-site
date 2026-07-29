@@ -27,7 +27,7 @@ export function ComunidadeNav() {
             <div
                 className={cn(
                     "mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3 transition-all duration-500 md:px-6",
-                    scrolled ? "cmn-glass" : "border border-transparent"
+                    scrolled ? "cmn-glass cmn-blur" : "border border-transparent"
                 )}
                 style={{ borderRadius: "var(--cmn-r-pill)" }}
             >

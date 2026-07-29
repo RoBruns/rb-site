@@ -38,7 +38,7 @@ export function StickyMobileCta() {
                     className="fixed bottom-0 left-0 z-50 w-full px-4 pb-4 md:hidden"
                 >
                     <div
-                        className="cmn-glass flex items-center justify-between gap-4 px-5 py-3.5"
+                        className="cmn-glass cmn-blur flex items-center justify-between gap-4 px-5 py-3.5"
                         style={{ borderRadius: "var(--cmn-r-lg)" }}
                     >
                         <div className="leading-tight">

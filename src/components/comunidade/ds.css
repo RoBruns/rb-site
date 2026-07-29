@@ -39,12 +39,16 @@
     --cmn-ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ---------- Superfícies de vidro ---------- */
+/* ---------- Superfícies de vidro ----------
+
+   PERFORMANCE: nenhuma superfície usa backdrop-filter. Sobre fundo
+   escuro plano, o tint translúcido produz o mesmo visual, e cada
+   backdrop-filter obriga a GPU a recompor o fundo a cada frame de
+   rolagem (com ~30 cards, a página caía pra poucos FPS). O desfoque
+   real fica só no .cmn-blur, usado na nav e no CTA fixo.           */
 
 .cmn-glass {
     background: var(--cmn-glass-2);
-    backdrop-filter: blur(var(--cmn-blur));
-    -webkit-backdrop-filter: blur(var(--cmn-blur));
     border: 1px solid var(--cmn-stroke-1);
     border-radius: var(--cmn-r-lg);
     box-shadow: var(--cmn-shadow-md);
@@ -58,8 +62,6 @@
         var(--cmn-glass-3) 0%,
         var(--cmn-glass-1) 55%
     );
-    backdrop-filter: blur(var(--cmn-blur));
-    -webkit-backdrop-filter: blur(var(--cmn-blur));
     border: 1px solid var(--cmn-stroke-1);
     border-radius: var(--cmn-r-lg);
     box-shadow: var(--cmn-shadow-md);
@@ -87,11 +89,22 @@
         rgba(127, 179, 255, 0.1) 0%,
         var(--cmn-glass-1) 60%
     );
-    backdrop-filter: blur(var(--cmn-blur-strong));
-    -webkit-backdrop-filter: blur(var(--cmn-blur-strong));
     border: 1px solid var(--cmn-stroke-blue);
     border-radius: var(--cmn-r-xl);
     box-shadow: var(--cmn-shadow-lg), var(--cmn-glow);
+}
+
+/* Desfoque real, SÓ para elementos fixos pequenos (nav, CTA fixo).
+   Base mais escura para manter a legibilidade sobre qualquer fundo. */
+.cmn-blur {
+    background: rgba(13, 17, 23, 0.72);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Superfície sólida escura para texto sobre imagem, sem desfoque */
+.cmn-solid {
+    background: rgba(13, 17, 23, 0.78);
 }
 
 /* ---------- Elementos ---------- */
@@ -100,8 +113,6 @@
     border-radius: var(--cmn-r-pill);
     background: var(--cmn-glass-2);
     border: 1px solid var(--cmn-stroke-2);
-    backdrop-filter: blur(var(--cmn-blur));
-    -webkit-backdrop-filter: blur(var(--cmn-blur));
 }
 
 .cmn-btn {
@@ -155,7 +166,10 @@
         );
 }
 
-/* Grão sutil, tira o aspecto plástico dos gradientes */
+/* Grão sutil, tira o aspecto plástico dos gradientes.
+   PERFORMANCE: tile de 256px repetido. Sem o background-size, o SVG
+   com feTurbulence era rasterizado no tamanho da seção inteira
+   (milhares de pixels de altura), o que pesava na composição. */
 .cmn-grain::after {
     content: "";
     position: absolute;
@@ -163,6 +177,22 @@
     pointer-events: none;
     opacity: 0.035;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+    background-repeat: repeat;
+}
+
+/* Halo de luz azul, SEM filter: blur. O gradiente radial já nasce
+   difuso; um filter de 130-150px num elemento de tela inteira era o
+   maior custo de renderização da página. */
+.cmn-halo {
+    position: absolute;
+    pointer-events: none;
+    background: radial-gradient(
+        closest-side,
+        rgba(127, 179, 255, 0.13),
+        rgba(127, 179, 255, 0.05) 55%,
+        transparent 78%
+    );
 }
 
 /* Linha divisória que some nas pontas */
