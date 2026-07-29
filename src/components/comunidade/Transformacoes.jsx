@@ -3,38 +3,37 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-/* Layout novo: cada transformação é um card de vidro com o "antes"
-   apagado no topo e o "depois" em destaque, ligados por uma seta.
-   Grid 2x2 no desktop, empilhado no mobile. */
+/* Produto recorrente: aqui não existe linha de chegada. A ideia é
+   "como é fazer parte", não "o que você conquista até tal mês". */
 
 const itens = [
     {
         numero: "01",
-        antes: "Você aplica o treino e torce pra estar certo.",
-        depois: "Você sabe justificar cada exercício que coloca no campo.",
+        antes: "Aplicar o treino e torcer pra estar certo.",
+        depois: "Ter critério pra defender cada escolha sua.",
         detalhe:
             "Quando o coordenador perguntar por que você escolheu aquele estímulo, você tem resposta. Não é achismo, é critério.",
     },
     {
         numero: "02",
-        antes: "Você junta exercício solto de rede social.",
-        depois: "Você monta o seu treino a partir de um ciclo que faz sentido.",
+        antes: "Juntar exercício solto de rede social.",
+        depois: "Enxergar a semana inteira, e não a atividade avulsa.",
         detalhe:
-            "Deixa de colecionar atividade avulsa e passa a enxergar a semana inteira: o que vem antes, o que vem depois, e por quê.",
+            "O que vem antes, o que vem depois, e por quê. O ciclo passa a fazer sentido na sua cabeça, não só no papel.",
     },
     {
         numero: "03",
-        antes: "Você erra e só descobre meses depois.",
-        depois: "Você pergunta na quinta e ajusta o treino na sexta.",
+        antes: "Errar e descobrir meses depois.",
+        depois: "Perguntar na quinta e ajustar na sexta.",
         detalhe:
             "O erro para de custar uma temporada e passa a custar uma mensagem no grupo.",
     },
     {
         numero: "04",
-        antes: "Você é o único preparador de goleiro que conhece.",
-        depois: "Você tem uma sala cheia de gente no mesmo caminho.",
+        antes: "Ser o único preparador de goleiro que você conhece.",
+        depois: "Ter uma sala cheia de gente que vive o mesmo que você.",
         detalhe:
-            "Gente que enfrenta o mesmo problema que você, em clubes e categorias diferentes. É onde aparece indicação de vaga, também.",
+            "Gente que enfrenta o mesmo problema, em clubes e categorias diferentes. É onde aparece indicação de vaga, também.",
     },
 ];
 
@@ -44,16 +43,29 @@ export function Transformacoes() {
             <div className="pointer-events-none absolute left-1/2 top-0 h-[40vw] max-h-[500px] w-[80vw] max-w-[1000px] -translate-x-1/2 rounded-full bg-electric-blue/7 blur-[140px]" />
 
             <div className="relative z-10 mx-auto max-w-6xl px-6">
-                <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.4 }}
-                    transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="max-w-3xl font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
-                >
-                    O que muda{" "}
-                    <span className="text-electric-blue">em seis meses.</span>
-                </motion.h2>
+                <div className="max-w-3xl">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                        className="font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
+                    >
+                        Como é{" "}
+                        <span className="text-electric-blue">fazer parte.</span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.4 }}
+                        transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
+                        className="mt-6 text-base leading-relaxed text-ice/65 md:text-lg"
+                    >
+                        Isso não é um curso que você termina. É um lugar onde você fica.
+                        Enquanto estiver dentro, a rotina abaixo é a sua.
+                    </motion.p>
+                </div>
 
                 <div className="mt-16 grid gap-5 md:grid-cols-2">
                     {itens.map((item, i) => (
@@ -96,6 +108,17 @@ export function Transformacoes() {
                         </motion.article>
                     ))}
                 </div>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+                    className="mt-12 max-w-2xl text-base leading-relaxed text-ice/55"
+                >
+                    Quem está há mais tempo ajuda quem chegou ontem. Em algum momento,
+                    esse alguém com resposta vai ser você.
+                </motion.p>
             </div>
         </section>
     );

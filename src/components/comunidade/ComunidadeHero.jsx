@@ -33,16 +33,14 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                        className="flex items-center gap-4"
+                        className="cmn-pill inline-flex items-center gap-2.5 px-4 py-2"
                     >
-                        <img
-                            src="/pgar-logo.png"
-                            alt="PGAR"
-                            className="h-7 w-auto opacity-90 md:h-8"
-                        />
-                        <span className="h-5 w-px bg-white/20" />
-                        <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-ice/55">
-                            Comunidade
+                        <span className="relative flex h-1.5 w-1.5">
+                            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric-blue/70" />
+                            <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-electric-blue" />
+                        </span>
+                        <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/60">
+                            Comunidade de preparadores de goleiro
                         </span>
                     </motion.div>
 
@@ -53,21 +51,9 @@ export function ComunidadeHero() {
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-8 font-display text-[13vw] font-bold uppercase leading-[0.92] tracking-tight text-ice sm:text-6xl md:text-7xl lg:text-[76px]"
                     >
-                        Pare de treinar
+                        Nunca mais treine
                         <br />
-                        <span className="relative inline-block text-electric-blue">
-                            no escuro.
-                            <motion.span
-                                initial={{ scaleX: 0 }}
-                                animate={{ scaleX: 1 }}
-                                transition={{
-                                    duration: 1.1,
-                                    delay: 0.9,
-                                    ease: [0.16, 1, 0.3, 1],
-                                }}
-                                className="absolute -bottom-1 left-0 h-[3px] w-full origin-left rounded-full bg-electric-blue/50"
-                            />
-                        </span>
+                        <span className="text-electric-blue">sozinho.</span>
                     </motion.h1>
 
                     <motion.p
@@ -77,9 +63,10 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-8 max-w-xl text-base leading-relaxed text-ice/70 md:text-lg"
                     >
-                        Todo mês você senta com quem prepara os goleiros do Red Bull
-                        Bragantino, mostra o seu trabalho e descobre se está no caminho
-                        certo.
+                        Você deixa de adivinhar se o treino está certo e passa a ter
+                        critério pra defender cada escolha sua. Do lado de quem prepara os
+                        goleiros do Red Bull Bragantino, e de outros preparadores que vivem
+                        o que você vive.
                     </motion.p>
 
                     <motion.div
@@ -132,27 +119,30 @@ export function ComunidadeHero() {
                     className="relative hidden lg:block"
                 >
                     <div
-                        className="cmn-glass-lit relative overflow-hidden"
+                        className="cmn-glass-lit relative aspect-[4/5] overflow-hidden"
                         style={{ borderRadius: "var(--cmn-r-xl)" }}
                     >
                         <img
-                            src="/comunidade-rodrigo-rb.png"
-                            alt="Rodrigo Bruns, preparador de goleiros do Red Bull Bragantino"
-                            className="w-full object-cover"
+                            src="/mentoria-training.png"
+                            alt="Rodrigo Bruns em campo, antes de um jogo, preparando o aquecimento dos goleiros"
+                            className="h-full w-full object-cover object-[55%_center]"
                         />
-                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/70 via-transparent to-transparent" />
+                        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-obsidian/85 via-obsidian/10 to-transparent" />
                     </div>
 
                     {/* Etiqueta flutuante sobre a foto */}
                     <div
-                        className="cmn-glass absolute -bottom-5 left-6 px-5 py-3.5"
+                        className="cmn-glass absolute -bottom-5 left-6 right-10 px-5 py-3.5"
                         style={{ borderRadius: "var(--cmn-r-md)" }}
                     >
                         <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">
-                            Quem responde você
+                            Quem está do outro lado
                         </p>
                         <p className="mt-1 font-display text-lg font-bold uppercase leading-none tracking-tight text-ice">
                             Rodrigo Bruns
+                        </p>
+                        <p className="mt-1.5 text-[11px] leading-snug text-ice/45">
+                            Coordenador da preparação de goleiros do Red Bull Bragantino
                         </p>
                     </div>
                 </motion.div>

@@ -4,13 +4,13 @@ export const metadata = {
     metadataBase: new URL("https://rodrigobruns.com.br"),
     title: "Comunidade PGAR | Preparação de Goleiros de Alto Rendimento",
     description:
-        "Todo mês você senta com quem prepara os goleiros do Red Bull Bragantino e descobre se o seu treino está certo. Grupo, encontros ao vivo e todos os cursos.",
+        "Nunca mais treine sozinho. Grupo com o Rodrigo Bruns, encontro ao vivo todo mês e todos os cursos, enquanto você for membro.",
     icons: { icon: "/favico.ico" },
     openGraph: {
-        title: "Comunidade PGAR | Preparação de Goleiros de Alto Rendimento",
+        title: "Comunidade PGAR | Nunca mais treine sozinho",
         description:
-            "Pare de treinar no escuro. A comunidade do preparador de goleiros que quer saber se está no caminho certo.",
-        images: ["/mentoria-hero.jpeg"],
+            "A comunidade do preparador de goleiros que quer ter critério pra defender cada escolha sua, ao lado de quem prepara os goleiros do Red Bull Bragantino.",
+        images: ["/comunidade-banner.png"],
         type: "website",
     },
 };

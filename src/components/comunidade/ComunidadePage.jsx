@@ -25,28 +25,42 @@ export function ComunidadePage() {
 
         if (prefersReduced) return;
 
+        /* Rolagem suave. O rAF é conduzido na mão (em vez de autoRaf)
+           porque assim o loop começa junto com o efeito e para junto
+           com ele, sem depender do agendamento interno da lib. */
         const lenis = new Lenis({
-            autoRaf: true,
-            duration: 1.2,
+            duration: 1.15,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            smoothWheel: true,
+            touchMultiplier: 1.6,
         });
+
+        let frame;
+        const raf = (time) => {
+            lenis.raf(time);
+            frame = requestAnimationFrame(raf);
+        };
+        frame = requestAnimationFrame(raf);
 
         const handleAnchorClick = (e) => {
             const target = e.target.closest('a[href^="#"]');
-            if (target) {
-                const href = target.getAttribute("href");
-                if (href === "#") return;
-                const element = document.querySelector(href);
-                if (element) {
-                    e.preventDefault();
-                    lenis.scrollTo(element, { offset: -90, duration: 1.2 });
-                }
+            if (!target) return;
+
+            const href = target.getAttribute("href");
+            if (!href || href === "#") return;
+
+            const element = document.querySelector(href);
+            if (element) {
+                e.preventDefault();
+                lenis.scrollTo(element, { offset: -90, duration: 1.3 });
             }
         };
 
         document.documentElement.addEventListener("click", handleAnchorClick);
+
         return () => {
             document.documentElement.removeEventListener("click", handleAnchorClick);
+            cancelAnimationFrame(frame);
             lenis.destroy();
         };
     }, []);

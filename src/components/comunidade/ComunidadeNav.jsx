@@ -31,16 +31,11 @@ export function ComunidadeNav() {
                 )}
                 style={{ borderRadius: "var(--cmn-r-pill)" }}
             >
-                <div className="flex items-center gap-3">
-                    <img
-                        src="/pgar-logo.png"
-                        alt="PGAR"
-                        className="h-5 w-auto opacity-90 md:h-6"
-                    />
-                    <span className="hidden text-[11px] font-semibold uppercase tracking-[0.22em] text-ice/45 sm:inline">
-                        Comunidade
-                    </span>
-                </div>
+                <img
+                    src="/pgar-logo.png"
+                    alt="PGAR"
+                    className="h-5 w-auto opacity-90 md:h-6"
+                />
 
                 <CheckoutButton size="sm" href="#oferta" variant="glass">
                     Ver planos
