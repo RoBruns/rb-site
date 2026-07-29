@@ -26,14 +26,21 @@ export function ComunidadePage() {
 
         if (prefersReduced) return;
 
-        /* Rolagem suave. O rAF é conduzido na mão (em vez de autoRaf)
-           porque assim o loop começa junto com o efeito e para junto
-           com ele, sem depender do agendamento interno da lib. */
+        /* Rolagem suave.
+
+           `lerp` em vez de `duration`: o lerp interpola a cada frame em
+           direção ao alvo, o que dá o deslize contínuo característico.
+           Valor baixo = mais deslize. 0.075 é perceptível sem chegar a
+           parecer que a página está pesada ou atrasada.
+
+           O rAF é conduzido na mão (em vez de autoRaf) para o loop
+           começar e parar junto com o efeito. */
         const lenis = new Lenis({
-            duration: 1.15,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            lerp: 0.075,
+            wheelMultiplier: 1,
             smoothWheel: true,
-            touchMultiplier: 1.6,
+            syncTouch: false,
+            touchMultiplier: 1.8,
         });
 
         let frame;
@@ -53,7 +60,11 @@ export function ComunidadePage() {
             const element = document.querySelector(href);
             if (element) {
                 e.preventDefault();
-                lenis.scrollTo(element, { offset: -90, duration: 1.3 });
+                lenis.scrollTo(element, {
+                    offset: -90,
+                    duration: 1.4,
+                    easing: (t) => 1 - Math.pow(1 - t, 3),
+                });
             }
         };
 
