@@ -10,6 +10,29 @@
    o @theme do globals.css.
    ================================================================== */
 
+/* ------------------------------------------------------------------
+   Correção da rolagem do Lenis.
+
+   O globals.css aplica `overflow-x: hidden` no body. Isso transforma o
+   body em container de rolagem próprio (overflow-x hidden implica
+   overflow-y auto), e o Lenis acaba animando um elemento que não é o
+   que realmente rola. Resultado: rolagem continua nativa, sem suavizar.
+
+   A classe .lenis é adicionada pelo próprio Lenis no <html> quando ele
+   inicializa, então estas regras só valem nas páginas onde ele roda,
+   sem afetar mentoria, masterclass ou home.
+   ------------------------------------------------------------------ */
+
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+
+html.lenis body {
+    overflow-x: clip;
+    overflow-y: visible;
+}
+
 .cmn-scope {
     /* Raio: a mudança mais visível em relação ao sharp-edge atual */
     --cmn-r-sm: 10px;

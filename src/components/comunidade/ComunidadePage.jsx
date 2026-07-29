@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 import "./ds.css";
 import { ComunidadeNav } from "./ComunidadeNav";
 import { ComunidadeHero } from "./ComunidadeHero";
