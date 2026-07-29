@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import "./ds.css";
 import { ComunidadeNav } from "./ComunidadeNav";
 import { ComunidadeHero } from "./ComunidadeHero";
 import { Problema } from "./Problema";
@@ -51,7 +52,7 @@ export function ComunidadePage() {
     }, []);
 
     return (
-        <main className="w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
+        <main className="cmn-scope w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
             <ComunidadeNav />
             <ComunidadeHero />
             <Problema />

@@ -3,40 +3,48 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { cn } from "../../utils/cn";
+import { CheckoutButton } from "./CheckoutButton";
+
+/* Nav flutuante em pill, destacada da borda da tela. */
 
 export function ComunidadeNav() {
     const [scrolled, setScrolled] = useState(false);
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 40);
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("scroll", onScroll, { passive: true });
         onScroll();
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
     return (
         <motion.header
-            initial={{ y: -60, opacity: 0 }}
+            initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className={cn(
-                "fixed top-0 left-0 w-full z-50 transition-colors duration-500",
-                scrolled
-                    ? "bg-obsidian/85 backdrop-blur-md border-b border-white/10"
-                    : "bg-transparent border-b border-transparent"
-            )}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed left-0 top-0 z-50 w-full px-4 pt-4 md:px-6 md:pt-5"
         >
-            <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
-                <span className="font-display font-bold text-base tracking-tight uppercase text-ice">
-                    Rodrigo Bruns
-                </span>
+            <div
+                className={cn(
+                    "mx-auto flex max-w-5xl items-center justify-between gap-4 px-5 py-3 transition-all duration-500 md:px-6",
+                    scrolled ? "cmn-glass" : "border border-transparent"
+                )}
+                style={{ borderRadius: "var(--cmn-r-pill)" }}
+            >
+                <div className="flex items-center gap-3">
+                    <img
+                        src="/pgar-logo.png"
+                        alt="PGAR"
+                        className="h-5 w-auto opacity-90 md:h-6"
+                    />
+                    <span className="hidden text-[11px] font-semibold uppercase tracking-[0.22em] text-ice/45 sm:inline">
+                        Comunidade
+                    </span>
+                </div>
 
-                <a
-                    href="#oferta"
-                    className="text-[11px] font-bold uppercase tracking-[0.2em] text-ice/70 hover:text-electric-blue transition-colors duration-400"
-                >
-                    Entrar
-                </a>
+                <CheckoutButton size="sm" href="#oferta" variant="glass">
+                    Ver planos
+                </CheckoutButton>
             </div>
         </motion.header>
     );

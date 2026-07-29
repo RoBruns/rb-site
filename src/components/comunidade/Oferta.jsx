@@ -37,86 +37,95 @@ export function Oferta() {
     return (
         <section
             id="oferta"
-            className="relative w-full bg-obsidian py-28 md:py-40 px-6 overflow-hidden scroll-mt-24"
+            className="cmn-grain relative w-full scroll-mt-24 overflow-hidden bg-obsidian py-24 md:py-36"
         >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70vw] h-[40vw] max-w-[900px] bg-electric-blue/10 blur-[150px] rounded-full pointer-events-none z-0" />
+            <div className="pointer-events-none absolute left-1/2 top-1/4 h-[45vw] max-h-[560px] w-[75vw] max-w-[900px] -translate-x-1/2 rounded-full bg-electric-blue/12 blur-[150px]" />
 
-            <div className="relative z-10 max-w-3xl mx-auto">
-                <motion.h2
+            <div className="relative z-10 mx-auto max-w-4xl px-6">
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-center font-display font-bold uppercase tracking-tight text-ice text-4xl md:text-6xl leading-[0.98]"
+                    className="text-center"
                 >
-                    Menos de <span className="text-electric-blue">R$ 2 por dia</span> para
-                    parar de trabalhar sozinho
-                </motion.h2>
+                    <img
+                        src="/pgar-logo.png"
+                        alt="PGAR"
+                        className="mx-auto h-8 w-auto opacity-85 md:h-10"
+                    />
+                    <h2 className="mt-7 font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl">
+                        Menos de{" "}
+                        <span className="text-electric-blue">R$ 2 por dia</span> para
+                        parar de trabalhar sozinho
+                    </h2>
+                </motion.div>
 
                 <motion.div
-                    initial={{ opacity: 0, y: 24 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.25 }}
-                    transition={{ duration: 1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-                    className="relative mt-14"
+                    initial={{ opacity: 0, y: 28, scale: 0.98 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                    className="cmn-glass-glow mt-14 overflow-hidden"
                 >
-                    <div
-                        aria-hidden="true"
-                        className="absolute inset-0 border border-electric-blue/25 translate-x-3 translate-y-3 pointer-events-none"
-                    />
+                    <div className="grid md:grid-cols-[1.15fr_1fr]">
+                        {/* O que inclui */}
+                        <div className="border-b border-white/8 p-8 md:border-b-0 md:border-r md:p-10">
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/40">
+                                O que está incluso
+                            </p>
 
-                    <div className="relative liquid-glass-dark border border-white/10 p-7 md:p-10">
-                        <ul className="space-y-5">
-                            {inclui.map((item) => {
-                                const Icon = item.icon;
-                                return (
-                                    <li key={item.titulo} className="flex gap-4 items-start">
-                                        <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-electric-blue/30 bg-electric-blue/10">
-                                            <Icon
-                                                className="h-5 w-5 text-electric-blue"
-                                                strokeWidth={2}
-                                            />
-                                        </span>
-                                        <div>
-                                            <p className="font-display font-bold uppercase tracking-tight text-ice text-base md:text-lg leading-tight">
-                                                {item.titulo}
-                                            </p>
-                                            <p className="mt-0.5 text-sm text-ice/60 leading-relaxed">
-                                                {item.desc}
-                                            </p>
-                                        </div>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                            <ul className="mt-7 space-y-5">
+                                {inclui.map((item) => {
+                                    const Icon = item.icon;
+                                    return (
+                                        <li key={item.titulo} className="flex items-start gap-4">
+                                            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-electric-blue/25 bg-electric-blue/10">
+                                                <Icon
+                                                    className="h-4.5 w-4.5 text-electric-blue"
+                                                    strokeWidth={2}
+                                                />
+                                            </span>
+                                            <div>
+                                                <p className="font-display text-base font-bold uppercase leading-tight tracking-tight text-ice">
+                                                    {item.titulo}
+                                                </p>
+                                                <p className="mt-1 text-sm leading-relaxed text-ice/55">
+                                                    {item.desc}
+                                                </p>
+                                            </div>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </div>
 
-                        <div className="mt-9 pt-8 border-t border-white/10 flex flex-col items-center text-center">
-                            <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-ice/40">
+                        {/* Preço */}
+                        <div className="flex flex-col items-center justify-center p-8 text-center md:p-10">
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/40">
                                 Acesso por 6 meses
                             </p>
 
-                            <div className="mt-4 flex items-baseline justify-center gap-2">
-                                <span className="text-2xl text-ice/50 font-medium">6x de</span>
-                                <span className="font-display font-bold text-electric-blue text-6xl md:text-7xl leading-none">
+                            <div className="mt-5">
+                                <p className="text-sm font-medium text-ice/50">6x de</p>
+                                <p className="font-display text-6xl font-bold leading-none text-electric-blue md:text-7xl">
                                     R$ 55,18
-                                </span>
+                                </p>
+                                <p className="mt-4 text-[15px] text-ice/65">
+                                    ou {PRICE_CASH} à vista
+                                </p>
                             </div>
 
-                            <p className="mt-4 text-base text-ice/70">
-                                ou {PRICE_CASH} à vista
-                            </p>
-
-                            <div className="mt-8 w-full sm:w-auto">
-                                <CheckoutButton className="w-full sm:w-auto">
+                            <div className="mt-8 w-full">
+                                <CheckoutButton className="w-full">
                                     Entrar na Comunidade
                                 </CheckoutButton>
                             </div>
 
-                            <p className="mt-5 text-xs text-ice/45 leading-relaxed max-w-sm">
-                                Pagamento pela Hubla, cartão ou Pix. O acesso ao grupo e à
-                                plataforma chega no seu e-mail logo após a compra. A
-                                assinatura renova {PERIOD_LABEL} e você cancela quando
-                                quiser.
+                            <p className="mt-5 max-w-xs text-xs leading-relaxed text-ice/40">
+                                Pagamento pela Hubla, cartão ou Pix. O acesso chega no seu
+                                e-mail logo após a compra. A assinatura renova{" "}
+                                {PERIOD_LABEL} e você cancela quando quiser.
                             </p>
                         </div>
                     </div>

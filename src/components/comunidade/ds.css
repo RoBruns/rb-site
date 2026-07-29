@@ -1,0 +1,190 @@
+/* ==================================================================
+   Design system experimental da Comunidade PGAR.
+
+   Mesma paleta do site (obsidian, ice, electric-blue), mas com outra
+   linguagem de forma: cantos arredondados, sombras difusas coloridas,
+   vidro em camadas e profundidade.
+
+   ESCOPO: tudo abaixo vive sob .cmn-scope, então nenhuma outra página
+   do site é afetada. Se este teste for aprovado, os tokens sobem para
+   o @theme do globals.css.
+   ================================================================== */
+
+.cmn-scope {
+    /* Raio: a mudança mais visível em relação ao sharp-edge atual */
+    --cmn-r-sm: 10px;
+    --cmn-r-md: 16px;
+    --cmn-r-lg: 24px;
+    --cmn-r-xl: 32px;
+    --cmn-r-pill: 999px;
+
+    /* Sombras difusas, com tinta azul em vez de preto puro */
+    --cmn-shadow-sm: 0 2px 12px rgba(5, 10, 20, 0.4);
+    --cmn-shadow-md: 0 12px 40px -8px rgba(5, 10, 20, 0.55);
+    --cmn-shadow-lg: 0 32px 80px -16px rgba(5, 10, 20, 0.7);
+    --cmn-glow: 0 0 60px -12px rgba(127, 179, 255, 0.35);
+    --cmn-glow-strong: 0 0 90px -10px rgba(127, 179, 255, 0.5);
+
+    /* Vidro em camadas: da mais sutil à mais presente */
+    --cmn-glass-1: rgba(255, 255, 255, 0.03);
+    --cmn-glass-2: rgba(255, 255, 255, 0.055);
+    --cmn-glass-3: rgba(255, 255, 255, 0.085);
+    --cmn-stroke-1: rgba(255, 255, 255, 0.08);
+    --cmn-stroke-2: rgba(255, 255, 255, 0.14);
+    --cmn-stroke-blue: rgba(127, 179, 255, 0.28);
+
+    --cmn-blur: 20px;
+    --cmn-blur-strong: 40px;
+
+    --cmn-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ---------- Superfícies de vidro ---------- */
+
+.cmn-glass {
+    background: var(--cmn-glass-2);
+    backdrop-filter: blur(var(--cmn-blur));
+    -webkit-backdrop-filter: blur(var(--cmn-blur));
+    border: 1px solid var(--cmn-stroke-1);
+    border-radius: var(--cmn-r-lg);
+    box-shadow: var(--cmn-shadow-md);
+}
+
+/* Vidro com brilho na borda superior, como luz batendo de cima */
+.cmn-glass-lit {
+    position: relative;
+    background: linear-gradient(
+        160deg,
+        var(--cmn-glass-3) 0%,
+        var(--cmn-glass-1) 55%
+    );
+    backdrop-filter: blur(var(--cmn-blur));
+    -webkit-backdrop-filter: blur(var(--cmn-blur));
+    border: 1px solid var(--cmn-stroke-1);
+    border-radius: var(--cmn-r-lg);
+    box-shadow: var(--cmn-shadow-md);
+    overflow: hidden;
+}
+
+.cmn-glass-lit::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.35),
+        transparent
+    );
+    pointer-events: none;
+}
+
+/* Card de destaque: vidro + halo azul */
+.cmn-glass-glow {
+    background: linear-gradient(
+        160deg,
+        rgba(127, 179, 255, 0.1) 0%,
+        var(--cmn-glass-1) 60%
+    );
+    backdrop-filter: blur(var(--cmn-blur-strong));
+    -webkit-backdrop-filter: blur(var(--cmn-blur-strong));
+    border: 1px solid var(--cmn-stroke-blue);
+    border-radius: var(--cmn-r-xl);
+    box-shadow: var(--cmn-shadow-lg), var(--cmn-glow);
+}
+
+/* ---------- Elementos ---------- */
+
+.cmn-pill {
+    border-radius: var(--cmn-r-pill);
+    background: var(--cmn-glass-2);
+    border: 1px solid var(--cmn-stroke-2);
+    backdrop-filter: blur(var(--cmn-blur));
+    -webkit-backdrop-filter: blur(var(--cmn-blur));
+}
+
+.cmn-btn {
+    border-radius: var(--cmn-r-pill);
+    transition: transform 0.4s var(--cmn-ease), box-shadow 0.4s var(--cmn-ease),
+        background-color 0.3s ease, color 0.3s ease;
+}
+
+.cmn-btn-primary {
+    box-shadow: 0 8px 30px -6px rgba(127, 179, 255, 0.5);
+}
+
+.cmn-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 44px -6px rgba(127, 179, 255, 0.65);
+}
+
+.cmn-lift {
+    transition: transform 0.5s var(--cmn-ease), box-shadow 0.5s var(--cmn-ease),
+        border-color 0.5s var(--cmn-ease);
+}
+
+.cmn-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--cmn-shadow-lg), var(--cmn-glow);
+    border-color: var(--cmn-stroke-blue);
+}
+
+/* ---------- Atmosfera de fundo ---------- */
+
+/* Malha de gradiente: dá profundidade sem virar bloco de cor chapado */
+.cmn-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse 60% 50% at 15% 0%,
+            rgba(127, 179, 255, 0.14),
+            transparent 60%
+        ),
+        radial-gradient(
+            ellipse 50% 60% at 90% 30%,
+            rgba(127, 179, 255, 0.08),
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse 70% 40% at 50% 100%,
+            rgba(127, 179, 255, 0.06),
+            transparent 70%
+        );
+}
+
+/* Grão sutil, tira o aspecto plástico dos gradientes */
+.cmn-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Linha divisória que some nas pontas */
+.cmn-hairline {
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cmn-stroke-2) 20%,
+        var(--cmn-stroke-2) 80%,
+        transparent
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cmn-btn,
+    .cmn-lift {
+        transition: none;
+    }
+
+    .cmn-btn-primary:hover,
+    .cmn-lift:hover {
+        transform: none;
+    }
+}

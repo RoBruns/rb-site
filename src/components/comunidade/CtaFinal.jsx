@@ -6,25 +6,17 @@ import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
 
 export function CtaFinal() {
     return (
-        <section className="relative w-full bg-obsidian py-28 md:py-40 px-6 overflow-hidden">
-            <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-obsidian/80 z-10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-obsidian z-10" />
-                <img
-                    src="/mentoria-cta.png"
-                    alt=""
-                    aria-hidden="true"
-                    className="w-full h-full object-cover opacity-40"
-                />
-            </div>
+        <section className="cmn-grain relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
+            <div className="cmn-mesh" />
+            <div className="pointer-events-none absolute bottom-0 left-1/2 h-[40vw] max-h-[480px] w-[90vw] max-w-[1100px] -translate-x-1/2 translate-y-1/3 rounded-full bg-electric-blue/14 blur-[140px]" />
 
-            <div className="relative z-20 max-w-3xl mx-auto text-center">
+            <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
                 <motion.h2
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 22 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="font-display font-bold uppercase tracking-tight text-ice text-4xl md:text-6xl leading-[0.98]"
+                    className="font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
                 >
                     Daqui a seis meses você vai estar{" "}
                     <span className="text-electric-blue">seis meses na frente</span> ou no
@@ -36,7 +28,7 @@ export function CtaFinal() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
-                    className="mt-8 text-base md:text-lg text-ice/70 leading-relaxed max-w-xl mx-auto"
+                    className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-ice/65 md:text-lg"
                 >
                     A diferença entre um cenário e outro não é talento nem sorte. É ter
                     alguém experiente olhando o seu trabalho toda semana, em vez de você
@@ -51,7 +43,7 @@ export function CtaFinal() {
                     className="mt-11 flex flex-col items-center gap-4"
                 >
                     <CheckoutButton>Entrar na Comunidade</CheckoutButton>
-                    <p className="text-sm text-ice/55">
+                    <p className="text-sm text-ice/50">
                         {PRICE_CASH} à vista ou {PRICE_INSTALLMENT}
                     </p>
                 </motion.div>

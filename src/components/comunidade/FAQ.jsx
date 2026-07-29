@@ -32,39 +32,41 @@ const perguntas = [
 
 export function FAQ() {
     return (
-        <section className="relative w-full bg-surface-dark py-28 md:py-40 px-6">
-            <div className="max-w-3xl mx-auto">
+        <section className="relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
+            <div className="relative z-10 mx-auto max-w-3xl px-6">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.4 }}
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="font-display font-bold uppercase tracking-tight text-ice text-4xl md:text-5xl leading-[0.98]"
+                    className="text-center font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-5xl"
                 >
                     Antes que você{" "}
                     <span className="text-electric-blue">pergunte.</span>
                 </motion.h2>
 
-                <div className="mt-12 divide-y divide-white/10 border-y border-white/10">
+                <div className="mt-12 space-y-3">
                     {perguntas.map((item, i) => (
                         <motion.details
                             key={item.q}
-                            initial={{ opacity: 0, y: 12 }}
+                            initial={{ opacity: 0, y: 14 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: 0.8, delay: i * 0.06, ease: "easeOut" }}
-                            className="group py-6"
+                            transition={{ duration: 0.8, delay: i * 0.05, ease: "easeOut" }}
+                            className="cmn-glass group px-6 py-5 md:px-7"
                         >
-                            <summary className="flex items-start justify-between gap-5 cursor-pointer list-none min-h-[44px]">
-                                <span className="font-display font-bold uppercase tracking-tight text-ice text-lg md:text-xl leading-tight">
+                            <summary className="flex min-h-[44px] cursor-pointer list-none items-center justify-between gap-5">
+                                <span className="font-display text-base font-bold uppercase leading-tight tracking-tight text-ice md:text-lg">
                                     {item.q}
                                 </span>
-                                <Plus
-                                    className="h-5 w-5 shrink-0 text-electric-blue transition-transform duration-300 group-open:rotate-45 mt-0.5"
-                                    strokeWidth={2.5}
-                                />
+                                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/5 transition-colors duration-300 group-open:border-electric-blue/40 group-open:bg-electric-blue/15">
+                                    <Plus
+                                        className="h-4 w-4 text-electric-blue transition-transform duration-300 group-open:rotate-45"
+                                        strokeWidth={2.5}
+                                    />
+                                </span>
                             </summary>
-                            <p className="mt-4 text-[15px] md:text-base text-ice/65 leading-relaxed pr-10">
+                            <p className="mt-4 pr-10 text-[15px] leading-relaxed text-ice/60">
                                 {item.a}
                             </p>
                         </motion.details>

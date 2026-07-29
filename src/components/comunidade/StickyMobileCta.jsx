@@ -31,18 +31,21 @@ export function StickyMobileCta() {
         <AnimatePresence>
             {visible && (
                 <motion.div
-                    initial={{ y: 90 }}
-                    animate={{ y: 0 }}
-                    exit={{ y: 90 }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                    className="md:hidden fixed bottom-0 left-0 w-full z-50 bg-obsidian/95 backdrop-blur-md border-t border-white/10 px-4 py-3"
+                    initial={{ y: 100, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: 100, opacity: 0 }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                    className="fixed bottom-0 left-0 z-50 w-full px-4 pb-4 md:hidden"
                 >
-                    <div className="flex items-center justify-between gap-4">
+                    <div
+                        className="cmn-glass flex items-center justify-between gap-4 px-5 py-3.5"
+                        style={{ borderRadius: "var(--cmn-r-lg)" }}
+                    >
                         <div className="leading-tight">
-                            <p className="font-display font-bold uppercase text-ice text-sm">
+                            <p className="font-display text-sm font-bold uppercase text-ice">
                                 {PRICE_INSTALLMENT}
                             </p>
-                            <p className="text-[11px] text-ice/50">ou R$ 297 à vista</p>
+                            <p className="text-[11px] text-ice/45">ou R$ 297 à vista</p>
                         </div>
                         <CheckoutButton size="sm" className="shrink-0">
                             Entrar
