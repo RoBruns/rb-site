@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import "./ds.css";
 import { ComunidadeNav } from "./ComunidadeNav";
 import { ComunidadeHero } from "./ComunidadeHero";
@@ -19,60 +18,30 @@ import { StickyMobileCta } from "./StickyMobileCta";
 import { ComunidadeFooter } from "./ComunidadeFooter";
 
 export function ComunidadePage() {
+    /* Configuração idêntica à da MentoriaPage, que funciona. */
     useEffect(() => {
-        const prefersReduced = window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-        if (prefersReduced) return;
-
-        /* Rolagem suave.
-
-           `lerp` em vez de `duration`: o lerp interpola a cada frame em
-           direção ao alvo, o que dá o deslize contínuo característico.
-           Valor baixo = mais deslize. 0.075 é perceptível sem chegar a
-           parecer que a página está pesada ou atrasada.
-
-           O rAF é conduzido na mão (em vez de autoRaf) para o loop
-           começar e parar junto com o efeito. */
         const lenis = new Lenis({
-            lerp: 0.075,
-            wheelMultiplier: 1,
-            smoothWheel: true,
-            syncTouch: false,
-            touchMultiplier: 1.8,
+            autoRaf: true,
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         });
-
-        let frame;
-        const raf = (time) => {
-            lenis.raf(time);
-            frame = requestAnimationFrame(raf);
-        };
-        frame = requestAnimationFrame(raf);
 
         const handleAnchorClick = (e) => {
             const target = e.target.closest('a[href^="#"]');
-            if (!target) return;
-
-            const href = target.getAttribute("href");
-            if (!href || href === "#") return;
-
-            const element = document.querySelector(href);
-            if (element) {
-                e.preventDefault();
-                lenis.scrollTo(element, {
-                    offset: -90,
-                    duration: 1.4,
-                    easing: (t) => 1 - Math.pow(1 - t, 3),
-                });
+            if (target) {
+                const href = target.getAttribute("href");
+                if (href === "#") return;
+                const element = document.querySelector(href);
+                if (element) {
+                    e.preventDefault();
+                    lenis.scrollTo(element, { offset: -90, duration: 1.2 });
+                }
             }
         };
 
         document.documentElement.addEventListener("click", handleAnchorClick);
-
         return () => {
             document.documentElement.removeEventListener("click", handleAnchorClick);
-            cancelAnimationFrame(frame);
             lenis.destroy();
         };
     }, []);
