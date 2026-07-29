@@ -55,8 +55,8 @@ export function ComunidadeHero() {
                 <div className="absolute inset-0 bg-[#1a3a6b] opacity-55 mix-blend-color" />
 
                 {/* Glow atrás do Rodrigo, dá destaque e separa do fundo */}
-                <div className="absolute bottom-[2%] left-1/2 h-[70vh] w-[92vw] max-w-[820px] -translate-x-1/2 rounded-full bg-electric-blue/22 blur-[130px] md:left-[58%] md:w-[46vw]" />
-                <div className="absolute bottom-[14%] left-1/2 h-[40vh] w-[60vw] max-w-[460px] -translate-x-1/2 rounded-full bg-electric-blue/18 blur-[80px] md:left-[58%] md:w-[26vw]" />
+                <div className="absolute bottom-[2%] left-1/2 h-[70vh] w-[92vw] max-w-[820px] -translate-x-1/2 rounded-full bg-electric-blue/22 blur-[130px] md:left-[68%] md:w-[42vw]" />
+                <div className="absolute bottom-[14%] left-1/2 h-[40vh] w-[60vw] max-w-[460px] -translate-x-1/2 rounded-full bg-electric-blue/18 blur-[80px] md:left-[68%] md:w-[24vw]" />
 
                 {/* A foto. Zoom lento e contínuo. */}
                 <motion.img
@@ -68,7 +68,7 @@ export function ComunidadeHero() {
                         opacity: { duration: 1.4, ease: [0.16, 1, 0.3, 1] },
                         scale: { duration: 16, ease: "easeOut" },
                     }}
-                    className="absolute -bottom-[6%] left-1/2 h-[62%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom opacity-30 md:bottom-0 md:left-[58%] md:h-[95%] md:-translate-x-1/2 md:opacity-100"
+                    className="absolute -bottom-[6%] left-1/2 h-[62%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom opacity-30 md:bottom-0 md:left-[68%] md:h-[82%] md:-translate-x-1/2 md:opacity-100"
                 />
 
                 {/* Escurece o lado do texto, para leitura. Translúcido. */}
