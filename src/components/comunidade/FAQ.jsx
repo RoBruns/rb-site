@@ -32,7 +32,7 @@ const perguntas = [
 
 export function FAQ() {
     return (
-        <section className="relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
+        <section className="relative w-full py-24 md:py-36">
             <div className="relative z-10 mx-auto max-w-3xl px-6">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

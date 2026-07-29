@@ -19,11 +19,8 @@ const provas = [
 
 export function ComunidadeHero() {
     return (
-        <section className="cmn-grain relative w-full overflow-hidden bg-obsidian pt-28 pb-20 md:pt-36 md:pb-28">
-            <div className="cmn-mesh" />
+        <section className="relative w-full pt-28 pb-20 md:pt-36 md:pb-28">
 
-            {/* Halo atrás da foto */}
-            <div className="cmn-halo right-[-10%] top-[8%] h-[55vw] max-h-[620px] w-[55vw] max-w-[620px]" />
 
             <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-14 px-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
                 {/* ---------- Coluna de texto ---------- */}

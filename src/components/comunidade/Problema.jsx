@@ -15,7 +15,7 @@ const duvidas = [
 
 export function Problema() {
     return (
-        <section className="cmn-grain relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
+        <section className="relative w-full py-24 md:py-36">
             <div className="relative z-10 mx-auto max-w-5xl px-6">
                 <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
                     <div className="lg:sticky lg:top-32 lg:self-start">

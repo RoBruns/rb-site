@@ -37,9 +37,8 @@ export function Oferta() {
     return (
         <section
             id="oferta"
-            className="cmn-grain relative w-full scroll-mt-24 overflow-hidden bg-obsidian py-24 md:py-36"
+            className="relative w-full scroll-mt-24 py-24 md:py-36"
         >
-            <div className="cmn-halo left-1/2 top-1/4 h-[45vw] max-h-[560px] w-[75vw] max-w-[900px] -translate-x-1/2" />
 
             <div className="relative z-10 mx-auto max-w-4xl px-6">
                 <motion.div

@@ -141,56 +141,62 @@
     border-color: var(--cmn-stroke-blue);
 }
 
-/* ---------- Atmosfera de fundo ---------- */
+/* ---------- Atmosfera de fundo ----------
 
-/* Malha de gradiente: dá profundidade sem virar bloco de cor chapado */
-.cmn-mesh {
-    position: absolute;
+   A página inteira é UMA superfície contínua. As seções não pintam
+   fundo nenhum: quem pinta é o .cmn-atmosfera, uma camada única,
+   fixa na viewport, atrás de todo o conteúdo. Assim os gradientes
+   atravessam a fronteira entre seções e não existe emenda visível.
+                                                                    */
+
+/* Camada única de fundo. `fixed` faz a luz ficar parada enquanto o
+   conteúdo passa por cima, o que reforça a sensação de peça única. */
+.cmn-atmosfera {
+    position: fixed;
     inset: 0;
+    z-index: 0;
     pointer-events: none;
-    background:
+    background-color: var(--color-obsidian, #0d1117);
+    background-image:
         radial-gradient(
-            ellipse 60% 50% at 15% 0%,
-            rgba(127, 179, 255, 0.14),
-            transparent 60%
+            ellipse 55% 45% at 12% 8%,
+            rgba(127, 179, 255, 0.13),
+            transparent 62%
         ),
         radial-gradient(
-            ellipse 50% 60% at 90% 30%,
-            rgba(127, 179, 255, 0.08),
-            transparent 65%
+            ellipse 45% 40% at 88% 32%,
+            rgba(127, 179, 255, 0.09),
+            transparent 66%
         ),
         radial-gradient(
-            ellipse 70% 40% at 50% 100%,
-            rgba(127, 179, 255, 0.06),
+            ellipse 60% 40% at 50% 72%,
+            rgba(127, 179, 255, 0.07),
             transparent 70%
         );
 }
 
-/* Grão sutil, tira o aspecto plástico dos gradientes.
-   PERFORMANCE: tile de 256px repetido. Sem o background-size, o SVG
-   com feTurbulence era rasterizado no tamanho da seção inteira
-   (milhares de pixels de altura), o que pesava na composição. */
-.cmn-grain::after {
+/* Grão por cima da atmosfera, também em camada única e fixa. */
+.cmn-atmosfera::after {
     content: "";
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.035;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     background-size: 256px 256px;
     background-repeat: repeat;
 }
 
-/* Halo de luz azul, SEM filter: blur. O gradiente radial já nasce
-   difuso; um filter de 130-150px num elemento de tela inteira era o
-   maior custo de renderização da página. */
-.cmn-halo {
+/* Halos que acompanham a rolagem, ancorados na altura do documento.
+   Ficam na mesma camada contínua, então atravessam seções livremente. */
+.cmn-luz {
     position: absolute;
     pointer-events: none;
+    z-index: 0;
     background: radial-gradient(
         closest-side,
-        rgba(127, 179, 255, 0.13),
-        rgba(127, 179, 255, 0.05) 55%,
+        rgba(127, 179, 255, 0.11),
+        rgba(127, 179, 255, 0.04) 55%,
         transparent 78%
     );
 }

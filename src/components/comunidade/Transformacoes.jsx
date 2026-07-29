@@ -39,8 +39,7 @@ const itens = [
 
 export function Transformacoes() {
     return (
-        <section className="cmn-grain relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
-            <div className="cmn-halo left-1/2 top-0 h-[40vw] max-h-[500px] w-[80vw] max-w-[1000px] -translate-x-1/2 opacity-60" />
+        <section className="relative w-full py-24 md:py-36">
 
             <div className="relative z-10 mx-auto max-w-6xl px-6">
                 <div className="max-w-3xl">

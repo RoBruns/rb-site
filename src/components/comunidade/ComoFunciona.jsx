@@ -38,8 +38,7 @@ export function ComoFunciona() {
     const [principal, ...secundarios] = pilares;
 
     return (
-        <section className="cmn-grain relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
-            <div className="cmn-mesh" />
+        <section className="relative w-full py-24 md:py-36">
 
             <div className="relative z-10 mx-auto max-w-6xl px-6">
                 <div className="max-w-3xl">

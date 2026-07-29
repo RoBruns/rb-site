@@ -6,9 +6,7 @@ import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
 
 export function CtaFinal() {
     return (
-        <section className="cmn-grain relative w-full overflow-hidden bg-obsidian py-24 md:py-36">
-            <div className="cmn-mesh" />
-            <div className="cmn-halo bottom-0 left-1/2 h-[40vw] max-h-[480px] w-[90vw] max-w-[1100px] -translate-x-1/2 translate-y-1/3" />
+        <section className="relative w-full py-24 md:py-36">
 
             <div className="relative z-10 mx-auto max-w-3xl px-6 text-center">
                 <motion.h2
