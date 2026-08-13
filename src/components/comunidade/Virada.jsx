@@ -24,9 +24,9 @@ export function Virada() {
                     transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="mt-8 font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
                 >
-                    O que te falta não é conteúdo.
+                    Mais conteúdo não resolve.
                     <br />
-                    <span className="text-electric-blue">É um segundo olhar.</span>
+                    <span className="text-electric-blue">Método aplicado resolve.</span>
                 </motion.h2>
 
                 <motion.div
@@ -37,16 +37,15 @@ export function Virada() {
                     className="mx-auto mt-12 max-w-2xl space-y-5 text-left text-base leading-relaxed text-ice/70 md:text-lg"
                 >
                     <p>
-                        Você já tem acesso a mais informação do que consegue aplicar. O
-                        YouTube está cheio. O Instagram está cheio. E mesmo assim a dúvida
-                        continua, porque informação solta não responde a pergunta que
-                        importa: isso serve pro meu contexto?
+                        O ponto não é acumular mais exercícios ou seguir a última tendência.
+                        É entender o contexto, escolher o estímulo com intenção, observar o
+                        processo e ajustar o trabalho com consciência.
                     </p>
                     <p>
-                        Quem trabalha em clube não evolui lendo mais. Evolui porque tem
-                        alguém do lado apontando o que está errado antes que vire hábito.
-                        Um coordenador, um par mais experiente, alguém que já passou por
-                        aquilo.
+                        A Comunidade PGAR reúne formação, troca e acompanhamento para você
+                        desenvolver uma metodologia própria. Não para copiar um modelo pronto,
+                        mas para ganhar repertório e critério para aplicar princípios à sua
+                        realidade.
                     </p>
                 </motion.div>
 
@@ -58,10 +57,8 @@ export function Virada() {
                     className="cmn-glass-glow mx-auto mt-12 max-w-2xl px-8 py-8"
                 >
                     <p className="font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice md:text-2xl">
-                        É exatamente isso que você não tem.
-                    </p>
-                    <p className="mt-3 text-base leading-relaxed text-ice/70">
-                        E é exatamente isso que a Comunidade PGAR existe pra te dar.
+                        Você não precisa de uma resposta pronta para cada treino. Precisa de
+                        critérios para construir as suas decisões.
                     </p>
                 </motion.div>
             </div>

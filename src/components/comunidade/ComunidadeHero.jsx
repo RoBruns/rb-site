@@ -10,9 +10,9 @@ const rise = {
 };
 
 const provas = [
-    { valor: "2019", label: "No Red Bull Bragantino desde" },
-    { valor: "+20", label: "Anos formando goleiros" },
-    { valor: "3", label: "Goleiros no profissional" },
+    { valor: "Desde 2019", label: "no Red Bull Bragantino" },
+    { valor: "+20 anos", label: "no desenvolvimento de goleiros" },
+    { valor: "Licença A", label: "Treinador de Goleiros · CBF" },
 ];
 
 export function ComunidadeHero() {
@@ -94,7 +94,7 @@ export function ComunidadeHero() {
                             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-electric-blue" />
                         </span>
                         <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/60">
-                            Comunidade de preparadores de goleiro
+                            Comunidade para preparadores de goleiros
                         </span>
                     </motion.div>
 
@@ -105,9 +105,11 @@ export function ComunidadeHero() {
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-7 font-display text-[13vw] font-bold uppercase leading-[0.92] tracking-tight text-ice sm:text-6xl md:text-7xl lg:text-[78px]"
                     >
-                        Nunca mais treine
+                        Construa método para
                         <br />
-                        <span className="text-electric-blue">sozinho.</span>
+                        <span className="text-electric-blue">
+                            decidir melhor no campo.
+                        </span>
                     </motion.h1>
 
                     <motion.p
@@ -117,10 +119,10 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-7 max-w-xl text-base leading-relaxed text-ice/70 md:text-lg"
                     >
-                        Você deixa de adivinhar se o treino está certo e passa a ter
-                        critério pra defender cada escolha sua. Do lado de quem prepara os
-                        goleiros do Red Bull Bragantino, e de outros preparadores que vivem
-                        o que você vive.
+                        Transforme referências soltas em mais clareza para organizar o seu
+                        trabalho, adaptar princípios ao seu contexto e defender suas
+                        escolhas. Ao lado de Rodrigo Bruns e de outros preparadores, você
+                        desenvolve critério e preparo profissional para os próximos passos.
                     </motion.p>
 
                     <motion.div
@@ -133,10 +135,11 @@ export function ComunidadeHero() {
                         <CheckoutButton>Entrar na Comunidade</CheckoutButton>
                         <div className="text-sm leading-tight text-ice/55">
                             <span className="font-semibold text-ice/80">
-                                {PRICE_INSTALLMENT}
+                                6 meses iniciais · {PRICE_CASH} à vista ou {PRICE_INSTALLMENT}
                             </span>
                             <br />
-                            ou {PRICE_CASH} à vista
+                            Comunidade, cursos, encontros e WhatsApp disponíveis enquanto a
+                            assinatura estiver ativa.
                         </div>
                     </motion.div>
 

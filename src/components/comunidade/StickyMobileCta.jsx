@@ -45,7 +45,9 @@ export function StickyMobileCta() {
                             <p className="font-display text-sm font-bold uppercase text-ice">
                                 {PRICE_INSTALLMENT}
                             </p>
-                            <p className="text-[11px] text-ice/45">ou R$ 297 à vista</p>
+                            <p className="text-[11px] text-ice/45">
+                                ou R$ 297 à vista · 6 meses iniciais
+                            </p>
                         </div>
                         <CheckoutButton size="sm" className="shrink-0">
                             Entrar

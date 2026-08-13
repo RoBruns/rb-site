@@ -38,7 +38,7 @@ export function ComunidadeNav() {
                 />
 
                 <CheckoutButton size="sm" href="#oferta" variant="glass">
-                    Ver planos
+                    Ver a assinatura
                 </CheckoutButton>
             </div>
         </motion.header>

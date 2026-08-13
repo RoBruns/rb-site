@@ -7,10 +7,10 @@ import { motion } from "framer-motion";
    cabeça do preparador às onze da noite. */
 
 const duvidas = [
-    "Será que esse volume tá certo pra semana de jogo?",
-    "Esse exercício serve pro sub-15 ou tô copiando coisa de profissional?",
-    "Meu goleiro não evoluiu esse mês. A culpa é do treino ou dele?",
-    "Todo mundo posta método diferente. Qual eu sigo?",
+    "Como ajustar o treino à semana de jogo e à realidade que eu tenho?",
+    "Que princípio desse exercício faz sentido para a minha categoria?",
+    "Como organizar um processo que não dependa só de tentativa e erro?",
+    "Como explicar com clareza por que fiz essa escolha?",
 ];
 
 export function Problema() {
@@ -26,9 +26,9 @@ export function Problema() {
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-ice md:text-5xl"
                         >
-                            Ninguém corrige
+                            Referência não basta
                             <br />
-                            <span className="text-electric-blue">o seu treino.</span>
+                            <span className="text-electric-blue">quando falta critério.</span>
                         </motion.h2>
 
                         <motion.p
@@ -38,8 +38,10 @@ export function Problema() {
                             transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
                             className="mt-7 text-base leading-relaxed text-ice/65"
                         >
-                            Você monta o treino sozinho. Aplica sozinho. E duvida sozinho.
-                            No fim do dia, sempre sobram as mesmas perguntas.
+                            Você estuda, salva exercícios, observa outros preparadores e
+                            trabalha muito. Ainda assim, na hora de organizar a semana,
+                            adaptar o treino à categoria ou explicar uma escolha, a dúvida
+                            aparece: o que faz sentido para o contexto em que eu atuo?
                         </motion.p>
                     </div>
 
@@ -83,9 +85,9 @@ export function Problema() {
                 >
                     <div className="cmn-hairline" />
                     <p className="mt-10 font-display text-2xl font-bold uppercase leading-tight tracking-tight text-ice md:text-4xl">
-                        Não falta esforço no seu trabalho.{" "}
+                        Não falta vontade de evoluir.{" "}
                         <span className="text-electric-blue">
-                            Falta alguém pra dizer se ele está certo.
+                            Falta uma estrutura para transformar informação em método.
                         </span>
                     </p>
                 </motion.div>

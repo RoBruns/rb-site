@@ -9,31 +9,31 @@ import { ArrowRight } from "lucide-react";
 const itens = [
     {
         numero: "01",
-        antes: "Aplicar o treino e torcer pra estar certo.",
-        depois: "Ter critério pra defender cada escolha sua.",
+        antes: "Consome referências e não sabe o que aplicar em cada situação.",
+        depois: "Organiza o trabalho com mais clareza a partir do próprio contexto.",
         detalhe:
-            "Quando o coordenador perguntar por que você escolheu aquele estímulo, você tem resposta. Não é achismo, é critério.",
+            "O objetivo é relacionar princípio, necessidade do goleiro, momento da semana e realidade disponível.",
     },
     {
         numero: "02",
-        antes: "Juntar exercício solto de rede social.",
-        depois: "Enxergar a semana inteira, e não a atividade avulsa.",
+        antes: "Trabalha muito, mas tem dificuldade de justificar escolhas.",
+        depois: "Desenvolve mais critério e repertório para decidir e explicar o trabalho.",
         detalhe:
-            "O que vem antes, o que vem depois, e por quê. O ciclo passa a fazer sentido na sua cabeça, não só no papel.",
+            "Método não é decorar exercícios: é saber por que uma escolha faz sentido naquele momento.",
     },
     {
         numero: "03",
-        antes: "Errar e descobrir meses depois.",
-        depois: "Perguntar na quinta e ajustar na sexta.",
+        antes: "Ainda não estruturou uma metodologia própria.",
+        depois: "Passa a desenvolver e validar a própria metodologia com estudo, aplicação e troca.",
         detalhe:
-            "O erro para de custar uma temporada e passa a custar uma mensagem no grupo.",
+            "A CIMO oferece uma base para observar e organizar o processo sem transformar o treino em receita pronta.",
     },
     {
         numero: "04",
-        antes: "Ser o único preparador de goleiro que você conhece.",
-        depois: "Ter uma sala cheia de gente que vive o mesmo que você.",
+        antes: "Evolui isolado, dependendo apenas de tentativa e erro.",
+        depois: "Conta com comunidade, encontros e canal de contato enquanto a assinatura estiver ativa.",
         detalhe:
-            "Gente que enfrenta o mesmo problema, em clubes e categorias diferentes. É onde aparece indicação de vaga, também.",
+            "A troca aproxima preparadores de contextos diferentes e amplia repertório para o dia a dia.",
     },
 ];
 
@@ -50,8 +50,8 @@ export function Transformacoes() {
                         transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                         className="font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
                     >
-                        Como é{" "}
-                        <span className="text-electric-blue">fazer parte.</span>
+                        O que muda na sua{" "}
+                        <span className="text-electric-blue">forma de trabalhar.</span>
                     </motion.h2>
 
                     <motion.p
@@ -61,8 +61,9 @@ export function Transformacoes() {
                         transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
                         className="mt-6 text-base leading-relaxed text-ice/65 md:text-lg"
                     >
-                        Isso não é um curso que você termina. É um lugar onde você fica.
-                        Enquanto estiver dentro, a rotina abaixo é a sua.
+                        A Comunidade é um ambiente de desenvolvimento contínuo. Durante a
+                        assinatura ativa, você estuda, aplica, troca e revisita o próprio
+                        trabalho com mais intenção.
                     </motion.p>
                 </div>
 
@@ -115,8 +116,9 @@ export function Transformacoes() {
                     transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
                     className="mt-12 max-w-2xl text-base leading-relaxed text-ice/55"
                 >
-                    Quem está há mais tempo ajuda quem chegou ontem. Em algum momento,
-                    esse alguém com resposta vai ser você.
+                    Preparar-se antes da oportunidade é parte do trabalho. A Comunidade
+                    existe para apoiar esse processo, sem prometer atalhos ou resultados de
+                    carreira.
                 </motion.p>
             </div>
         </section>
