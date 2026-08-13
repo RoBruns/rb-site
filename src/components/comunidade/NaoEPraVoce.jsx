@@ -4,15 +4,15 @@ import { motion } from "framer-motion";
 import { X, Check } from "lucide-react";
 
 const naoServe = [
-    "Você quer uma planilha pronta de exercícios para copiar e colar amanhã.",
-    "Você acha que existe atalho para formar goleiro de alto nível.",
-    "Você não pretende aplicar nada, só acumular material.",
+    "Procura uma planilha pronta para copiar sem considerar o contexto.",
+    "Espera uma fórmula infalível para alto rendimento.",
+    "Quer garantia de vaga, promoção, indicação ou resultado profissional.",
 ];
 
 const serve = [
-    "Você já trabalha com goleiros e quer saber se está no caminho certo.",
-    "Você está começando e não quer levar cinco anos para descobrir os próprios erros.",
-    "Você aceita ouvir que algo no seu treino precisa mudar.",
+    "Está começando ou já atua e quer reduzir tentativa e erro.",
+    "Trabalha em escolinha, base ou clube e precisa adaptar princípios à sua realidade.",
+    "Quer estruturar, desenvolver e validar uma metodologia própria com estudo, aplicação e troca.",
 ];
 
 export function NaoEPraVoce() {
@@ -26,8 +26,8 @@ export function NaoEPraVoce() {
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                     className="font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-5xl"
                 >
-                    Antes de entrar,{" "}
-                    <span className="text-electric-blue">seja honesto.</span>
+                    Entre para desenvolver método.{" "}
+                    <span className="text-electric-blue">Não para procurar atalho.</span>
                 </motion.h2>
 
                 <div className="mt-12 grid gap-5 md:grid-cols-2">
@@ -40,7 +40,7 @@ export function NaoEPraVoce() {
                         style={{ background: "rgba(255,255,255,0.02)" }}
                     >
                         <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/35">
-                            Não perca seu dinheiro se
+                            Não é para você se
                         </p>
                         <ul className="mt-6 space-y-4">
                             {naoServe.map((t) => (
@@ -67,7 +67,7 @@ export function NaoEPraVoce() {
                         className="cmn-glass-glow cmn-lift p-7 md:p-8"
                     >
                         <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-electric-blue">
-                            Entre se
+                            É para você se
                         </p>
                         <ul className="mt-6 space-y-4">
                             {serve.map((t) => (

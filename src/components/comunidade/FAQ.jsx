@@ -6,27 +6,31 @@ import { Plus } from "lucide-react";
 const perguntas = [
     {
         q: "Sou iniciante. Vou conseguir acompanhar?",
-        a: "Sim. A Comunidade foi feita para quem está começando ou está no meio do caminho. O curso parte da estrutura do treino, não de conceito avançado, e no grupo não existe pergunta boba. A maior parte das dúvidas que aparecem lá são de quem está no seu momento.",
+        a: "A Comunidade atende quem está começando e quem já atua. O desenvolvimento parte do contexto de cada preparador, com foco em construir clareza, repertório e método ao longo da assinatura.",
     },
     {
-        q: "Não trabalho em clube, treino goleiro em escolinha. Serve?",
-        a: "Serve. O que muda de um contexto para o outro é o recurso disponível, não o princípio do treino. No encontro mensal aparece caso de escolinha, de base e de profissional, e boa parte da conversa é justamente sobre adaptar o método ao que você tem em mãos.",
+        q: "Trabalho em escolinha ou categorias de base. Serve para mim?",
+        a: "Sim. Os princípios podem ser adaptados a realidades diferentes. A proposta é ajudar você a pensar o trabalho a partir do contexto que tem hoje, e não entregar uma receita única para todos.",
     },
     {
-        q: "Quando começa?",
-        a: "Quando você comprar. Não existe turma nem data de início: o acesso ao grupo e aos cursos é liberado logo após o pagamento, e você participa do próximo encontro mensal que acontecer.",
+        q: "Por quanto tempo tenho acesso?",
+        a: "A assinatura inicial dura seis meses. Comunidade, WhatsApp, encontros, cursos disponíveis e futuros cursos ou módulos liberados ficam disponíveis enquanto a assinatura estiver ativa.",
     },
     {
-        q: "Se eu não puder assistir ao encontro ao vivo?",
-        a: "Os encontros ficam gravados e disponíveis para você assistir depois. E se a sua dúvida era o motivo de participar, pode mandar no grupo antes que ela entra na pauta.",
+        q: "Posso renovar depois dos seis meses?",
+        a: "Sim. Existe possibilidade de renovação após o período inicial. As condições operacionais da renovação serão informadas antes dessa etapa.",
     },
     {
-        q: "O que acontece depois dos 6 meses?",
-        a: "A assinatura renova automaticamente pelo mesmo valor e você continua com tudo. Se não quiser continuar, cancela pela Hubla e não é cobrado de novo.",
+        q: "Como funciona o WhatsApp?",
+        a: "Durante a assinatura ativa, você participa do grupo da comunidade e tem acesso ao WhatsApp do Rodrigo para dúvidas e conversas sobre metodologia, rotina e carreira. A Comunidade não promete prazo de resposta, disponibilidade ilimitada ou acompanhamento individual contínuo.",
     },
     {
-        q: "Isso me dá acesso à mentoria?",
-        a: "Não. A Comunidade e as mentorias são produtos diferentes. Quem entra na mentoria ganha um ano de Comunidade junto, mas o contrário não vale. Se depois de entrar você quiser um acompanhamento mais próximo, é só falar com a gente lá dentro.",
+        q: "O que inclui a metodologia CIMO?",
+        a: "CIMO significa Contexto, Intensidade, Mentalidade e Organização. É a base metodológica apresentada no curso para apoiar a leitura e a organização do trabalho de preparação de goleiros.",
+    },
+    {
+        q: "O que está incluído nos seis primeiros meses?",
+        a: "Grupo de WhatsApp da comunidade, acesso ao WhatsApp do Rodrigo enquanto a assinatura estiver ativa, encontro mensal da comunidade, um encontro individual de uma hora durante os seis primeiros meses, curso CIMO, curso de carreira e acesso aos cursos ou módulos que estiverem liberados durante a assinatura ativa.",
     },
 ];
 
@@ -41,8 +45,8 @@ export function FAQ() {
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                     className="text-center font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-5xl"
                 >
-                    Antes que você{" "}
-                    <span className="text-electric-blue">pergunte.</span>
+                    Dúvidas antes de{" "}
+                    <span className="text-electric-blue">entrar.</span>
                 </motion.h2>
 
                 <div className="mt-12 space-y-3">

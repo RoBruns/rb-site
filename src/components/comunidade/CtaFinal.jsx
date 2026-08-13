@@ -16,9 +16,8 @@ export function CtaFinal() {
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                     className="font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
                 >
-                    Daqui a seis meses você vai estar{" "}
-                    <span className="text-electric-blue">seis meses na frente</span> ou no
-                    mesmo lugar.
+                    Prepare-se agora para trabalhar com mais{" "}
+                    <span className="text-electric-blue">clareza depois.</span>
                 </motion.h2>
 
                 <motion.p
@@ -28,9 +27,10 @@ export function CtaFinal() {
                     transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
                     className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-ice/65 md:text-lg"
                 >
-                    A diferença entre um cenário e outro não é talento nem sorte. É ter
-                    alguém experiente olhando o seu trabalho toda semana, em vez de você
-                    continuar tentando adivinhar sozinho.
+                    Nos próximos seis meses, você pode continuar reunindo referências sem um
+                    processo claro ou começar a desenvolver método, critério e repertório para
+                    o contexto em que atua. A Comunidade PGAR existe para acompanhar essa
+                    construção.
                 </motion.p>
 
                 <motion.div
@@ -42,7 +42,8 @@ export function CtaFinal() {
                 >
                     <CheckoutButton>Entrar na Comunidade</CheckoutButton>
                     <p className="text-sm text-ice/50">
-                        {PRICE_CASH} à vista ou {PRICE_INSTALLMENT}
+                        {PRICE_CASH} à vista ou {PRICE_INSTALLMENT} · Seis meses iniciais ·
+                        Benefícios disponíveis com assinatura ativa.
                     </p>
                 </motion.div>
             </div>

@@ -14,7 +14,7 @@ export function ComunidadeFooter() {
                             className="h-6 w-auto opacity-80"
                         />
                         <p className="mt-3 text-xs text-ice/35">
-                            Comunidade PGAR · preparação de goleiros de alto rendimento
+                            Comunidade PGAR · método e preparação de goleiros
                         </p>
                     </div>
 

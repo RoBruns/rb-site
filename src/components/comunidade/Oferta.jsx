@@ -8,28 +8,38 @@ import {
     Infinity as InfinityIcon,
 } from "lucide-react";
 import { CheckoutButton } from "./CheckoutButton";
-import { PRICE_CASH, PERIOD_LABEL } from "./constants";
+import { PRICE_CASH } from "./constants";
 
 const inclui = [
     {
         icon: MessagesSquare,
-        titulo: "Grupo com o Rodrigo",
-        desc: "Suas dúvidas respondidas por quem prepara goleiro na Série A",
+        titulo: "Comunidade em grupo de WhatsApp",
+        desc: "Troca entre preparadores durante a assinatura ativa.",
+    },
+    {
+        icon: MessagesSquare,
+        titulo: "WhatsApp do Rodrigo",
+        desc: "Acesso para dúvidas e conversas durante a assinatura ativa.",
     },
     {
         icon: Video,
-        titulo: "Encontro ao vivo todo mês",
-        desc: "Metodologia, carreira e casos reais, enquanto você for membro",
+        titulo: "Encontros",
+        desc: "Um encontro individual de uma hora nos seis primeiros meses e encontro mensal da comunidade.",
     },
     {
         icon: GraduationCap,
-        titulo: "Curso de metodologia completo",
-        desc: "Ciclos de treino, aprendizado e condicionamento do goleiro",
+        titulo: "Curso CIMO",
+        desc: "Contexto, Intensidade, Mentalidade e Organização.",
+    },
+    {
+        icon: GraduationCap,
+        titulo: "Curso de carreira",
+        desc: "Incluído durante a assinatura ativa.",
     },
     {
         icon: InfinityIcon,
-        titulo: "Todos os cursos futuros",
-        desc: "Todo curso novo entra na sua assinatura sem custo adicional",
+        titulo: "Cursos e módulos liberados",
+        desc: "Acesso aos conteúdos disponíveis e aos futuros liberados durante a assinatura ativa.",
     },
 ];
 
@@ -54,9 +64,8 @@ export function Oferta() {
                         className="mx-auto h-8 w-auto opacity-85 md:h-10"
                     />
                     <h2 className="mt-7 font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl">
-                        Menos de{" "}
-                        <span className="text-electric-blue">R$ 2 por dia</span> para
-                        parar de trabalhar sozinho
+                        Seis meses para fortalecer{" "}
+                        <span className="text-electric-blue">o seu método.</span>
                     </h2>
                 </motion.div>
 
@@ -71,7 +80,13 @@ export function Oferta() {
                         {/* O que inclui */}
                         <div className="border-b border-white/8 p-8 md:border-b-0 md:border-r md:p-10">
                             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/40">
-                                O que está incluso
+                                A assinatura
+                            </p>
+
+                            <p className="mt-4 text-sm leading-relaxed text-ice/60">
+                                Entre para uma assinatura inicial de seis meses de formação,
+                                troca e acompanhamento. Depois desse período, há possibilidade
+                                de renovação.
                             </p>
 
                             <ul className="mt-7 space-y-5">
@@ -102,7 +117,7 @@ export function Oferta() {
                         {/* Preço */}
                         <div className="flex flex-col items-center justify-center p-8 text-center md:p-10">
                             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/40">
-                                Acesso por 6 meses
+                                6 meses iniciais
                             </p>
 
                             <div className="mt-5">
@@ -122,9 +137,9 @@ export function Oferta() {
                             </div>
 
                             <p className="mt-5 max-w-xs text-xs leading-relaxed text-ice/40">
-                                Pagamento pela Hubla, cartão ou Pix. O acesso chega no seu
-                                e-mail logo após a compra. A assinatura renova{" "}
-                                {PERIOD_LABEL} e você cancela quando quiser.
+                                Assinatura inicial de seis meses. Após esse período, a
+                                renovação pode ser feita conforme as condições que serão
+                                informadas. Os benefícios listados dependem de assinatura ativa.
                             </p>
                         </div>
                     </div>

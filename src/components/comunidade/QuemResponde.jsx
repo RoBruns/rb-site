@@ -36,7 +36,7 @@ export function QuemResponde() {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="text-[11px] font-semibold uppercase tracking-[0.28em] text-electric-blue"
                 >
-                    Quem está do outro lado da tela
+                    Quem conduz a comunidade
                 </motion.p>
 
                 <div className="mt-10 grid items-stretch gap-12 lg:grid-cols-[0.8fr_1fr] lg:gap-16">
@@ -53,7 +53,7 @@ export function QuemResponde() {
                             <motion.img
                                 style={{ y: imgY, scale: 1.08 }}
                                 src="/mentoria-rodrigo.png"
-                                alt="Rodrigo Bruns, coordenador da preparação de goleiros do Red Bull Bragantino"
+                                alt="Rodrigo Bruns, atuante na preparação de goleiros do Red Bull Bragantino"
                                 loading="lazy"
                                 className="h-full w-full object-cover object-top will-change-transform"
                             />
@@ -64,7 +64,7 @@ export function QuemResponde() {
                                     <span className="text-electric-blue">Bruns</span>
                                 </p>
                                 <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45">
-                                    Coordenador da preparação de goleiros
+                                    Preparação de goleiros · Red Bull Bragantino
                                 </p>
                             </div>
                         </motion.div>
@@ -105,9 +105,8 @@ export function QuemResponde() {
                             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-xl leading-[1.3] tracking-tight text-ice md:text-[1.65rem]"
                         >
-                            Minha trajetória no futebol começou dentro de campo, como atleta
-                            profissional. Ao encerrar a carreira de jogador, encontrei uma
-                            nova missão: desenvolver goleiros e preparadores de goleiros.
+                            Meu trabalho é ajudar goleiros e preparadores a transformarem
+                            experiência de campo em método.
                         </motion.p>
 
                         <motion.div
@@ -118,31 +117,24 @@ export function QuemResponde() {
                             className="mt-7 space-y-4 text-sm leading-relaxed text-ice/70 md:text-base"
                         >
                             <p>
-                                Formado em Educação Física, especialista em Treinamento,
-                                Técnica e Tática Desportiva e Licença A de Treinador de
-                                Goleiros da CBF, construí minha experiência ao longo de mais
-                                de 20 anos dedicados ao desenvolvimento de goleiros.
+                                Minha trajetória no futebol começou dentro de campo, como
+                                atleta profissional. Ao encerrar a carreira de jogador,
+                                encontrei uma nova missão: desenvolver goleiros e
+                                preparadores de goleiros.
                             </p>
                             <p>
-                                Desde 2009, faço parte do projeto Red Bull, contribuindo para
-                                a construção de uma metodologia que conecta todas as etapas da
-                                formação, da iniciação ao futebol profissional. Nesse período,
-                                participei do desenvolvimento de atletas que alcançaram o mais
-                                alto nível do futebol, incluindo convocações para seleções
-                                nacionais.
+                                Sou formado em Educação Física, tenho Licença A de Treinador
+                                de Goleiros da CBF e reúno mais de 20 anos dedicados ao
+                                desenvolvimento de goleiros. Faço parte do projeto Red Bull
+                                desde 2009 e atuo na preparação de goleiros do Red Bull
+                                Bragantino desde 2019.
                             </p>
                             <p>
-                                Além da atuação prática no campo, também contribuo para a
-                                formação de profissionais como palestrante em congressos,
-                                cursos e programas nacionais e internacionais, com destaque
-                                para as Licenças de Treinadores de Goleiros da CBF Academy.
-                            </p>
-                            <p className="text-ice/85">
-                                Na Comunidade, sigo com o mesmo propósito que me trouxe até
-                                aqui: compartilhar conhecimento, desenvolver pessoas e
-                                contribuir para a evolução de goleiros e preparadores de
-                                goleiros. Sou eu quem responde no grupo e quem conduz o
-                                encontro de todo mês.
+                                Na Comunidade, compartilho princípios, experiências e
+                                reflexões para que cada preparador consiga construir um
+                                trabalho mais claro no contexto em que atua. Sou eu quem
+                                participa do grupo e conduz o encontro mensal da comunidade
+                                durante a assinatura ativa.
                             </p>
                         </motion.div>
 
@@ -154,8 +146,8 @@ export function QuemResponde() {
                             className="mt-9 border-l-2 border-electric-blue pl-6 md:pl-8"
                         >
                             <p className="font-display text-xl uppercase leading-snug tracking-tight text-ice md:text-2xl">
-                                "Não há atalhos. Desempenho é resultado de método,
-                                repetição, análise e trabalho contínuo."
+                                "Método se constrói com contexto, observação, estudo e
+                                trabalho contínuo."
                             </p>
                         </motion.blockquote>
                     </div>
