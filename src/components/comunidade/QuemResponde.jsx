@@ -48,7 +48,7 @@ export function QuemResponde() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.25 }}
                             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="cmn-glass-lit relative min-h-[420px] flex-1 overflow-hidden"
+                            className="cmn-glass-lit relative min-h-[340px] flex-1 overflow-hidden sm:min-h-[420px]"
                         >
                             <motion.img
                                 style={{ y: imgY, scale: 1.08 }}
@@ -70,7 +70,7 @@ export function QuemResponde() {
                         </motion.div>
 
                         {/* Credenciais */}
-                        <div className="mt-4 grid grid-cols-3 gap-3">
+                        <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
                             {credenciais.map((c, i) => (
                                 <motion.div
                                     key={c.valor}
@@ -82,13 +82,13 @@ export function QuemResponde() {
                                         delay: 0.1 + i * 0.08,
                                         ease: "easeOut",
                                     }}
-                                    className="cmn-glass px-4 py-4"
+                                    className="cmn-glass min-w-0 px-3 py-3 sm:px-4 sm:py-4"
                                     style={{ borderRadius: "var(--cmn-r-md)" }}
                                 >
                                     <p className="font-display text-base font-bold uppercase leading-none tracking-tight text-electric-blue md:text-lg">
                                         {c.valor}
                                     </p>
-                                    <p className="mt-2 text-[11px] leading-snug text-ice/45">
+                                    <p className="mt-2 text-[10px] leading-snug text-ice/45 sm:text-[11px]">
                                         {c.label}
                                     </p>
                                 </motion.div>

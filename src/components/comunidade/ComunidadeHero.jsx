@@ -17,7 +17,7 @@ const provas = [
 
 export function ComunidadeHero() {
     return (
-        <section className="relative flex min-h-[100svh] w-full flex-col justify-center pt-28 pb-16 md:pt-32 md:pb-20">
+        <section className="relative flex min-h-[100svh] w-full flex-col justify-center pt-28 pb-20 sm:pb-16 md:pt-32 md:pb-20">
             {/* ---------- Fundo do hero, tela toda ----------
 
                 REGRA: nada aqui pode ser opaco. A página tem uma
@@ -80,20 +80,20 @@ export function ComunidadeHero() {
             </div>
 
             {/* ---------- Conteúdo ---------- */}
-            <div className="relative z-10 mx-auto w-full max-w-6xl px-6">
+            <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6">
                 <div className="max-w-2xl">
                     <motion.div
                         initial="hidden"
                         animate="show"
                         variants={rise}
                         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                        className="cmn-pill inline-flex items-center gap-2.5 px-4 py-2"
+                        className="cmn-pill inline-flex max-w-full items-center gap-2 px-3 py-2 sm:gap-2.5 sm:px-4"
                     >
                         <span className="relative flex h-1.5 w-1.5">
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric-blue/70" />
                             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-electric-blue" />
                         </span>
-                        <span className="text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/60">
+                        <span className="text-[10px] font-semibold uppercase leading-snug tracking-[0.16em] text-ice/60 sm:text-[11px] sm:tracking-[0.24em]">
                             Comunidade para preparadores de goleiros
                         </span>
                     </motion.div>
@@ -103,7 +103,7 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-7 font-display text-[13vw] font-bold uppercase leading-[0.92] tracking-tight text-ice sm:text-6xl md:text-7xl lg:text-[78px]"
+                        className="mt-7 font-display text-[clamp(2.35rem,12.5vw,3.75rem)] font-bold uppercase leading-[0.92] tracking-tight text-ice md:text-7xl lg:text-[78px]"
                     >
                         Construa método para
                         <br />
@@ -148,18 +148,18 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-11 grid max-w-lg grid-cols-3 gap-3"
+                        className="mt-10 grid max-w-lg grid-cols-3 gap-2 sm:mt-11 sm:gap-3"
                     >
                         {provas.map((p) => (
                             <li
                                 key={p.label}
-                                className="cmn-glass-lit cmn-lift px-4 py-4"
+                                className="cmn-glass-lit cmn-lift min-w-0 px-3 py-3 sm:px-4 sm:py-4"
                                 style={{ borderRadius: "var(--cmn-r-md)" }}
                             >
-                                <p className="font-display text-2xl font-bold leading-none text-electric-blue md:text-3xl">
+                                <p className="font-display text-xl font-bold leading-none text-electric-blue sm:text-2xl md:text-3xl">
                                     {p.valor}
                                 </p>
-                                <p className="mt-2 text-[11px] leading-snug text-ice/50">
+                                <p className="mt-2 text-[10px] leading-snug text-ice/50 sm:text-[11px]">
                                     {p.label}
                                 </p>
                             </li>

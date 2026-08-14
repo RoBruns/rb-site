@@ -20,6 +20,11 @@ import { ComunidadeFooter } from "./ComunidadeFooter";
 export function ComunidadePage() {
     /* Configuração idêntica à da MentoriaPage, que funciona. */
     useEffect(() => {
+        const compactScreen = window.matchMedia("(max-width: 767px)");
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        if (compactScreen.matches || reducedMotion.matches) return;
+
         const lenis = new Lenis({
             autoRaf: true,
             duration: 1.2,
@@ -47,7 +52,7 @@ export function ComunidadePage() {
     }, []);
 
     return (
-        <main className="cmn-scope relative w-full min-h-screen bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
+        <main className="cmn-scope relative min-h-screen w-full overflow-x-clip bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
             {/* Fundo contínuo: uma camada só para a página inteira.
                 Nenhuma seção pinta fundo próprio, então não existe
                 emenda entre elas. */}

@@ -35,17 +35,17 @@ export function StickyMobileCta() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="fixed bottom-0 left-0 z-50 w-full px-4 pb-4 md:hidden"
+                    className="fixed bottom-0 left-0 z-50 w-full px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-4 md:hidden"
                 >
                     <div
-                        className="cmn-glass cmn-blur flex items-center justify-between gap-4 px-5 py-3.5"
+                        className="cmn-glass cmn-blur flex items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-5 sm:py-3.5"
                         style={{ borderRadius: "var(--cmn-r-lg)" }}
                     >
                         <div className="leading-tight">
                             <p className="font-display text-sm font-bold uppercase text-ice">
                                 {PRICE_INSTALLMENT}
                             </p>
-                            <p className="text-[11px] text-ice/45">
+                            <p className="text-[10px] text-ice/45 sm:text-[11px]">
                                 ou R$ 297 à vista · 6 meses iniciais
                             </p>
                         </div>

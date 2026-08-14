@@ -37,6 +37,9 @@
     --cmn-blur-strong: 40px;
 
     --cmn-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* EspaÃ§o para o CTA fixo em aparelhos com barra de gesto. */
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* ---------- Superfícies de vidro ----------
@@ -217,6 +220,24 @@
     .cmn-btn,
     .cmn-lift {
         transition: none;
+    }
+
+    .cmn-btn-primary:hover,
+    .cmn-lift:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 639px) {
+    .cmn-scope {
+        /* Entradas animadas e halos largos nÃ£o devem criar rolagem lateral. */
+        overflow-x: clip;
+    }
+
+    .cmn-atmosfera {
+        background-image:
+            radial-gradient(ellipse 90% 35% at 50% 4%, rgba(127, 179, 255, 0.13), transparent 65%),
+            radial-gradient(ellipse 85% 30% at 50% 55%, rgba(127, 179, 255, 0.08), transparent 70%);
     }
 
     .cmn-btn-primary:hover,
