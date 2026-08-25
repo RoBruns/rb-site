@@ -10,14 +10,14 @@ const rise = {
 };
 
 const provas = [
-    { valor: "Desde 2019", label: "no Red Bull Bragantino" },
-    { valor: "+20 anos", label: "no desenvolvimento de goleiros" },
-    { valor: "Licença A", label: "Treinador de Goleiros · CBF" },
+    { valor: "+20", label: "anos formando goleiros" },
+    { valor: "Desde 2012", label: "no Red Bull" },
+    { valor: "Licença A", label: "Treinador de Goleiros CBF" },
 ];
 
 export function ComunidadeHero() {
     return (
-        <section className="relative flex min-h-[100svh] w-full flex-col justify-center pt-28 pb-20 sm:pb-16 md:pt-32 md:pb-20">
+        <section className="relative flex w-full flex-col justify-center pt-24 pb-14 sm:min-h-[100svh] sm:pt-28 sm:pb-16 md:pt-32 md:pb-20">
             {/* ---------- Fundo do hero, tela toda ----------
 
                 REGRA: nada aqui pode ser opaco. A página tem uma
@@ -68,11 +68,11 @@ export function ComunidadeHero() {
                         opacity: { duration: 1.4, ease: [0.16, 1, 0.3, 1] },
                         scale: { duration: 16, ease: "easeOut" },
                     }}
-                    className="absolute -bottom-[6%] left-1/2 h-[62%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom opacity-30 md:bottom-0 md:left-[68%] md:h-[82%] md:-translate-x-1/2 md:opacity-100"
+                    className="absolute -bottom-[4%] left-1/2 h-[52%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom opacity-40 sm:h-[58%] sm:opacity-35 md:bottom-0 md:left-[68%] md:h-[82%] md:-translate-x-1/2 md:opacity-100"
                 />
 
                 {/* Escurece o lado do texto, para leitura. Translúcido. */}
-                <div className="absolute inset-0 bg-gradient-to-r from-obsidian/95 via-obsidian/70 to-transparent md:via-obsidian/35" />
+                <div className="absolute inset-0 bg-gradient-to-r from-obsidian/96 via-obsidian/82 to-obsidian/55 md:via-obsidian/35 md:to-transparent" />
 
                 {/* Dissolve a base do Rodrigo. A máscara da camada faz o
                     resto do trabalho no fim da seção. */}
@@ -93,8 +93,8 @@ export function ComunidadeHero() {
                             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric-blue/70" />
                             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-electric-blue" />
                         </span>
-                        <span className="text-[10px] font-semibold uppercase leading-snug tracking-[0.16em] text-ice/60 sm:text-[11px] sm:tracking-[0.24em]">
-                            Comunidade para preparadores de goleiros
+                        <span className="text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-ice/60 sm:text-[11px] sm:tracking-[0.24em]">
+                            Para preparadores de goleiros
                         </span>
                     </motion.div>
 
@@ -103,12 +103,12 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-7 font-display text-[clamp(2.35rem,12.5vw,3.75rem)] font-bold uppercase leading-[0.92] tracking-tight text-ice md:text-7xl lg:text-[78px]"
+                        className="mt-6 font-display text-[clamp(2.1rem,9.6vw,3.5rem)] font-bold uppercase leading-[0.94] tracking-tight text-ice sm:mt-7 md:text-7xl md:leading-[0.92] lg:text-[78px]"
                     >
-                        Construa método para
+                        Treine com método.
                         <br />
                         <span className="text-electric-blue">
-                            decidir melhor no campo.
+                            Decida com confiança.
                         </span>
                     </motion.h1>
 
@@ -117,12 +117,12 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-7 max-w-xl text-base leading-relaxed text-ice/70 md:text-lg"
+                        className="mt-6 max-w-xl text-[15px] leading-relaxed text-ice/70 sm:mt-7 sm:text-base md:text-lg"
                     >
-                        Transforme referências soltas em mais clareza para organizar o seu
-                        trabalho, adaptar princípios ao seu contexto e defender suas
-                        escolhas. Ao lado de Rodrigo Bruns e de outros preparadores, você
-                        desenvolve critério e preparo profissional para os próximos passos.
+                        São mais de 20 anos formando goleiros e preparadores, num grupo
+                        onde você pode perguntar, discordar e testar. Você leva daqui um
+                        jeito de pensar o treino que funciona no seu clube, na sua
+                        categoria, com o tempo que você tem.
                     </motion.p>
 
                     <motion.div
@@ -130,16 +130,17 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
+                        className="mt-8 flex flex-col items-stretch gap-4 sm:mt-9 sm:flex-row sm:items-center"
                     >
-                        <CheckoutButton>Entrar na Comunidade</CheckoutButton>
-                        <div className="text-sm leading-tight text-ice/55">
+                        <CheckoutButton className="w-full sm:w-auto">
+                            Entrar na Comunidade
+                        </CheckoutButton>
+                        <div className="text-[13px] leading-snug text-ice/55 sm:text-sm">
                             <span className="font-semibold text-ice/80">
-                                6 meses iniciais · {PRICE_CASH} à vista ou {PRICE_INSTALLMENT}
+                                {PRICE_INSTALLMENT} ou {PRICE_CASH} à vista
                             </span>
                             <br />
-                            Comunidade, cursos, encontros e WhatsApp disponíveis enquanto a
-                            assinatura estiver ativa.
+                            Seis meses de comunidade, cursos e encontros.
                         </div>
                     </motion.div>
 
@@ -148,18 +149,18 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-10 grid max-w-lg grid-cols-3 gap-2 sm:mt-11 sm:gap-3"
+                        className="mt-9 grid max-w-lg grid-cols-3 gap-2 sm:mt-11 sm:gap-3"
                     >
                         {provas.map((p) => (
                             <li
                                 key={p.label}
-                                className="cmn-glass-lit cmn-lift min-w-0 px-3 py-3 sm:px-4 sm:py-4"
+                                className="cmn-glass-lit cmn-lift min-w-0 px-2.5 py-3 sm:px-4 sm:py-4"
                                 style={{ borderRadius: "var(--cmn-r-md)" }}
                             >
-                                <p className="font-display text-xl font-bold leading-none text-electric-blue sm:text-2xl md:text-3xl">
+                                <p className="font-display text-lg font-bold leading-none text-electric-blue sm:text-2xl md:text-3xl">
                                     {p.valor}
                                 </p>
-                                <p className="mt-2 text-[10px] leading-snug text-ice/50 sm:text-[11px]">
+                                <p className="mt-1.5 text-[10px] leading-snug text-ice/50 sm:mt-2 sm:text-[11px]">
                                     {p.label}
                                 </p>
                             </li>

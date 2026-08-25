@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import { PRICE_INSTALLMENT } from "./constants";
+import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
 
 export function StickyMobileCta() {
     const [visible, setVisible] = useState(false);
@@ -35,18 +35,18 @@ export function StickyMobileCta() {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="fixed bottom-0 left-0 z-50 w-full px-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-4 md:hidden"
+                    className="fixed bottom-0 left-0 z-50 w-full px-3 pb-[max(0.6rem,env(safe-area-inset-bottom))] sm:px-4 md:hidden"
                 >
                     <div
-                        className="cmn-glass cmn-blur flex items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-5 sm:py-3.5"
+                        className="cmn-blur flex items-center justify-between gap-3 border border-white/12 px-4 py-2.5 shadow-[0_-8px_32px_-8px_rgba(5,10,20,0.8)] sm:gap-4 sm:px-5 sm:py-3"
                         style={{ borderRadius: "var(--cmn-r-lg)" }}
                     >
-                        <div className="leading-tight">
-                            <p className="font-display text-sm font-bold uppercase text-ice">
+                        <div className="min-w-0 leading-tight">
+                            <p className="font-display text-sm font-bold uppercase leading-none text-ice">
                                 {PRICE_INSTALLMENT}
                             </p>
-                            <p className="text-[10px] text-ice/45 sm:text-[11px]">
-                                ou R$ 297 à vista · 6 meses iniciais
+                            <p className="mt-1 text-[10px] leading-none text-ice/45 sm:text-[11px]">
+                                ou {PRICE_CASH} à vista · 6 meses
                             </p>
                         </div>
                         <CheckoutButton size="sm" className="shrink-0">

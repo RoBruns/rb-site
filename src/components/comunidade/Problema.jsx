@@ -7,28 +7,28 @@ import { motion } from "framer-motion";
    cabeça do preparador às onze da noite. */
 
 const duvidas = [
-    "Como ajustar o treino à semana de jogo e à realidade que eu tenho?",
-    "Que princípio desse exercício faz sentido para a minha categoria?",
-    "Como organizar um processo que não dependa só de tentativa e erro?",
-    "Como explicar com clareza por que fiz essa escolha?",
+    "Esse exercício serve para o goleiro que eu tenho ou eu só achei bonito?",
+    "Como encaixo o treino na semana de jogo com o tempo que sobra?",
+    "Se o treinador perguntar por que fiz assim, eu tenho resposta?",
+    "Estou evoluindo ou só repetindo o que sempre fiz?",
 ];
 
 export function Problema() {
     return (
-        <section className="relative w-full py-24 md:py-36">
-            <div className="relative z-10 mx-auto max-w-5xl px-6">
-                <div className="grid gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
+        <section className="relative w-full py-16 sm:py-24 md:py-36">
+            <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6">
+                <div className="grid gap-9 sm:gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
                     <div className="lg:sticky lg:top-32 lg:self-start">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-display text-4xl font-bold uppercase leading-[0.95] tracking-tight text-ice md:text-5xl"
+                            className="font-display text-[clamp(1.9rem,8.2vw,2.6rem)] font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-5xl md:leading-[0.95]"
                         >
-                            Referência não basta
+                            Referência é fácil de achar.
                             <br />
-                            <span className="text-electric-blue">quando falta critério.</span>
+                            <span className="text-electric-blue">Critério, não.</span>
                         </motion.h2>
 
                         <motion.p
@@ -36,12 +36,12 @@ export function Problema() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.4 }}
                             transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
-                            className="mt-7 text-base leading-relaxed text-ice/65"
+                            className="mt-5 text-[15px] leading-relaxed text-ice/65 sm:mt-7 sm:text-base"
                         >
-                            Você estuda, salva exercícios, observa outros preparadores e
-                            trabalha muito. Ainda assim, na hora de organizar a semana,
-                            adaptar o treino à categoria ou explicar uma escolha, a dúvida
-                            aparece: o que faz sentido para o contexto em que eu atuo?
+                            Você estuda, salva exercício, assiste treino dos outros.
+                            Mesmo assim, na hora de montar a semana, a dúvida volta
+                            sempre pro mesmo lugar: isso serve para o goleiro que eu
+                            tenho, na categoria que eu tenho, com o tempo que eu tenho?
                         </motion.p>
                     </div>
 
@@ -58,7 +58,7 @@ export function Problema() {
                                     delay: i * 0.1,
                                     ease: [0.16, 1, 0.3, 1],
                                 }}
-                                className={`cmn-glass px-6 py-5 ${
+                                className={`cmn-glass px-5 py-4 sm:px-6 sm:py-5 ${
                                     i % 2 ? "lg:ml-14" : "lg:mr-14"
                                 }`}
                                 style={{
@@ -68,7 +68,7 @@ export function Problema() {
                                             : "var(--cmn-r-lg) var(--cmn-r-lg) var(--cmn-r-lg) var(--cmn-r-sm)",
                                 }}
                             >
-                                <p className="text-[15px] leading-relaxed text-ice/75 md:text-base">
+                                <p className="text-[14px] leading-relaxed text-ice/75 sm:text-[15px] md:text-base">
                                     {d}
                                 </p>
                             </motion.div>
@@ -81,13 +81,14 @@ export function Problema() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    className="mt-20 md:mt-28"
+                    className="mt-14 sm:mt-20 md:mt-28"
                 >
                     <div className="cmn-hairline" />
-                    <p className="mt-10 font-display text-2xl font-bold uppercase leading-tight tracking-tight text-ice md:text-4xl">
-                        Não falta vontade de evoluir.{" "}
+                    <p className="mt-8 font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice sm:mt-10 sm:text-2xl md:text-4xl">
+                        Vontade não é o seu problema.{" "}
                         <span className="text-electric-blue">
-                            Falta uma estrutura para transformar informação em método.
+                            O problema é decidir sozinho, sem ninguém com estrada para
+                            conferir.
                         </span>
                     </p>
                 </motion.div>

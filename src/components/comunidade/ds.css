@@ -38,8 +38,14 @@
 
     --cmn-ease: cubic-bezier(0.16, 1, 0.3, 1);
 
-    /* EspaÃ§o para o CTA fixo em aparelhos com barra de gesto. */
+    /* Espaco para o CTA fixo em aparelhos com barra de gesto. */
     padding-bottom: env(safe-area-inset-bottom);
+
+    /* Rede de seguranca contra rolagem lateral. As entradas animadas do
+       framer-motion e os halos largos passam da borda por alguns frames;
+       aqui isso e cortado em vez de virar scroll. Nao substitui conter o
+       overflow na origem: cada elemento largo tem o proprio wrapper. */
+    overflow-x: clip;
 }
 
 /* ---------- Superfícies de vidro ----------
@@ -100,9 +106,18 @@
 /* Desfoque real, SÓ para elementos fixos pequenos (nav, CTA fixo).
    Base mais escura para manter a legibilidade sobre qualquer fundo. */
 .cmn-blur {
-    background: rgba(13, 17, 23, 0.72);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    /* Opacidade alta de proposito: no mobile o conteudo passa por baixo da
+       nav e do CTA fixo o tempo todo, e a 0.72 o texto de tras vazava. */
+    background: rgba(13, 17, 23, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+/* Sem backdrop-filter (Firefox antigo, modo economia), o fundo vira solido. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .cmn-blur {
+        background: rgba(13, 17, 23, 0.98);
+    }
 }
 
 /* Superfície sólida escura para texto sobre imagem, sem desfoque */
@@ -228,10 +243,27 @@
     }
 }
 
+/* Nenhuma imagem estoura a coluna em que vive, a nao ser que o proprio
+   componente peca (a foto do hero usa max-w-none de proposito, e por isso
+   o :not() esta aqui: o seletor de classe sozinho perderia para este). */
+.cmn-scope img:not([class*="max-w-"]),
+.cmn-scope svg:not([class*="max-w-"]),
+.cmn-scope video:not([class*="max-w-"]) {
+    max-width: 100%;
+}
+
+/* Palavra longa (WhatsApp, metodologia) nao pode empurrar a caixa no 320px. */
+.cmn-scope h1,
+.cmn-scope h2,
+.cmn-scope h3 {
+    overflow-wrap: break-word;
+}
+
 @media (max-width: 639px) {
     .cmn-scope {
-        /* Entradas animadas e halos largos nÃ£o devem criar rolagem lateral. */
-        overflow-x: clip;
+        /* Cartoes menores pedem raio menor, senao o canto come o texto. */
+        --cmn-r-lg: 18px;
+        --cmn-r-xl: 22px;
     }
 
     .cmn-atmosfera {
@@ -244,4 +276,20 @@
     .cmn-lift:hover {
         transform: none;
     }
+}
+
+/* Nenhuma imagem estoura a coluna em que vive, a nao ser que o proprio
+   componente peca (a foto do hero usa max-w-none de proposito, e por isso
+   o :not() esta aqui: o seletor de classe sozinho perderia para este). */
+.cmn-scope img:not([class*="max-w-"]),
+.cmn-scope svg:not([class*="max-w-"]),
+.cmn-scope video:not([class*="max-w-"]) {
+    max-width: 100%;
+}
+
+/* Palavra longa (WhatsApp, metodologia) nao pode empurrar a caixa no 320px. */
+.cmn-scope h1,
+.cmn-scope h2,
+.cmn-scope h3 {
+    overflow-wrap: break-word;
 }

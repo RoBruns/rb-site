@@ -22,11 +22,11 @@ export function ComunidadeNav() {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed left-0 top-0 z-50 w-full px-3 pt-3 sm:px-4 sm:pt-4 md:px-6 md:pt-5"
+            className="fixed left-0 top-0 z-50 w-full px-3 pt-2.5 sm:px-4 sm:pt-4 md:px-6 md:pt-5"
         >
             <div
                 className={cn(
-                    "mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-2.5 transition-all duration-500 sm:gap-4 sm:px-5 sm:py-3 md:px-6",
+                    "mx-auto flex max-w-5xl items-center justify-between gap-3 px-3 py-2 transition-all duration-500 sm:gap-4 sm:px-5 sm:py-3 md:px-6",
                     scrolled ? "cmn-glass cmn-blur" : "border border-transparent"
                 )}
                 style={{ borderRadius: "var(--cmn-r-pill)" }}
@@ -34,11 +34,11 @@ export function ComunidadeNav() {
                 <img
                     src="/pgar-logo.png"
                     alt="PGAR"
-                    className="h-5 w-auto opacity-90 md:h-6"
+                    className="h-4 w-auto shrink-0 opacity-90 sm:h-5 md:h-6"
                 />
 
                 <CheckoutButton size="sm" href="#oferta" variant="glass">
-                    Ver a assinatura
+                    Ver preço
                 </CheckoutButton>
             </div>
         </motion.header>

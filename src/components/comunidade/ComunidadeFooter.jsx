@@ -2,11 +2,11 @@
 
 export function ComunidadeFooter() {
     return (
-        <footer className="relative w-full px-6 pb-14 pt-16">
+        <footer className="relative w-full px-5 pb-28 pt-12 sm:px-6 sm:pb-14 sm:pt-16">
             <div className="mx-auto max-w-5xl">
                 <div className="cmn-hairline" />
 
-                <div className="mt-10 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
+                <div className="mt-8 flex flex-col items-start justify-between gap-7 sm:mt-10 sm:gap-8 md:flex-row md:items-end">
                     <div>
                         <img
                             src="/pgar-logo.png"

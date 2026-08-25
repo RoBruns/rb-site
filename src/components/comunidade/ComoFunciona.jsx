@@ -11,50 +11,50 @@ const pilares = [
     {
         icon: GraduationCap,
         titulo: "Os cursos",
-        chamada: "O centro da sua evolução começa pela sua metodologia.",
+        chamada: "A base do que você vai aplicar no campo.",
         texto:
-            "Acesse o curso CIMO, o curso de carreira e os próximos cursos ou módulos liberados durante a sua assinatura. É conteúdo para transformar repertório em decisões mais seguras no campo.",
+            "O curso CIMO e o curso de carreira ficam liberados desde o primeiro dia. E todo curso ou módulo novo que sair enquanto você estiver dentro entra na sua conta, sem cobrar de novo.",
         destaque: true,
     },
     {
         icon: MessagesSquare,
         titulo: "A comunidade e o WhatsApp",
-        chamada: "Troca qualificada para a rotina de quem prepara goleiros.",
+        chamada: "Onde a dúvida do dia a dia é resolvida.",
         texto:
-            "Participe do grupo de WhatsApp da comunidade e tenha acesso ao WhatsApp do Rodrigo para conversas e dúvidas sobre metodologia, rotina e carreira, enquanto a assinatura estiver ativa.",
+            "Você entra no grupo dos preparadores e também tem o WhatsApp do Rodrigo para falar direto com ele sobre treino, rotina e carreira. É o que nenhum curso gravado dá.",
         destaque: false,
     },
     {
         icon: Video,
         titulo: "Os encontros",
-        chamada: "Troca ao vivo para dar sequência ao seu processo.",
+        chamada: "Uma hora por mês olhando o seu caso.",
         texto:
-            "A assinatura inclui um encontro mensal da comunidade e, nos seis primeiros meses, um encontro individual de uma hora com Rodrigo.",
+            "Um encontro em grupo por mês, ao vivo, para dúvidas de metodologia e de carreira. Mais um encontro individual de cerca de uma hora com o Rodrigo, marcado quando você quiser dentro dos seis meses.",
         destaque: false,
     },
 ];
 
 const fundamentosCimo = [
-    ["C", "Contexto", "Leia o atleta, a equipe, a categoria e o momento antes de decidir."],
-    ["I", "Intensidade", "Conecte o estímulo do treino ao objetivo e à demanda real."],
-    ["M", "Mentalidade", "Trabalhe atenção, comportamento e atitude ao longo do processo."],
-    ["O", "Organização", "Dê sequência e propósito às decisões que constroem o método."],
+    ["C", "Contexto", "Quem é esse goleiro, em que categoria, em que momento da equipe."],
+    ["I", "Intensidade", "Que estímulo o treino precisa dar, e por quê esse e não outro."],
+    ["M", "Mentalidade", "Atenção, comportamento e atitude, treinados como o resto."],
+    ["O", "Organização", "A sequência que faz uma semana puxar a próxima."],
 ];
 
 export function ComoFunciona() {
     const [principal, ...secundarios] = pilares;
 
     return (
-        <section className="relative w-full py-24 md:py-36">
+        <section className="relative w-full py-16 sm:py-24 md:py-36">
 
-            <div className="relative z-10 mx-auto max-w-6xl px-6">
+            <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-6">
                 <div className="max-w-3xl">
                     <motion.span
                         initial={{ opacity: 0, y: 12 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.5 }}
                         transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-                        className="text-[11px] font-semibold uppercase tracking-[0.28em] text-electric-blue"
+                        className="text-[10px] font-semibold uppercase tracking-[0.2em] text-electric-blue sm:text-[11px] sm:tracking-[0.28em]"
                     >
                         Como funciona na prática
                     </motion.span>
@@ -64,9 +64,9 @@ export function ComoFunciona() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-5 font-display text-4xl font-bold uppercase leading-[0.98] tracking-tight text-ice md:text-6xl"
+                        className="mt-4 font-display text-[clamp(1.95rem,8.6vw,2.75rem)] font-bold uppercase leading-[1] tracking-tight text-ice sm:mt-5 md:text-6xl md:leading-[0.98]"
                     >
-                        Uma assinatura para estudar, trocar e organizar o seu método.
+                        Estudar, perguntar e organizar. Todo mês.
                     </motion.h2>
 
                     <motion.p
@@ -74,22 +74,22 @@ export function ComoFunciona() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.4 }}
                         transition={{ duration: 1, delay: 0.16, ease: "easeOut" }}
-                        className="mt-6 text-base leading-relaxed text-ice/65 md:text-lg"
+                        className="mt-5 text-[15px] leading-relaxed text-ice/65 sm:mt-6 sm:text-base md:text-lg"
                     >
-                        Nos seis meses iniciais, você tem acesso às entregas abaixo.
-                        Comunidade, WhatsApp, encontros, cursos disponíveis e futuros cursos
-                        ou módulos dependem de a assinatura permanecer ativa.
+                        Seus seis meses começam no dia em que você entra, não em data
+                        de turma. Tudo o que está abaixo fica liberado enquanto a
+                        assinatura estiver ativa.
                     </motion.p>
                 </div>
 
-                <div className="mt-14 grid gap-5 lg:grid-cols-[1.35fr_0.9fr]">
+                <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-5 lg:grid-cols-[1.35fr_0.9fr]">
                     {/* Cursos: pilar principal da assinatura */}
                     <motion.article
                         initial={{ opacity: 0, y: 26 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.25 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="cmn-glass-glow cmn-lift relative overflow-hidden p-7 md:p-10"
+                        className="cmn-glass-glow cmn-lift relative overflow-hidden p-6 sm:p-7 md:p-10"
                     >
                         <div className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-electric-blue/10 blur-3xl" />
                         <div className="relative">
@@ -100,23 +100,23 @@ export function ComoFunciona() {
                                     strokeWidth={2}
                                 />
                                 </span>
-                                <span className="rounded-full border border-electric-blue/25 bg-electric-blue/10 px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-electric-blue">
+                                <span className="shrink-0 rounded-full border border-electric-blue/25 bg-electric-blue/10 px-2.5 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-electric-blue sm:px-3 sm:text-[10px] sm:tracking-[0.2em]">
                                     Pilar principal
                                 </span>
                             </div>
 
-                            <p className="mt-7 text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/45">
+                            <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:mt-7 sm:text-[11px] sm:tracking-[0.24em]">
                                 {principal.titulo}
                             </p>
-                            <p className="mt-3 font-display text-2xl font-bold uppercase leading-tight tracking-tight text-ice md:text-3xl">
+                            <p className="mt-3 font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice sm:text-2xl md:text-3xl">
                                 {principal.chamada}
                             </p>
-                            <p className="mt-5 text-[15px] leading-relaxed text-ice/65 md:text-base">
+                            <p className="mt-4 text-[14px] leading-relaxed text-ice/65 sm:mt-5 sm:text-[15px] md:text-base">
                                 {principal.texto}
                             </p>
 
-                            <div className="mt-7 grid gap-3 sm:grid-cols-2">
-                                <div className="rounded-2xl border border-white/10 bg-obsidian/35 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+                            <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
+                                <div className="rounded-2xl border border-white/10 bg-obsidian/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-5">
                                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">
                                         Método CIMO
                                     </p>
@@ -151,7 +151,7 @@ export function ComoFunciona() {
                                         delay: 0.1 + i * 0.1,
                                         ease: [0.16, 1, 0.3, 1],
                                     }}
-                                    className="cmn-glass-lit cmn-lift p-7 md:p-8"
+                                    className="cmn-glass-lit cmn-lift p-6 sm:p-7 md:p-8"
                                 >
                                     <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5">
                                         <Icon
@@ -160,10 +160,10 @@ export function ComoFunciona() {
                                         />
                                     </span>
 
-                                    <p className="mt-6 text-[11px] font-semibold uppercase tracking-[0.24em] text-ice/45">
+                                    <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:mt-6 sm:text-[11px] sm:tracking-[0.24em]">
                                         {p.titulo}
                                     </p>
-                                    <p className="mt-2.5 font-display text-lg font-bold uppercase leading-tight tracking-tight text-ice md:text-xl">
+                                    <p className="mt-2.5 font-display text-base font-bold uppercase leading-tight tracking-tight text-ice sm:text-lg md:text-xl">
                                         {p.chamada}
                                     </p>
                                     <p className="mt-3.5 text-sm leading-relaxed text-ice/60">
@@ -180,19 +180,19 @@ export function ComoFunciona() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
-                    className="cmn-glass-lit mt-12 overflow-hidden p-6 md:p-8"
+                    className="cmn-glass-lit mt-10 overflow-hidden p-5 sm:mt-12 sm:p-6 md:p-8"
                 >
-                    <div className="grid gap-8 lg:grid-cols-[0.8fr_1.7fr] lg:items-center">
+                    <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.7fr] lg:items-center">
                         <div>
                             <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-electric-blue">
                                 A metodologia CIMO
                             </p>
-                            <h3 className="mt-3 font-display text-3xl font-bold uppercase leading-[0.95] tracking-tight text-ice md:text-4xl">
-                                Menos improviso. Mais intenção em cada escolha.
+                            <h3 className="mt-3 font-display text-2xl font-bold uppercase leading-[1] tracking-tight text-ice sm:text-3xl md:text-4xl md:leading-[0.95]">
+                                Quatro perguntas antes de montar o treino.
                             </h3>
                             <p className="mt-4 text-sm leading-relaxed text-ice/60">
-                                Um método não é uma receita pronta: é uma forma de enxergar,
-                                organizar e evoluir o seu trabalho.
+                                CIMO não entrega treino pronto. Entrega a ordem em que
+                                você pensa antes de escolher o que vai fazer.
                             </p>
                         </div>
 
