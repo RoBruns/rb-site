@@ -13,7 +13,7 @@ const pilares = [
         titulo: "Os cursos",
         chamada: "A base do que você vai aplicar no campo.",
         texto:
-            "O curso CIMO e o curso de carreira ficam liberados desde o primeiro dia. E todo curso ou módulo novo que sair enquanto você estiver dentro entra na sua conta, sem cobrar de novo.",
+            "O curso CIMO e o Diagnóstico Profissional ficam liberados desde o primeiro dia. E todo curso ou módulo novo que sair enquanto você estiver dentro entra na sua conta, sem cobrar de novo.",
         destaque: true,
     },
     {
@@ -21,22 +21,40 @@ const pilares = [
         titulo: "A comunidade e o WhatsApp",
         chamada: "Onde a dúvida do dia a dia é resolvida.",
         texto:
-            "Você entra no grupo dos preparadores e também tem o WhatsApp do Rodrigo para falar direto com ele sobre treino, rotina e carreira. É o que nenhum curso gravado dá.",
+            "Grupo de preparadores e contato direto com o Rodrigo, para dúvidas de treino, rotina e carreira. O que nenhum curso gravado dá.",
         destaque: false,
     },
     {
         icon: Video,
         titulo: "Os encontros",
-        chamada: "Uma hora por mês olhando o seu caso.",
+        chamada: "Uma vez por mês olhando o seu caso.",
         texto:
-            "Um encontro em grupo por mês, ao vivo, para dúvidas de metodologia e de carreira. Mais um encontro individual de cerca de uma hora com o Rodrigo, marcado quando você quiser dentro dos seis meses.",
+            "Um encontro em grupo por mês, ao vivo. Mais um encontro individual com o Rodrigo, quando você quiser.",
         destaque: false,
     },
 ];
 
+const aulasDiagnostico = [
+    [
+        "01",
+        "Onde você está, onde quer chegar",
+        "Sua posição no mercado hoje, e a meta para os próximos 3 a 5 anos.",
+    ],
+    [
+        "02",
+        "O Preparador de Alto Rendimento",
+        "Competências e mentalidade de quem ocupa as melhores posições do mercado.",
+    ],
+    [
+        "03",
+        "Diagnóstico e Plano de Desenvolvimento",
+        "Metas SMART e um plano de ação, pra fechar o Mapa de Carreira.",
+    ],
+];
+
 const fundamentosCimo = [
-    ["C", "Contexto", "Quem é esse goleiro, em que categoria, em que momento da equipe."],
-    ["I", "Intensidade", "Que estímulo o treino precisa dar, e por quê esse e não outro."],
+    ["C", "Contexto", "Quem é esse goleiro, em que categoria e momento da equipe."],
+    ["I", "Intensidade", "Que estímulo o treino precisa dar, e por quê."],
     ["M", "Mentalidade", "Atenção, comportamento e atitude, treinados como o resto."],
     ["O", "Organização", "A sequência que faz uma semana puxar a próxima."],
 ];
@@ -45,7 +63,7 @@ export function ComoFunciona() {
     const [principal, ...secundarios] = pilares;
 
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
 
             <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-6">
                 <div className="max-w-3xl">
@@ -76,9 +94,8 @@ export function ComoFunciona() {
                         transition={{ duration: 1, delay: 0.16, ease: "easeOut" }}
                         className="mt-5 text-[15px] leading-relaxed text-ice/65 sm:mt-6 sm:text-base md:text-lg"
                     >
-                        Seus seis meses começam no dia em que você entra, não em data
-                        de turma. Tudo o que está abaixo fica liberado enquanto a
-                        assinatura estiver ativa.
+                        Seus seis meses começam no dia em que você entra — sem
+                        turma, sem data fixa.
                     </motion.p>
                 </div>
 
@@ -95,10 +112,10 @@ export function ComoFunciona() {
                         <div className="relative">
                             <div className="flex items-center justify-between gap-4">
                                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-electric-blue/30 bg-electric-blue/10">
-                                <principal.icon
-                                    className="h-5.5 w-5.5 text-electric-blue"
-                                    strokeWidth={2}
-                                />
+                                    <principal.icon
+                                        className="h-5.5 w-5.5 text-electric-blue"
+                                        strokeWidth={2}
+                                    />
                                 </span>
                                 <span className="shrink-0 rounded-full border border-electric-blue/25 bg-electric-blue/10 px-2.5 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-electric-blue sm:px-3 sm:text-[10px] sm:tracking-[0.2em]">
                                     Pilar principal
@@ -126,7 +143,7 @@ export function ComoFunciona() {
                                 </div>
                                 <div className="rounded-2xl border border-white/10 bg-obsidian/35 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
                                     <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">
-                                        Curso de carreira
+                                        Diagnóstico Profissional
                                     </p>
                                     <p className="mt-2 font-display text-lg font-bold uppercase leading-tight text-ice">
                                         Prepare o próximo passo da sua trajetória.
@@ -179,8 +196,52 @@ export function ComoFunciona() {
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+                    transition={{ duration: 1, delay: 0.1, ease: "easeOut" }}
                     className="cmn-glass-lit mt-10 overflow-hidden p-5 sm:mt-12 sm:p-6 md:p-8"
+                >
+                    <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.7fr] lg:items-center">
+                        <div>
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-electric-blue">
+                                O Diagnóstico Profissional
+                            </p>
+                            <h3 className="mt-3 font-display text-2xl font-bold uppercase leading-[1] tracking-tight text-ice sm:text-3xl md:text-4xl md:leading-[0.95]">
+                                Um módulo que te ajuda a direcionar sua carreira.
+                            </h3>
+                            <p className="mt-4 text-sm leading-relaxed text-ice/60">
+                                Cada aula alimenta o Mapa de Carreira que você
+                                preenche ao longo do módulo.
+                            </p>
+                        </div>
+
+                        <div className="grid gap-3 sm:grid-cols-3">
+                            {aulasDiagnostico.map(([numero, titulo, texto]) => (
+                                <div
+                                    key={titulo}
+                                    className="rounded-2xl border border-white/10 bg-obsidian/30 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]"
+                                >
+                                    <div className="flex items-baseline gap-2">
+                                        <span className="font-display text-sm font-bold text-electric-blue">
+                                            {numero}
+                                        </span>
+                                        <p className="font-display text-base font-bold uppercase tracking-tight text-ice">
+                                            {titulo}
+                                        </p>
+                                    </div>
+                                    <p className="mt-3 text-sm leading-relaxed text-ice/55">
+                                        {texto}
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+                    className="cmn-glass-lit mt-6 overflow-hidden p-5 sm:mt-8 sm:p-6 md:p-8"
                 >
                     <div className="grid gap-6 sm:gap-8 lg:grid-cols-[0.8fr_1.7fr] lg:items-center">
                         <div>
@@ -188,11 +249,11 @@ export function ComoFunciona() {
                                 A metodologia CIMO
                             </p>
                             <h3 className="mt-3 font-display text-2xl font-bold uppercase leading-[1] tracking-tight text-ice sm:text-3xl md:text-4xl md:leading-[0.95]">
-                                Quatro perguntas antes de montar o treino.
+                                Quatro pilares que formam a metodologia.
                             </h3>
                             <p className="mt-4 text-sm leading-relaxed text-ice/60">
-                                CIMO não entrega treino pronto. Entrega a ordem em que
-                                você pensa antes de escolher o que vai fazer.
+                                Não é treino pronto. É a ordem em que você pensa
+                                antes de escolher o que fazer.
                             </p>
                         </div>
 

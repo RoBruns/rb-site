@@ -33,7 +33,7 @@ const itens = [
 
 export function Transformacoes() {
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
             <div className="relative z-10 mx-auto max-w-6xl px-5 sm:px-6">
                 <div className="max-w-3xl">
                     <motion.h2

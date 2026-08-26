@@ -2,18 +2,11 @@
 
 import { motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
 
 const rise = {
     hidden: { opacity: 0, y: 24 },
     show: { opacity: 1, y: 0 },
 };
-
-const provas = [
-    { valor: "+20", label: "anos formando goleiros" },
-    { valor: "Desde 2012", label: "no Red Bull" },
-    { valor: "Licença A", label: "Treinador de Goleiros CBF" },
-];
 
 export function ComunidadeHero() {
     return (
@@ -105,10 +98,10 @@ export function ComunidadeHero() {
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-6 font-display text-[clamp(2.1rem,9.6vw,3.5rem)] font-bold uppercase leading-[0.94] tracking-tight text-ice sm:mt-7 md:text-7xl md:leading-[0.92] lg:text-[78px]"
                     >
-                        Treine com método.
+                        Treino não é chute.
                         <br />
                         <span className="text-electric-blue">
-                            Decida com confiança.
+                            Aprenda com direção.
                         </span>
                     </motion.h1>
 
@@ -119,10 +112,11 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-6 max-w-xl text-[15px] leading-relaxed text-ice/70 sm:mt-7 sm:text-base md:text-lg"
                     >
-                        São mais de 20 anos formando goleiros e preparadores, num grupo
-                        onde você pode perguntar, discordar e testar. Você leva daqui um
-                        jeito de pensar o treino que funciona no seu clube, na sua
-                        categoria, com o tempo que você tem.
+                        Mais de 20 anos formando goleiros e preparadores, agora
+                        reunidos em dois cursos e num grupo onde você pergunta,
+                        discorda e testa. Você sai daqui com um jeito de pensar o
+                        treino que funciona no seu clube, na sua categoria, com o
+                        tempo que você tem.
                     </motion.p>
 
                     <motion.div
@@ -136,36 +130,9 @@ export function ComunidadeHero() {
                             Entrar na Comunidade
                         </CheckoutButton>
                         <div className="text-[13px] leading-snug text-ice/55 sm:text-sm">
-                            <span className="font-semibold text-ice/80">
-                                {PRICE_INSTALLMENT} ou {PRICE_CASH} à vista
-                            </span>
-                            <br />
                             Seis meses de comunidade, cursos e encontros.
                         </div>
                     </motion.div>
-
-                    <motion.ul
-                        initial="hidden"
-                        animate="show"
-                        variants={rise}
-                        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-9 grid max-w-lg grid-cols-3 gap-2 sm:mt-11 sm:gap-3"
-                    >
-                        {provas.map((p) => (
-                            <li
-                                key={p.label}
-                                className="cmn-glass-lit cmn-lift min-w-0 px-2.5 py-3 sm:px-4 sm:py-4"
-                                style={{ borderRadius: "var(--cmn-r-md)" }}
-                            >
-                                <p className="font-display text-lg font-bold leading-none text-electric-blue sm:text-2xl md:text-3xl">
-                                    {p.valor}
-                                </p>
-                                <p className="mt-1.5 text-[10px] leading-snug text-ice/50 sm:mt-2 sm:text-[11px]">
-                                    {p.label}
-                                </p>
-                            </li>
-                        ))}
-                    </motion.ul>
                 </div>
             </div>
         </section>

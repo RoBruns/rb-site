@@ -6,7 +6,7 @@ import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
 
 export function CtaFinal() {
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
 
             <div className="relative z-10 mx-auto max-w-3xl px-5 text-center sm:px-6">
                 <motion.h2

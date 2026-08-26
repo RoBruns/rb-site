@@ -17,7 +17,7 @@ const serve = [
 
 export function NaoEPraVoce() {
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
             <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export function Virada() {
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
 
             <div className="relative z-10 mx-auto max-w-4xl px-5 text-center sm:px-6">
                 <motion.span

@@ -30,13 +30,13 @@ const perguntas = [
     },
     {
         q: "O que exatamente está incluído?",
-        a: "Grupo de WhatsApp da comunidade, contato direto com o Rodrigo no WhatsApp, um encontro em grupo por mês, um encontro individual de cerca de uma hora dentro dos seis meses, o curso CIMO, o curso de carreira e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
+        a: "Grupo de WhatsApp da comunidade, contato direto com o Rodrigo no WhatsApp, um encontro em grupo por mês, um encontro individual de dentro dos seis meses, o curso CIMO, o Diagnóstico Profissional e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
     },
 ];
 
 export function FAQ() {
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
             <div className="relative z-10 mx-auto max-w-3xl px-5 sm:px-6">
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}

@@ -24,7 +24,7 @@ const inclui = [
     {
         icon: Video,
         titulo: "Encontros ao vivo",
-        desc: "Um em grupo por mês, mais um individual de cerca de uma hora dentro dos seis meses.",
+        desc: "Um em grupo por mês, mais um individual durante os seis meses.",
     },
     {
         icon: GraduationCap,
@@ -33,7 +33,7 @@ const inclui = [
     },
     {
         icon: GraduationCap,
-        titulo: "Curso de carreira",
+        titulo: "Diagnóstico Profissional",
         desc: "O que o mercado cobra de um preparador de alto rendimento, e como chegar lá.",
     },
     {
@@ -47,7 +47,7 @@ export function Oferta() {
     return (
         <section
             id="oferta"
-            className="relative w-full scroll-mt-20 py-16 sm:py-24 md:scroll-mt-24 md:py-36"
+            className="relative w-full scroll-mt-20 py-12 sm:py-20 md:scroll-mt-24 md:py-28"
         >
 
             <div className="relative z-10 mx-auto max-w-4xl px-5 sm:px-6">
@@ -115,9 +115,6 @@ export function Oferta() {
 
                         {/* Preço */}
                         <div className="flex flex-col items-center justify-center p-6 text-center sm:p-8 md:p-10">
-                            <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/40 sm:text-[11px] sm:tracking-[0.24em]">
-                                6 meses
-                            </p>
 
                             <div className="mt-5">
                                 <p className="text-sm font-medium text-ice/50">6x de</p>

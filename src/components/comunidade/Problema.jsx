@@ -15,7 +15,7 @@ const duvidas = [
 
 export function Problema() {
     return (
-        <section className="relative w-full py-16 sm:py-24 md:py-36">
+        <section className="relative w-full py-12 sm:py-20 md:py-28">
             <div className="relative z-10 mx-auto max-w-5xl px-5 sm:px-6">
                 <div className="grid gap-9 sm:gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
                     <div className="lg:sticky lg:top-32 lg:self-start">
@@ -40,8 +40,11 @@ export function Problema() {
                         >
                             Você estuda, salva exercício, assiste treino dos outros.
                             Mesmo assim, na hora de montar a semana, a dúvida volta
-                            sempre pro mesmo lugar: isso serve para o goleiro que eu
-                            tenho, na categoria que eu tenho, com o tempo que eu tenho?
+                            sempre pro mesmo lugar:{" "}
+                            <span className="font-semibold text-electric-blue">
+                                isso serve para o goleiro que eu tenho, na categoria
+                                que eu tenho, com o tempo que eu tenho?
+                            </span>
                         </motion.p>
                     </div>
 

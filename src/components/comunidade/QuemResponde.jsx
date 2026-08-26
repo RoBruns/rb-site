@@ -18,7 +18,7 @@ export function QuemResponde() {
     const imgY = useTransform(scrollYProgress, [0, 1], ["-4%", "4%"]);
 
     return (
-        <section className="relative w-full overflow-hidden py-16 sm:py-24 md:py-36">
+        <section className="relative w-full overflow-hidden py-12 sm:py-20 md:py-28">
 
             {/* Nome em marca-d'água, como na página da mentoria.
 
