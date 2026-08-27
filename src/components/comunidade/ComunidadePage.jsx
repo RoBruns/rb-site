@@ -5,7 +5,6 @@ import Lenis from "lenis";
 import "./ds.css";
 import { ComunidadeNav } from "./ComunidadeNav";
 import { ComunidadeHero } from "./ComunidadeHero";
-import { Problema } from "./Problema";
 import { Virada } from "./Virada";
 import { Transformacoes } from "./Transformacoes";
 import { QuemResponde } from "./QuemResponde";
@@ -74,7 +73,6 @@ export function ComunidadePage() {
             <div className="relative z-10">
                 <ComunidadeNav />
                 <ComunidadeHero />
-                <Problema />
                 <Virada />
                 <Transformacoes />
                 <QuemResponde />

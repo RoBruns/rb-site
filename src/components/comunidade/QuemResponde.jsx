@@ -46,38 +46,68 @@ export function QuemResponde() {
                     Quem conduz a comunidade
                 </motion.p>
 
-                <div className="mt-8 grid items-stretch gap-10 sm:mt-10 lg:grid-cols-[0.8fr_1fr] lg:gap-16">
+                <div className="mt-8 grid items-start gap-6 sm:mt-10 lg:grid-cols-[0.8fr_1fr] lg:gap-16">
                     {/* Retrato */}
-                    <div className="flex flex-col">
-                        <motion.div
-                            ref={ref}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.25 }}
-                            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                            className="cmn-glass-lit relative min-h-[300px] flex-1 overflow-hidden sm:min-h-[420px]"
-                        >
-                            <motion.img
-                                style={{ y: imgY, scale: 1.08 }}
-                                src="/mentoria-rodrigo.png"
-                                alt="Rodrigo Bruns, atuante na preparação de goleiros do Red Bull Bragantino"
-                                loading="lazy"
-                                className="h-full w-full object-cover object-top will-change-transform"
-                            />
+                    <motion.div
+                        ref={ref}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.25 }}
+                        transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                        className="cmn-glass-lit relative h-[320px] overflow-hidden sm:h-[360px]"
+                    >
+                        <motion.img
+                            style={{ y: imgY, scale: 1.08 }}
+                            src="/mentoria-rodrigo.png"
+                            alt="Rodrigo Bruns, atuante na preparação de goleiros do Red Bull Bragantino"
+                            loading="lazy"
+                            className="h-full w-full object-cover object-top will-change-transform"
+                        />
 
-                            <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent px-5 pb-5 pt-20 sm:px-6 sm:pb-6">
-                                <p className="font-display text-2xl font-bold uppercase leading-none tracking-tight text-ice sm:text-3xl md:text-4xl">
-                                    Rodrigo{" "}
-                                    <span className="text-electric-blue">Bruns</span>
-                                </p>
-                                <p className="mt-2 text-[9px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-ice/45 sm:text-[10px] sm:tracking-[0.2em]">
-                                    Preparação de goleiros · Red Bull Bragantino
-                                </p>
-                            </div>
+                        <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian via-obsidian/70 to-transparent px-5 pb-5 pt-20 sm:px-6 sm:pb-6">
+                            <p className="font-display text-2xl font-bold uppercase leading-none tracking-tight text-ice sm:text-3xl md:text-4xl">
+                                Rodrigo{" "}
+                                <span className="text-electric-blue">Bruns</span>
+                            </p>
+                            <p className="mt-2 text-[9px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-ice/45 sm:text-[10px] sm:tracking-[0.2em]">
+                                Preparação de goleiros · Red Bull Bragantino
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Texto, em primeira pessoa + credenciais */}
+                    <div className="flex flex-col">
+                        <motion.p
+                            initial={{ opacity: 0, y: 16 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.4 }}
+                            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+                            className="font-display text-lg leading-[1.35] tracking-tight text-ice sm:text-xl md:text-[1.65rem]"
+                        >
+                            Meu trabalho é pegar o que o campo ensinou e devolver
+                            isso em forma de método.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 14 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
+                            className="mt-6 text-[14px] leading-relaxed text-ice/70 sm:mt-7 sm:text-sm md:text-base"
+                        >
+                            <p>
+                                São mais de 20 anos formando goleiros. Hoje, como
+                                coordenador da preparação de goleiros, trabalho lado a
+                                lado com goleiros e preparadores, e trago esse
+                                conhecimento para ajudar quem enfrenta a mesma
+                                dificuldade que eu já enfrentei, quem se sente perdido
+                                como eu já me senti. E dar aquele direcionamento que faz a
+                                diferença na sua carreira e na sua metodologia.
+                            </p>
                         </motion.div>
 
                         {/* Credenciais */}
-                        <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-3">
+                        <div className="mt-8 grid grid-cols-3 gap-2 sm:mt-10 sm:gap-3">
                             {credenciais.map((c, i) => (
                                 <motion.div
                                     key={c.valor}
@@ -101,61 +131,6 @@ export function QuemResponde() {
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-
-                    {/* Texto, em primeira pessoa */}
-                    <div>
-                        <motion.p
-                            initial={{ opacity: 0, y: 16 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.4 }}
-                            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                            className="font-display text-lg leading-[1.35] tracking-tight text-ice sm:text-xl md:text-[1.65rem]"
-                        >
-                            Meu trabalho é pegar o que o campo ensinou e devolver
-                            isso em forma de método.
-                        </motion.p>
-
-                        <motion.div
-                            initial={{ opacity: 0, y: 14 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
-                            className="mt-6 space-y-4 text-[14px] leading-relaxed text-ice/70 sm:mt-7 sm:text-sm md:text-base"
-                        >
-                            <p>
-                                Comecei no futebol dentro de campo, como atleta
-                                profissional. Quando pendurei as chuteiras, fui para o
-                                outro lado: desenvolver goleiros, e depois quem os
-                                prepara.
-                            </p>
-                            <p>
-                                Sou formado em Educação Física e tenho Licença A de
-                                Treinador de Goleiros da CBF. São mais de 20 anos nisso.
-                                Estou no projeto Red Bull desde 2009 e na preparação de
-                                goleiros do Red Bull Bragantino desde 2019.
-                            </p>
-                            <p>
-                                Na Comunidade eu não delego. Sou eu no grupo, sou eu no
-                                encontro do mês e sou eu do outro lado do WhatsApp. Levo
-                                para lá o que funciona no meu dia a dia, e o resto a
-                                gente discute junto.
-                            </p>
-                        </motion.div>
-
-                        <motion.blockquote
-                            initial={{ opacity: 0, y: 14 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.5 }}
-                            transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                            className="mt-8 border-l-2 border-electric-blue pl-5 sm:mt-9 sm:pl-6 md:pl-8"
-                        >
-                            <p className="font-display text-lg uppercase leading-snug tracking-tight text-ice sm:text-xl md:text-2xl">
-                                &ldquo;Método não se copia. Se constrói olhando o seu
-                                goleiro, errando, corrigindo e voltando no dia
-                                seguinte.&rdquo;
-                            </p>
-                        </motion.blockquote>
                     </div>
                 </div>
             </div>

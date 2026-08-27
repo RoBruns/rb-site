@@ -24,9 +24,9 @@ export function Virada() {
                     transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                     className="mt-6 font-display text-[clamp(1.95rem,8.6vw,2.75rem)] font-bold uppercase leading-[1] tracking-tight text-ice sm:mt-8 md:text-6xl md:leading-[0.98]"
                 >
-                    Você já tem exercício demais.
+                    Você decide sozinho.
                     <br />
-                    <span className="text-electric-blue">O que falta é ordem.</span>
+                    <span className="text-electric-blue">E não sabe se acertou.</span>
                 </motion.h2>
 
                 <motion.div
@@ -34,18 +34,13 @@ export function Virada() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.35 }}
                     transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="mx-auto mt-8 max-w-2xl space-y-4 text-left text-[15px] leading-relaxed text-ice/70 sm:mt-12 sm:space-y-5 sm:text-base md:text-lg"
+                    className="mx-auto mt-8 max-w-2xl text-left text-[15px] leading-relaxed text-ice/70 sm:mt-12 sm:text-base md:text-lg"
                 >
                     <p>
-                        Guardar mais exercício não muda o seu treino. O que muda é você
-                        olhar para o goleiro, entender o momento dele e da equipe, e
-                        escolher o estímulo sabendo o que espera dali. Depois olhar o
-                        que aconteceu e corrigir a rota.
-                    </p>
-                    <p>
-                        É isso que a Comunidade PGAR faz: o método CIMO te dá a régua,
-                        os encontros e o grupo te dão com quem discutir, e o resto é
-                        você aplicando no seu clube e voltando para contar como foi.
+                        Referência você já tem de sobra. O que falta é alguém para
+                        conferir a leitura antes do treino, não depois. É isso que a
+                        Comunidade PGAR entrega: o método CIMO dá a régua, o grupo e
+                        os encontros dão com quem discutir.
                     </p>
                 </motion.div>
 

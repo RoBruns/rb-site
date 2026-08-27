@@ -13,21 +13,21 @@ const itens = [
         antes: "Decide sozinho e fica com a dúvida se acertou.",
         depois: "Mais confiança para decidir",
         detalhe:
-            "Você passa a ter do seu lado mais de 20 anos de trabalho com goleiros e preparadores. Dá para levar a situação, ouvir uma leitura diferente da sua, ser questionado e sair com um caminho mais seguro do que o que você tinha sozinho.",
+            "Mais de 20 anos de experiência do seu lado, prontos para conferir a leitura antes do treino.",
     },
     {
         numero: "02",
         antes: "Repete exercício sem saber que prioridade ele atende.",
         depois: "Mais clareza e método para treinar",
         detalhe:
-            "Uma metodologia organizada e atual, alinhada ao que se usa hoje no alto rendimento. Você desenvolve critério para ler o goleiro, definir a prioridade da semana e montar treino com propósito.",
+            "Critério para ler o goleiro, definir a prioridade da semana e montar treino com propósito.",
     },
     {
         numero: "03",
         antes: "Espera a oportunidade aparecer para então correr atrás.",
         depois: "Mais preparação para evoluir na carreira",
         detalhe:
-            "Atualização profissional e uma visão clara das competências e dos comportamentos que o mercado cobra de um preparador de alto rendimento. Quando a vaga aparecer, você chega nela preparado.",
+            "As competências que o alto rendimento cobra, para chegar pronto quando a vaga aparecer.",
     },
 ];
 
@@ -54,9 +54,9 @@ export function Transformacoes() {
                         transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
                         className="mt-5 text-[15px] leading-relaxed text-ice/65 sm:mt-6 sm:text-base md:text-lg"
                     >
-                        A Comunidade não tem linha de chegada. Enquanto você estiver
-                        dentro, estuda, aplica no seu clube, volta para discutir e
-                        ajusta. É esse ciclo que move as três coisas abaixo.
+                        A Comunidade não tem linha de chegada: você estuda, aplica no
+                        seu clube e volta para ajustar. É esse ciclo que move as três
+                        coisas abaixo.
                     </motion.p>
                 </div>
 
