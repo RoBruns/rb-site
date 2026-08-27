@@ -10,9 +10,9 @@ export const metadata = {
     },
     icons: { icon: "/favico.ico" },
     openGraph: {
-        title: "Comunidade PGAR | Treine com método, decida com confiança",
+        title: "Comunidade PGAR | Treino não é só chute, aprenda com direção",
         description:
-            "Mais de 20 anos formando goleiros e preparadores, num grupo onde você pode perguntar, discordar e testar.",
+            "Mais de 20 anos formando goleiros e preparadores, agora reunidos em dois cursos e num grupo onde você pergunta, discorda e testa.",
         images: ["/comunidade-banner.png"],
         type: "website",
     },

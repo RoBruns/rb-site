@@ -74,7 +74,7 @@ export function ComunidadeHero() {
 
             {/* ---------- Conteúdo ---------- */}
             <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-6">
-                <div className="max-w-2xl">
+                <div className="max-w-3xl">
                     <motion.div
                         initial="hidden"
                         animate="show"
