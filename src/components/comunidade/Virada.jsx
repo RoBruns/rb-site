@@ -37,11 +37,11 @@ export function Virada() {
                     className="mx-auto mt-8 max-w-2xl text-left text-[15px] leading-relaxed text-ice/70 sm:mt-12 sm:text-base md:text-lg"
                 >
                     <p>
-                        Referência você já tem de sobra. O que falta é alguém para
-                        conferir sua metodologia antes de você colocar em prática, É isso que a
-                        Comunidade PGAR entrega: A metodologia CIMO te mostra como alto rendimento trabalha,
-                        o Diagnóstico Profissional dá o direcionamento da sua carreira, no grupo e nos encontros
-                        você tira dúvidas com quem é referência no mercado.
+                        O que falta é alguém qualificado para te dar feedbacks que fazem a diferença.
+                        É isso que a <strong>Comunidade PGAR</strong> entrega: A metodologia CIMO te mostra como o alto
+                        rendimento trabalha, o Diagnóstico Profissional dá o direcionamento da sua
+                        carreira, no grupo e nos encontros você tira dúvidas com quem é referência
+                        no mercado.
                     </p>
                 </motion.div>
 
@@ -53,9 +53,8 @@ export function Virada() {
                     className="cmn-glass-glow mx-auto mt-8 max-w-2xl px-6 py-7 sm:mt-12 sm:px-8 sm:py-8"
                 >
                     <p className="font-display text-lg font-bold uppercase leading-tight tracking-tight text-ice sm:text-xl md:text-2xl">
-                        Bolas anunciadas, quedas rasterias... você repete aquilo que fez
-                        sendo goleiro. Sem direcionamento, você repete o que viveu, sem
-                        saber se resolve o que o seu goleiro precisa e o que a sua equipe busca.
+                        Hoje você apenas repete o que viveu,
+                        sem saber se é exatamente o que o seu goleiro precisa. <br /><br /> <strong>O que te falta é um método!</strong>
                     </p>
                 </motion.div>
             </div>

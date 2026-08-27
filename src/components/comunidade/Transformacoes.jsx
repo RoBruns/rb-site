@@ -13,21 +13,21 @@ const itens = [
         antes: "Decide sozinho e fica com a dúvida se acertou.",
         depois: "Mais confiança para decidir",
         detalhe:
-            "Mais de 20 anos de experiência do seu lado, prontos para conferir a leitura antes do treino.",
+            "Tenha mais de 20 anos de experiência do seu lado, te dando o suporte necessário.",
     },
     {
         numero: "02",
-        antes: "Repete exercício sem saber que prioridade ele atende.",
+        antes: "Aplica exercícios sem saber exatamente o porquê.",
         depois: "Mais clareza e método para treinar",
         detalhe:
-            "Critério para ler o goleiro, definir a prioridade da semana e montar treino com propósito.",
+            "Aprenda como ler o goleiro, definir prioridades e montar o treino com propósito.",
     },
     {
         numero: "03",
         antes: "Espera a oportunidade aparecer para então correr atrás.",
         depois: "Mais preparação para evoluir na carreira",
         detalhe:
-            "As competências que o alto rendimento cobra, para chegar pronto quando a vaga aparecer.",
+            "Conheça as competências que o alto rendimento cobra, para estar pronto quando a vaga aparecer.",
     },
 ];
 
@@ -103,17 +103,6 @@ export function Transformacoes() {
                         </motion.article>
                     ))}
                 </div>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 1, delay: 0.15, ease: "easeOut" }}
-                    className="mt-10 max-w-2xl text-[15px] leading-relaxed text-ice/55 sm:mt-12 sm:text-base"
-                >
-                    Nada aqui garante vaga, promoção ou indicação. O que a Comunidade
-                    faz é te deixar pronto para quando a oportunidade aparecer.
-                </motion.p>
             </div>
         </section>
     );

@@ -96,12 +96,11 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-6 font-display text-[clamp(2.1rem,9.6vw,3.5rem)] font-bold uppercase leading-[0.94] tracking-tight text-ice sm:mt-7 md:text-7xl md:leading-[0.92] lg:text-[78px]"
+                        className="mt-6 font-display text-[clamp(1.9rem,8.4vw,3rem)] font-bold uppercase leading-[0.94] tracking-tight text-ice sm:mt-7 md:text-6xl md:leading-[0.92] lg:text-[66px]"
                     >
-                        Treino não é chute.
-                        <br />
+                        O próximo nível da sua carreira começa com{" "}
                         <span className="text-electric-blue">
-                            Aprenda com direção.
+                            MAIS MÉTODO e SEGURANÇA.
                         </span>
                     </motion.h1>
 
@@ -112,11 +111,11 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-6 max-w-xl text-[15px] leading-relaxed text-ice/70 sm:mt-7 sm:text-base md:text-lg"
                     >
-                        Mais de 20 anos formando goleiros e preparadores, agora
-                        reunidos em dois cursos e num grupo onde você pergunta,
-                        discorda e testa. Você sai daqui com um jeito de pensar o
-                        treino que funciona no seu clube, na sua categoria, com o
-                        tempo que você tem.
+                        Ganhe segurança para tomar decisões, aprofunde seu conhecimento técnico
+                        e construa um trabalho que faça você evoluir na carreira. <br /> <br />
+                        Reuni mais de 20 anos formando goleiros e preparadores em um ecossistema
+                        onde você estuda, pergunta, discorda e testa. Aprenda a pensar o treino
+                        de uma forma moderna e que funciona na sua realidade.
                     </motion.p>
 
                     <motion.div
@@ -126,12 +125,9 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-8 flex flex-col items-stretch gap-4 sm:mt-9 sm:flex-row sm:items-center"
                     >
-                        <CheckoutButton className="w-full sm:w-auto">
+                        <CheckoutButton href="#oferta" className="w-full sm:w-auto">
                             Entrar na Comunidade
                         </CheckoutButton>
-                        <div className="text-[13px] leading-snug text-ice/55 sm:text-sm">
-                            Seis meses de comunidade, cursos e encontros.
-                        </div>
                     </motion.div>
                 </div>
             </div>

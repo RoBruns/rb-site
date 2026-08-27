@@ -4,9 +4,12 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const credenciais = [
-    { valor: "+20", label: "anos formando goleiros" },
+    { valor: "Ex-atleta", label: "profissional" },
     { valor: "Licença A", label: "Treinador de Goleiros CBF" },
-    { valor: "2009", label: "no projeto Red Bull" },
+    { valor: "Pós-graduado", label: "em Treinamento, Técnica e Tática Desportiva" },
+    { valor: "Bacharel", label: "em Educação física" },
+
+
 ];
 
 export function QuemResponde() {
@@ -69,9 +72,6 @@ export function QuemResponde() {
                                 Rodrigo{" "}
                                 <span className="text-electric-blue">Bruns</span>
                             </p>
-                            <p className="mt-2 text-[9px] font-semibold uppercase leading-relaxed tracking-[0.14em] text-ice/45 sm:text-[10px] sm:tracking-[0.2em]">
-                                Preparação de goleiros · Red Bull Bragantino
-                            </p>
                         </div>
                     </motion.div>
 
@@ -84,8 +84,7 @@ export function QuemResponde() {
                             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-lg leading-[1.35] tracking-tight text-ice sm:text-xl md:text-[1.65rem]"
                         >
-                            Meu trabalho é pegar o que o campo ensinou e devolver
-                            isso em forma de método.
+                            Meu trabalho é usar a minha experiência, para te ajudar a evoluir.
                         </motion.p>
 
                         <motion.div
@@ -96,9 +95,9 @@ export function QuemResponde() {
                             className="mt-6 text-[14px] leading-relaxed text-ice/70 sm:mt-7 sm:text-sm md:text-base"
                         >
                             <p>
-                                São mais de 20 anos formando goleiros. Hoje, como
-                                coordenador da preparação de goleiros, trabalho lado a
-                                lado com goleiros e preparadores, e trago esse
+                                São mais de 20 anos de experiência. Como
+                                coordenador da preparação de goleiros, tenho trabalhado lado a
+                                lado com goleiros e preparadores, e hoje trago esse
                                 conhecimento para ajudar quem enfrenta a mesma
                                 dificuldade que eu já enfrentei, quem se sente perdido
                                 como eu já me senti. E dar aquele direcionamento que faz a
@@ -107,7 +106,7 @@ export function QuemResponde() {
                         </motion.div>
 
                         {/* Credenciais */}
-                        <div className="mt-8 grid grid-cols-3 gap-2 sm:mt-10 sm:gap-3">
+                        <div className="mt-8 grid grid-cols-2 gap-2 sm:mt-10 sm:grid-cols-4 sm:gap-3">
                             {credenciais.map((c, i) => (
                                 <motion.div
                                     key={c.valor}
@@ -119,13 +118,13 @@ export function QuemResponde() {
                                         delay: 0.1 + i * 0.08,
                                         ease: "easeOut",
                                     }}
-                                    className="cmn-glass min-w-0 px-2.5 py-3 sm:px-4 sm:py-4"
+                                    className="cmn-glass min-w-0 px-2.5 py-3 sm:px-3 sm:py-4"
                                     style={{ borderRadius: "var(--cmn-r-md)" }}
                                 >
-                                    <p className="font-display text-sm font-bold uppercase leading-none tracking-tight text-electric-blue sm:text-base md:text-lg">
+                                    <p className="font-display text-sm font-bold uppercase leading-none tracking-tight text-electric-blue sm:text-[13px] md:text-base">
                                         {c.valor}
                                     </p>
-                                    <p className="mt-1.5 text-[10px] leading-snug text-ice/45 sm:mt-2 sm:text-[11px]">
+                                    <p className="mt-1.5 text-[10px] leading-snug text-ice/45 sm:mt-2 sm:text-[10px]">
                                         {c.label}
                                     </p>
                                 </motion.div>

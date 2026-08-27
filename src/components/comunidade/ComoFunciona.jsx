@@ -3,42 +3,60 @@
 import { motion } from "framer-motion";
 import { MessagesSquare, Video, GraduationCap } from "lucide-react";
 
-/* Layout novo: um pilar grande em destaque e dois menores ao lado,
-   em vez de três colunas iguais. Mantém o fundo escuro (o design
+/* Layout: cursos e encontros lado a lado, mais altos; comunidade
+   embaixo, largo e mais baixo. Mantém o fundo escuro (o design
    system de vidro precisa de escuro para funcionar). */
 
-const pilares = [
+const pilaresTopo = [
     {
         icon: GraduationCap,
         titulo: "Os cursos",
         chamada: "A base do que você vai aplicar no campo.",
         texto:
-            "O curso CIMO e o Diagnóstico Profissional ficam liberados desde o primeiro dia. E todo curso ou módulo novo que sair enquanto você estiver dentro entra na sua conta, sem cobrar de novo.",
-        destaque: true,
-    },
-    {
-        icon: MessagesSquare,
-        titulo: "A comunidade e o WhatsApp",
-        chamada: "Onde a dúvida do dia a dia é resolvida.",
-        texto:
-            "Grupo de preparadores e contato direto com o Rodrigo, para dúvidas de treino, rotina e carreira. O que nenhum curso gravado dá.",
-        destaque: false,
+            "Enquanto você estiver na comunidade, terá acesso a metodologia CIMO, o Diagnóstico Profissional e todo material novo que for lançado.",
+        subcards: [
+            {
+                titulo: "Metodologia CIMO",
+                texto: "Construa uma base para o seu processo.",
+            },
+            {
+                titulo: "Diagnóstico Profissional",
+                texto: "Prepare o próximo passo da sua trajetória.",
+            },
+        ],
     },
     {
         icon: Video,
-        titulo: "Os encontros",
-        chamada: "Uma vez por mês olhando o seu caso.",
-        texto:
-            "Um encontro em grupo por mês, ao vivo. Mais um encontro individual com o Rodrigo, quando você quiser.",
-        destaque: false,
+        titulo: "",
+        chamada: "Os encontros.",
+        subcards: [
+            {
+                titulo: "Encontros em grupo",
+                texto:
+                    "Uma vez por mês, ao vivo, para você tirar dúvidas e aprender comigo e com outros profissionais.",
+            },
+            {
+                titulo: "Encontro individual",
+                texto:
+                    "Esse é o momento que entendo seu caso e te dou o direcionamento necessário.",
+            },
+        ],
     },
 ];
+
+const pilarComunidade = {
+    icon: MessagesSquare,
+    titulo: "A comunidade e o WhatsApp",
+    chamada: "Onde a dúvida do dia a dia é resolvida.",
+    texto:
+        "Grupo de preparadores e contato direto com o Rodrigo, para dúvidas de treino, rotina e carreira. O que nenhum curso gravado dá.",
+};
 
 const aulasDiagnostico = [
     [
         "01",
         "Onde você está, onde quer chegar",
-        "Sua posição no mercado hoje, e a meta para os próximos 3 a 5 anos.",
+        "Sua posição no mercado e objetivos futuros.",
     ],
     [
         "02",
@@ -48,20 +66,18 @@ const aulasDiagnostico = [
     [
         "03",
         "Diagnóstico e Plano de Desenvolvimento",
-        "Metas SMART e um plano de ação, pra fechar o Mapa de Carreira.",
+        "Metas e um plano de ação pra definir seu Mapa de Carreira.",
     ],
 ];
 
 const fundamentosCimo = [
-    ["C", "Contexto", "Quem é esse goleiro, em que categoria e momento da equipe."],
-    ["I", "Intensidade", "Que estímulo o treino precisa dar, e por quê."],
-    ["M", "Mentalidade", "Atenção, comportamento e atitude, treinados como o resto."],
-    ["O", "Organização", "A sequência que faz uma semana puxar a próxima."],
+    ["C", "Contexto", "Trazer o contexto do jogo para os treinos."],
+    ["I", "Intensidade", "O que é necessário em cada processo."],
+    ["M", "Mentalidade", "Como preparador e goleiro pensam o jogo."],
+    ["O", "Organização", "A sequência que encaixa os ciclos de treinamento e jogos."],
 ];
 
 export function ComoFunciona() {
-    const [principal, ...secundarios] = pilares;
-
     return (
         <section className="relative w-full py-12 sm:py-20 md:py-28">
 
@@ -84,7 +100,7 @@ export function ComoFunciona() {
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-4 font-display text-[clamp(1.95rem,8.6vw,2.75rem)] font-bold uppercase leading-[1] tracking-tight text-ice sm:mt-5 md:text-6xl md:leading-[0.98]"
                     >
-                        Estudar, perguntar e organizar. Todo mês.
+                        Estude, pergunte e aplique.
                     </motion.h2>
 
                     <motion.p
@@ -99,98 +115,98 @@ export function ComoFunciona() {
                     </motion.p>
                 </div>
 
-                <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-5 lg:grid-cols-[1.35fr_0.9fr]">
-                    {/* Cursos: pilar principal da assinatura */}
-                    <motion.article
-                        initial={{ opacity: 0, y: 26 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.25 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                        className="cmn-glass-glow cmn-lift relative overflow-hidden p-6 sm:p-7 md:p-10"
-                    >
-                        <div className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-electric-blue/10 blur-3xl" />
-                        <div className="relative">
-                            <div className="flex items-center justify-between gap-4">
-                                <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-electric-blue/30 bg-electric-blue/10">
-                                    <principal.icon
-                                        className="h-5.5 w-5.5 text-electric-blue"
-                                        strokeWidth={2}
-                                    />
-                                </span>
-                                <span className="shrink-0 rounded-full border border-electric-blue/25 bg-electric-blue/10 px-2.5 py-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-electric-blue sm:px-3 sm:text-[10px] sm:tracking-[0.2em]">
-                                    Pilar principal
-                                </span>
-                            </div>
-
-                            <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:mt-7 sm:text-[11px] sm:tracking-[0.24em]">
-                                {principal.titulo}
-                            </p>
-                            <p className="mt-3 font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice sm:text-2xl md:text-3xl">
-                                {principal.chamada}
-                            </p>
-                            <p className="mt-4 text-[14px] leading-relaxed text-ice/65 sm:mt-5 sm:text-[15px] md:text-base">
-                                {principal.texto}
-                            </p>
-
-                            <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
-                                <div className="rounded-2xl border border-white/10 bg-obsidian/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-5">
-                                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">
-                                        Método CIMO
-                                    </p>
-                                    <p className="mt-2 font-display text-lg font-bold uppercase leading-tight text-ice">
-                                        Construa uma base para o seu processo.
-                                    </p>
-                                </div>
-                                <div className="rounded-2xl border border-white/10 bg-obsidian/35 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
-                                    <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">
-                                        Diagnóstico Profissional
-                                    </p>
-                                    <p className="mt-2 font-display text-lg font-bold uppercase leading-tight text-ice">
-                                        Prepare o próximo passo da sua trajetória.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.article>
-
-                    {/* Dois pilares menores */}
-                    <div className="grid gap-5">
-                        {secundarios.map((p, i) => {
-                            const Icon = p.icon;
-                            return (
-                                <motion.article
-                                    key={p.titulo}
-                                    initial={{ opacity: 0, y: 26 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true, amount: 0.25 }}
-                                    transition={{
-                                        duration: 1,
-                                        delay: 0.1 + i * 0.1,
-                                        ease: [0.16, 1, 0.3, 1],
-                                    }}
-                                    className="cmn-glass-lit cmn-lift p-6 sm:p-7 md:p-8"
-                                >
-                                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5">
+                {/* Cursos e encontros lado a lado, em destaque */}
+                <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-5 md:grid-cols-2">
+                    {pilaresTopo.map((p, i) => {
+                        const Icon = p.icon;
+                        return (
+                            <motion.article
+                                key={p.titulo}
+                                initial={{ opacity: 0, y: 26 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.25 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: i * 0.1,
+                                    ease: [0.16, 1, 0.3, 1],
+                                }}
+                                className="cmn-glass-glow cmn-lift relative flex h-full flex-col overflow-hidden p-6 sm:p-7 md:p-10"
+                            >
+                                <div className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-electric-blue/10 blur-3xl" />
+                                <div className="relative flex h-full flex-col">
+                                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-electric-blue/30 bg-electric-blue/10">
                                         <Icon
-                                            className="h-5 w-5 text-electric-blue"
+                                            className="h-5.5 w-5.5 text-electric-blue"
                                             strokeWidth={2}
                                         />
                                     </span>
 
-                                    <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:mt-6 sm:text-[11px] sm:tracking-[0.24em]">
+                                    <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:mt-7 sm:text-[11px] sm:tracking-[0.24em]">
                                         {p.titulo}
                                     </p>
-                                    <p className="mt-2.5 font-display text-base font-bold uppercase leading-tight tracking-tight text-ice sm:text-lg md:text-xl">
+                                    <p className="mt-3 font-display text-xl font-bold uppercase leading-tight tracking-tight text-ice sm:text-2xl md:text-3xl">
                                         {p.chamada}
                                     </p>
-                                    <p className="mt-3.5 text-sm leading-relaxed text-ice/60">
-                                        {p.texto}
-                                    </p>
-                                </motion.article>
-                            );
-                        })}
-                    </div>
+                                    {p.texto && (
+                                        <p className="mt-4 text-[14px] leading-relaxed text-ice/65 sm:mt-5 sm:text-[15px] md:text-base">
+                                            {p.texto}
+                                        </p>
+                                    )}
+
+                                    <div
+                                        className={
+                                            i === 0
+                                                ? "mt-auto grid gap-3 pt-6 sm:grid-cols-2"
+                                                : "mt-6 grid gap-5"
+                                        }
+                                    >
+                                        {p.subcards.map((s) => (
+                                            <div
+                                                key={s.titulo}
+                                                className="rounded-2xl border border-white/10 bg-obsidian/35 p-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-5"
+                                            >
+                                                <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-electric-blue">
+                                                    {s.titulo}
+                                                </p>
+                                                <p className="mt-2 text-sm leading-relaxed text-ice/70">
+                                                    {s.texto}
+                                                </p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.article>
+                        );
+                    })}
                 </div>
+
+                {/* Comunidade: largo e mais baixo, embaixo dos dois pilares */}
+                <motion.article
+                    initial={{ opacity: 0, y: 26 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.25 }}
+                    transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                    className="cmn-glass-lit cmn-lift mt-4 flex flex-col gap-5 p-6 sm:mt-5 sm:flex-row sm:items-center sm:p-7 md:p-8"
+                >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5">
+                        <MessagesSquare
+                            className="h-5 w-5 text-electric-blue"
+                            strokeWidth={2}
+                        />
+                    </span>
+
+                    <div>
+                        <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:text-[11px] sm:tracking-[0.24em]">
+                            {pilarComunidade.titulo}
+                        </p>
+                        <p className="mt-2 font-display text-base font-bold uppercase leading-tight tracking-tight text-ice sm:text-lg md:text-xl">
+                            {pilarComunidade.chamada}
+                        </p>
+                        <p className="mt-2 text-sm leading-relaxed text-ice/60">
+                            {pilarComunidade.texto}
+                        </p>
+                    </div>
+                </motion.article>
 
                 <motion.div
                     initial={{ opacity: 0, y: 16 }}

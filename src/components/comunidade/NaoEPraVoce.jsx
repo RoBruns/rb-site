@@ -10,9 +10,9 @@ const naoServe = [
 ];
 
 const serve = [
-    "Está começando, ou já atua, e cansou de aprender por tentativa e erro.",
-    "Trabalha em escolinha, base ou clube e precisa adaptar o que aprende à sua realidade.",
-    "Quer construir a própria metodologia e ter com quem conferir se ela está de pé.",
+    "Se sente estagnado e não sabe o que fazer para evoluir na carreira.",
+    "Se sente inseguro, pois não tem alguém qualificado para trocar ideias.",
+    "Quer conhecer uma metodologia moderna validada no alto rendimento.",
 ];
 
 export function NaoEPraVoce() {
@@ -67,7 +67,7 @@ export function NaoEPraVoce() {
                         className="cmn-glass-glow cmn-lift p-6 sm:p-7 md:p-8"
                     >
                         <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-electric-blue sm:text-[11px] sm:tracking-[0.24em]">
-                            É para você se
+                            É para você que
                         </p>
                         <ul className="mt-6 space-y-4">
                             {serve.map((t) => (

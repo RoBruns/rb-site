@@ -6,6 +6,7 @@ import {
     Video,
     GraduationCap,
     Infinity as InfinityIcon,
+    ShieldCheck,
 } from "lucide-react";
 import { CheckoutButton } from "./CheckoutButton";
 import { PRICE_CASH } from "./constants";
@@ -24,22 +25,22 @@ const inclui = [
     {
         icon: Video,
         titulo: "Encontros ao vivo",
-        desc: "Um em grupo por mês, mais um individual durante os seis meses.",
+        desc: "Um encontro individual mais encontros mensais em grupo.",
     },
     {
         icon: GraduationCap,
-        titulo: "Curso CIMO",
-        desc: "Os quatro módulos do método: Contexto, Intensidade, Mentalidade e Organização.",
+        titulo: "Metodogia CIMO",
+        desc: "Os quatro pilares do método: Contexto, Intensidade, Mentalidade e Organização.",
     },
     {
         icon: GraduationCap,
         titulo: "Diagnóstico Profissional",
-        desc: "O que o mercado cobra de um preparador de alto rendimento, e como chegar lá.",
+        desc: "Um raio-x do mercado para te guiar ao próximo nível.",
     },
     {
         icon: InfinityIcon,
-        titulo: "O que sair daqui pra frente",
-        desc: "Curso ou módulo novo lançado enquanto você estiver dentro entra na sua conta.",
+        titulo: "+ Bônus",
+        desc: "Acesso a todo material lançado enquanto você for assinante.",
     },
 ];
 
@@ -132,10 +133,20 @@ export function Oferta() {
                                 </CheckoutButton>
                             </div>
 
-                            <p className="mt-5 max-w-xs text-[11px] leading-relaxed text-ice/40 sm:text-xs">
-                                Assinatura inicial de seis meses. As condições de renovação
-                                são informadas antes do fim do período. Tudo o que está
-                                listado depende de a assinatura estar ativa.
+                            <div className="mt-5 flex items-center gap-2 rounded-full border border-electric-blue/25 bg-electric-blue/10 px-4 py-2">
+                                <ShieldCheck
+                                    className="h-5 w-5 shrink-0 text-electric-blue"
+                                    strokeWidth={2}
+                                />
+                                <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-electric-blue sm:text-xs">
+                                    7 dias de garantia, reembolso total
+                                </p>
+                            </div>
+
+                            <p className="mt-4 max-w-xs text-[11px] leading-relaxed text-ice/40 sm:text-xs">
+                                Assinatura inicial de seis meses. Com renovação automática no cartão.
+                                Para pagamento no pix, a renovação chegará por e-mail. Reembolso
+                                garantido nos primeiros 7 dias da sua primeira assinatura.
                             </p>
                         </div>
                     </div>

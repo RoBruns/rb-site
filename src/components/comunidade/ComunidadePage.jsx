@@ -22,13 +22,15 @@ export function ComunidadePage() {
         const compactScreen = window.matchMedia("(max-width: 767px)");
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-        if (compactScreen.matches || reducedMotion.matches) return;
+        if (reducedMotion.matches) return;
 
-        const lenis = new Lenis({
-            autoRaf: true,
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
+        const lenis = compactScreen.matches
+            ? null
+            : new Lenis({
+                  autoRaf: true,
+                  duration: 1.2,
+                  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              });
 
         const handleAnchorClick = (e) => {
             const target = e.target.closest('a[href^="#"]');
@@ -38,7 +40,11 @@ export function ComunidadePage() {
                 const element = document.querySelector(href);
                 if (element) {
                     e.preventDefault();
-                    lenis.scrollTo(element, { offset: -90, duration: 1.2 });
+                    if (lenis) {
+                        lenis.scrollTo(element, { offset: -90, duration: 1.2 });
+                    } else {
+                        element.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
                 }
             }
         };
@@ -46,7 +52,7 @@ export function ComunidadePage() {
         document.documentElement.addEventListener("click", handleAnchorClick);
         return () => {
             document.documentElement.removeEventListener("click", handleAnchorClick);
-            lenis.destroy();
+            lenis?.destroy();
         };
     }, []);
 

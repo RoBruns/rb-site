@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { cn } from "../../utils/cn";
-import { CheckoutButton } from "./CheckoutButton";
 
 /* Nav flutuante em pill, destacada da borda da tela. */
 
@@ -34,12 +33,12 @@ export function ComunidadeNav() {
                 <img
                     src="/pgar-logo.png"
                     alt="PGAR"
-                    className="h-4 w-auto shrink-0 opacity-90 sm:h-5 md:h-6"
+                    className="h-5 w-auto shrink-0 opacity-90 sm:h-6 md:h-7"
                 />
 
-                <CheckoutButton size="sm" href="#oferta" variant="glass">
-                    Ver preço
-                </CheckoutButton>
+                <span className="text-right text-xs font-semibold uppercase leading-tight tracking-[0.1em] text-ice/60 sm:text-sm sm:tracking-[0.14em]">
+                    Preparação de Goleiros<br className="sm:hidden" /> de Alto Rendimento
+                </span>
             </div>
         </motion.header>
     );

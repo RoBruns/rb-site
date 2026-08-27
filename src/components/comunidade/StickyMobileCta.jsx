@@ -49,7 +49,7 @@ export function StickyMobileCta() {
                                 ou {PRICE_CASH} à vista · 6 meses
                             </p>
                         </div>
-                        <CheckoutButton size="sm" className="shrink-0">
+                        <CheckoutButton href="#oferta" size="sm" className="shrink-0">
                             Entrar
                         </CheckoutButton>
                     </div>
