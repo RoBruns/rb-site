@@ -38,9 +38,10 @@ export function Virada() {
                 >
                     <p>
                         Referência você já tem de sobra. O que falta é alguém para
-                        conferir a leitura antes do treino, não depois. É isso que a
-                        Comunidade PGAR entrega: o método CIMO dá a régua, o grupo e
-                        os encontros dão com quem discutir.
+                        conferir sua metodologia antes de você colocar em prática, É isso que a
+                        Comunidade PGAR entrega: A metodologia CIMO te mostra como alto rendimento trabalha,
+                        o Diagnóstico Profissional dá o direcionamento da sua carreira, no grupo e nos encontros
+                        você tira dúvidas com quem é referência no mercado.
                     </p>
                 </motion.div>
 
@@ -52,8 +53,9 @@ export function Virada() {
                     className="cmn-glass-glow mx-auto mt-8 max-w-2xl px-6 py-7 sm:mt-12 sm:px-8 sm:py-8"
                 >
                     <p className="font-display text-lg font-bold uppercase leading-tight tracking-tight text-ice sm:text-xl md:text-2xl">
-                        Ninguém decora resposta para duzentos treinos por ano. Você
-                        constrói um jeito de decidir, e ele resolve os duzentos.
+                        Bolas anunciadas, quedas rasterias... você repete aquilo que fez
+                        sendo goleiro. Sem direcionamento, você repete o que viveu, sem
+                        saber se resolve o que o seu goleiro precisa e o que a sua equipe busca.
                     </p>
                 </motion.div>
             </div>

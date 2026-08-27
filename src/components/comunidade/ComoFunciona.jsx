@@ -94,7 +94,7 @@ export function ComoFunciona() {
                         transition={{ duration: 1, delay: 0.16, ease: "easeOut" }}
                         className="mt-5 text-[15px] leading-relaxed text-ice/65 sm:mt-6 sm:text-base md:text-lg"
                     >
-                        Seus seis meses começam no dia em que você entra — sem
+                        Seus seis meses começam no dia em que você entra, sem
                         turma, sem data fixa.
                     </motion.p>
                 </div>
