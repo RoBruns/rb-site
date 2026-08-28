@@ -26,7 +26,7 @@ export function newEventId() {
 }
 
 // Lê um cookie pelo nome (client-side).
-function getCookie(name) {
+export function getCookie(name) {
     if (typeof document === "undefined") return "";
     const match = document.cookie.match(
         new RegExp("(?:^|; )" + name.replace(/([.$?*|{}()[\]\\/+^])/g, "\\$1") + "=([^;]*)")

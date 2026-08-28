@@ -1,6 +1,8 @@
 "use client";
 
+import { useCallback, useSyncExternalStore } from "react";
 import { cn } from "../../utils/cn";
+import { buildCheckoutUrl, sendTouch } from "../../utils/attribution";
 import { CHECKOUT_URL } from "./constants";
 
 /* ------------------------------------------------------------------ */
@@ -10,6 +12,11 @@ import { CHECKOUT_URL } from "./constants";
 /*  Design system novo: pill, sombra difusa azul, leve subida no hover */
 /* ------------------------------------------------------------------ */
 
+// Cache mantém o snapshot estável; subscribe é vazio porque o valor não muda após a montagem.
+const checkoutHrefCache = new Map();
+
+const subscribeToCheckoutHref = () => () => {};
+
 export function CheckoutButton({
     children = "Entrar na Comunidade",
     variant = "solid",
@@ -18,10 +25,31 @@ export function CheckoutButton({
     href = CHECKOUT_URL,
 }) {
     const isExternal = href.startsWith("http");
+    // useSyncExternalStore mantém o HTML estático sem JS e atualiza o href na hidratação, sem useEffect.
+    const getSnapshot = useCallback(() => {
+        if (!isExternal) return href;
+
+        if (!checkoutHrefCache.has(href)) {
+            checkoutHrefCache.set(href, buildCheckoutUrl(href));
+        }
+
+        return checkoutHrefCache.get(href);
+    }, [href, isExternal]);
+    const getServerSnapshot = useCallback(() => href, [href]);
+    const checkoutHref = useSyncExternalStore(
+        subscribeToCheckoutHref,
+        getSnapshot,
+        getServerSnapshot
+    );
+
+    const handleClick = () => {
+        sendTouch("checkout_iniciado");
+    };
 
     return (
         <a
-            href={href}
+            href={checkoutHref}
+            {...(isExternal ? { onClick: handleClick } : {})}
             {...(isExternal
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}

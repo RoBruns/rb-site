@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import "./ds.css";
+import { AttributionTracker } from "../AttributionTracker";
 import { ComunidadeNav } from "./ComunidadeNav";
 import { ComunidadeHero } from "./ComunidadeHero";
 import { Virada } from "./Virada";
@@ -58,6 +59,7 @@ export function ComunidadePage() {
 
     return (
         <main className="cmn-scope relative min-h-screen w-full overflow-x-clip bg-obsidian font-sans text-ice selection:bg-electric-blue selection:text-obsidian">
+            <AttributionTracker />
             {/* Fundo contínuo: uma camada só para a página inteira.
                 Nenhuma seção pinta fundo próprio, então não existe
                 emenda entre elas. */}
