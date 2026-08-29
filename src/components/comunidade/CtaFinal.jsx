@@ -38,7 +38,7 @@ export function CtaFinal() {
                     transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                     className="mt-9 flex w-full flex-col items-center gap-4 sm:mt-11"
                 >
-                    <CheckoutButton href="#oferta" className="w-full sm:w-auto">
+                    <CheckoutButton className="w-full sm:w-auto">
                         Entrar na Comunidade
                     </CheckoutButton>
                     <p className="text-[13px] leading-relaxed text-ice/50 sm:text-sm">

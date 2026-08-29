@@ -13,7 +13,7 @@ const pilaresTopo = [
         titulo: "Os cursos",
         chamada: "A base do que você vai aplicar no campo.",
         texto:
-            "Enquanto você estiver na comunidade, terá acesso a metodologia CIMO, o Diagnóstico Profissional e todo material novo que for lançado.",
+            "Enquanto você estiver na comunidade, terá acesso à metodologia CIMO, o Diagnóstico Profissional e todo material novo que for lançado.",
         subcards: [
             {
                 titulo: "Metodologia CIMO",
@@ -27,8 +27,8 @@ const pilaresTopo = [
     },
     {
         icon: Video,
-        titulo: "",
-        chamada: "Os encontros.",
+        titulo: "Os encontros",
+        chamada: "Onde você aprende e tira dúvidas ao vivo.",
         subcards: [
             {
                 titulo: "Encontros em grupo",
@@ -38,7 +38,7 @@ const pilaresTopo = [
             {
                 titulo: "Encontro individual",
                 texto:
-                    "Esse é o momento que entendo seu caso e te dou o direcionamento necessário.",
+                    "Esse é o momento em que entendo seu caso e te dou o direcionamento necessário.",
             },
         ],
     },
@@ -66,7 +66,7 @@ const aulasDiagnostico = [
     [
         "03",
         "Diagnóstico e Plano de Desenvolvimento",
-        "Metas e um plano de ação pra definir seu Mapa de Carreira.",
+        "Metas e um plano de ação para definir seu Mapa de Carreira.",
     ],
 ];
 

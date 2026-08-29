@@ -18,7 +18,7 @@ const perguntas = [
     },
     {
         q: "Posso renovar depois dos seis meses?",
-        a: "Pode. A renovação é automática no cartão. Para pagamento no pix, a renovação chegará por e-mail.",
+        a: "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail.",
     },
     {
         q: "Posso cancelar quando quiser?",
@@ -26,7 +26,7 @@ const perguntas = [
     },
     {
         q: "Como funciona o WhatsApp?",
-        a: "São dois: o grupo da comunidade, onde a conversa corre entre todo mundo, e o meu contato direto, para quando você quiser levar uma dúvida específica. Não existe prazo de resposta combinado, mas repondo assím que possível.",
+        a: "São dois: o grupo da comunidade, onde a conversa corre entre todo mundo, e o meu contato direto, para quando você quiser levar uma dúvida específica. Não existe prazo de resposta combinado, mas respondo assim que possível.",
     },
     {
         q: "O que é a metodologia CIMO?",
@@ -34,7 +34,7 @@ const perguntas = [
     },
     {
         q: "O que exatamente está incluído?",
-        a: "Grupo de WhatsApp da comunidade, contato direto com o Rodrigo no WhatsApp, um encontro em grupo por mês, um encontro individual de dentro dos seis meses, o curso CIMO, o Diagnóstico Profissional e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
+        a: "Grupo de WhatsApp da comunidade, contato direto com o Rodrigo no WhatsApp, um encontro em grupo por mês, um encontro individual dentro dos seis meses, o curso CIMO, o Diagnóstico Profissional e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
     },
 
 ];

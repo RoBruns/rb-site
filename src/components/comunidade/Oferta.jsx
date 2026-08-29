@@ -29,7 +29,7 @@ const inclui = [
     },
     {
         icon: GraduationCap,
-        titulo: "Metodogia CIMO",
+        titulo: "Metodologia CIMO",
         desc: "Os quatro pilares do método: Contexto, Intensidade, Mentalidade e Organização.",
     },
     {
@@ -145,7 +145,7 @@ export function Oferta() {
 
                             <p className="mt-4 max-w-xs text-[11px] leading-relaxed text-ice/40 sm:text-xs">
                                 Assinatura inicial de seis meses. Com renovação automática no cartão.
-                                Para pagamento no pix, a renovação chegará por e-mail. Reembolso
+                                Para pagamento no Pix, a renovação chegará por e-mail. Reembolso
                                 garantido nos primeiros 7 dias da sua primeira assinatura.
                             </p>
                         </div>

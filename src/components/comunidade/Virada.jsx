@@ -38,9 +38,9 @@ export function Virada() {
                 >
                     <p>
                         O que falta é alguém qualificado para te dar feedbacks que fazem a diferença.
-                        É isso que a <strong>Comunidade PGAR</strong> entrega: A metodologia CIMO te mostra como o alto
+                        É isso que a <strong>Comunidade PGAR</strong> entrega: a metodologia CIMO te mostra como o alto
                         rendimento trabalha, o Diagnóstico Profissional dá o direcionamento da sua
-                        carreira, no grupo e nos encontros você tira dúvidas com quem é referência
+                        carreira, e no grupo e nos encontros você tira dúvidas com quem é referência
                         no mercado.
                     </p>
                 </motion.div>

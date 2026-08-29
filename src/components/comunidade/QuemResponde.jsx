@@ -7,9 +7,7 @@ const credenciais = [
     { valor: "Ex-atleta", label: "profissional" },
     { valor: "Licença A", label: "Treinador de Goleiros CBF" },
     { valor: "Pós-graduado", label: "em Treinamento, Técnica e Tática Desportiva" },
-    { valor: "Bacharel", label: "em Educação física" },
-
-
+    { valor: "Bacharel", label: "em Educação Física" },
 ];
 
 export function QuemResponde() {
@@ -84,7 +82,7 @@ export function QuemResponde() {
                             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
                             className="font-display text-lg leading-[1.35] tracking-tight text-ice sm:text-xl md:text-[1.65rem]"
                         >
-                            Meu trabalho é usar a minha experiência, para te ajudar a evoluir.
+                            Meu trabalho é usar a minha experiência para te ajudar a evoluir.
                         </motion.p>
 
                         <motion.div
