@@ -49,7 +49,7 @@ const pilarComunidade = {
     titulo: "A comunidade e o WhatsApp",
     chamada: "Onde a dúvida do dia a dia é resolvida.",
     texto:
-        "Grupo de preparadores e contato direto com o Rodrigo, para dúvidas de treino, rotina e carreira. O que nenhum curso gravado dá.",
+        "Grupo de preparadores trocando dúvidas de treino, rotina e carreira. O que nenhum curso gravado dá.",
 };
 
 const aulasDiagnostico = [

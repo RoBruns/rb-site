@@ -18,11 +18,6 @@ const inclui = [
         desc: "O dia a dia da comunidade, com preparadores de contextos diferentes do seu.",
     },
     {
-        icon: MessagesSquare,
-        titulo: "WhatsApp do Rodrigo",
-        desc: "Contato direto com ele para levar dúvida de treino, rotina ou carreira.",
-    },
-    {
         icon: Video,
         titulo: "Encontros ao vivo",
         desc: "Um encontro individual mais encontros mensais em grupo.",
