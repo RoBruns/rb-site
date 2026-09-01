@@ -3,7 +3,12 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
+import {
+    PRECO_VIGENTE_CASH,
+    PRECO_VIGENTE_INSTALLMENT,
+    PROMO_VISIVEL,
+    VAGAS_RESTANTES,
+} from "./constants";
 
 export function StickyMobileCta() {
     const [visible, setVisible] = useState(false);
@@ -43,10 +48,12 @@ export function StickyMobileCta() {
                     >
                         <div className="min-w-0 leading-tight">
                             <p className="font-display text-sm font-bold uppercase leading-none text-ice">
-                                {PRICE_INSTALLMENT}
+                                {PRECO_VIGENTE_INSTALLMENT}
                             </p>
                             <p className="mt-1 text-[10px] leading-none text-ice/45 sm:text-[11px]">
-                                ou {PRICE_CASH} à vista · 6 meses
+                                {PROMO_VISIVEL
+                                    ? "ou " + PRECO_VIGENTE_CASH + " à vista · " + VAGAS_RESTANTES + " vagas"
+                                    : "ou " + PRECO_VIGENTE_CASH + " à vista · 6 meses"}
                             </p>
                         </div>
                         <CheckoutButton href="#oferta" size="sm" className="shrink-0">

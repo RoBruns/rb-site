@@ -2,7 +2,11 @@
 
 import { motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
+import {
+    PRECO_VIGENTE_INSTALLMENT_VALUE,
+    PROMO_VISIVEL,
+    PROMO_CUPOM,
+} from "./constants";
 
 export function CtaFinal() {
     return (
@@ -42,7 +46,20 @@ export function CtaFinal() {
                         Entrar na Comunidade
                     </CheckoutButton>
                     <p className="text-[13px] leading-relaxed text-ice/50 sm:text-sm">
-                        Apenas <strong className="text-ice">R$ 55,18</strong> por mês.
+                        Apenas{" "}
+                        <strong className="text-ice">
+                            {PRECO_VIGENTE_INSTALLMENT_VALUE}
+                        </strong>{" "}
+                        por mês
+                        {PROMO_VISIVEL && (
+                            <>
+                                {" "}com o cupom{" "}
+                                <strong className="font-display font-bold uppercase tracking-wide text-electric-blue">
+                                    {PROMO_CUPOM}
+                                </strong>
+                            </>
+                        )}
+                        .
                     </p>
                 </motion.div>
             </div>

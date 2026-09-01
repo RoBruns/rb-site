@@ -2,6 +2,27 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
+import {
+    PROMO_VISIVEL,
+    PROMO_CUPOM,
+    PROMO_PRICE_CASH,
+    PROMO_PRICE_INSTALLMENT,
+    PRICE_CASH,
+    VAGAS_TOTAIS,
+} from "./constants";
+
+/*  A pergunta do cupom só existe enquanto o lote promocional estiver
+    de pé. Acabaram as vagas, ela some junto com o resto da camada.   */
+const perguntaCupom = {
+    q: "Como funciona o cupom " + PROMO_CUPOM + "?",
+    a:
+        "As " + VAGAS_TOTAIS + " primeiras vagas saem por " + PROMO_PRICE_CASH +
+        " à vista ou " + PROMO_PRICE_INSTALLMENT + " com o cupom " + PROMO_CUPOM +
+        ", que já vai aplicado quando você clica em entrar. Depois delas, a assinatura passa a " + PRICE_CASH +
+        ". O desconto não é só na primeira cobrança: ele vale em todas as " +
+        "mensalidades e segue valendo nas renovações, enquanto você não " +
+        "cancelar. Quem entra agora trava esse valor.",
+};
 
 const perguntas = [
     {
@@ -18,7 +39,11 @@ const perguntas = [
     },
     {
         q: "Posso renovar depois dos seis meses?",
-        a: "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail.",
+        a:
+            "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail." +
+            (PROMO_VISIVEL
+                ? " Se você entrou com o cupom, renova pelo mesmo valor promocional: o preço não sobe."
+                : ""),
     },
     {
         q: "Posso cancelar quando quiser?",
@@ -36,7 +61,7 @@ const perguntas = [
         q: "O que exatamente está incluído?",
         a: "Grupo de WhatsApp da comunidade, um encontro em grupo por mês, um encontro individual dentro dos seis meses, o curso CIMO, o Diagnóstico Profissional e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
     },
-
+    ...(PROMO_VISIVEL ? [perguntaCupom] : []),
 ];
 
 export function FAQ() {
