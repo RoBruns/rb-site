@@ -19,9 +19,9 @@ const perguntaCupom = {
         "As " + VAGAS_TOTAIS + " primeiras vagas saem por " + PROMO_PRICE_CASH +
         " à vista ou " + PROMO_PRICE_INSTALLMENT + " com o cupom " + PROMO_CUPOM +
         ", que já vai aplicado quando você clica em entrar. Depois delas, a assinatura passa a " + PRICE_CASH +
-        ". O desconto não é só na primeira cobrança: ele vale em todas as " +
-        "mensalidades e segue valendo nas renovações, enquanto você não " +
-        "cancelar. Quem entra agora trava esse valor.",
+        ". O desconto vale só na primeira compra, ou seja, nos seis meses " +
+        "iniciais: quando esse período terminar, a renovação é cobrada pelo " +
+        "preço cheio de " + PRICE_CASH + ".",
 };
 
 const perguntas = [
@@ -42,7 +42,7 @@ const perguntas = [
         a:
             "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail." +
             (PROMO_VISIVEL
-                ? " Se você entrou com o cupom, renova pelo mesmo valor promocional: o preço não sobe."
+                ? " O cupom do lote promocional vale só na primeira compra, então a renovação sai pelo preço cheio de " + PRICE_CASH + "."
                 : ""),
     },
     {

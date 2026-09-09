@@ -224,8 +224,8 @@ export function Oferta() {
                                         </p>
                                     </div>
                                     <p className="mt-2 text-[11px] leading-relaxed text-ice/45">
-                                        Já aplicado no checkout. O desconto vale em todas as
-                                        mensalidades, inclusive nas renovações.
+                                        Já aplicado no checkout. O desconto vale só na
+                                        primeira compra: a renovação sai por {PRICE_CASH}.
                                     </p>
                                 </div>
                             )}
@@ -251,7 +251,8 @@ export function Oferta() {
                                 Para pagamento no Pix, a renovação chegará por e-mail. Reembolso
                                 garantido nos primeiros 7 dias da sua primeira assinatura.
                                 {PROMO_VISIVEL &&
-                                    " O cupom garante o valor promocional também nas renovações, enquanto a assinatura seguir ativa."}
+                                    " O cupom vale apenas na primeira compra: passados os seis meses, a renovação é cobrada pelo preço cheio de " +
+                                        PRICE_CASH + "."}
                             </p>
                         </div>
                     </div>

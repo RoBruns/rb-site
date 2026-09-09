@@ -17,9 +17,10 @@ export const PRICE_INSTALLMENT_VALUE = "R$ 92,33";
 /* ------------------------------------------------------------------ */
 /*  Lote promocional dos 10 primeiros.                                 */
 /*                                                                     */
-/*  Como funciona: os 10 primeiros usam o cupom PGAR297 no checkout e  */
-/*  travam R$ 297 — e o cupom segue valendo nas renovações, ou seja,   */
-/*  o preço dessa pessoa nunca sobe enquanto ela não cancelar.         */
+/*  Como funciona: os 10 primeiros usam o cupom PGAR397 no checkout e  */
+/*  pagam R$ 397 na PRIMEIRA compra (os seis meses iniciais). O cupom  */
+/*  vale só nessa primeira assinatura — a renovação, ao fim dos seis   */
+/*  meses, sai no preço cheio de R$ 497.                               */
 /*                                                                     */
 /*  Manutenção: baixe VAGAS_RESTANTES a cada venda. Chegou a zero (ou  */
 /*  PROMO_ATIVA = false), toda a camada promocional some da página      */
@@ -30,14 +31,14 @@ export const PROMO_ATIVA = true;
 export const VAGAS_TOTAIS = 10;
 export const VAGAS_RESTANTES = 10;
 
-export const PROMO_CUPOM = "PGAR297";
-export const PROMO_PRICE_CASH = "R$ 297";
-export const PROMO_PRICE_INSTALLMENT = "6x de R$ 55,18";
-export const PROMO_PRICE_INSTALLMENT_VALUE = "R$ 55,18";
+export const PROMO_CUPOM = "PGAR397";
+export const PROMO_PRICE_CASH = "R$ 397";
+export const PROMO_PRICE_INSTALLMENT = "6x de R$ 73,75";
+export const PROMO_PRICE_INSTALLMENT_VALUE = "R$ 73,75";
 
 /*  Um único ponto decide se a camada promocional aparece. Todo
     componente pergunta por aqui, para não haver página mostrando
-    R$ 297 enquanto outra já mostra R$ 497.                            */
+    R$ 397 enquanto outra já mostra R$ 497.                            */
 export const PROMO_VISIVEL = PROMO_ATIVA && VAGAS_RESTANTES > 0;
 
 /*  O que o visitante paga hoje, de fato. Use estes dois em qualquer
@@ -52,7 +53,8 @@ export const PRECO_VIGENTE_INSTALLMENT = PROMO_VISIVEL
 
 /*  Enquanto houver vaga, o botão leva ao checkout com o cupom já
     aplicado — ninguém perde o desconto por esquecer de digitar.
-    Acabou o lote, o link volta ao checkout limpo, no preço cheio.
+    O desconto incide só na primeira compra; a renovação volta ao
+    preço cheio. Acabou o lote, o link volta ao checkout limpo.
     (buildCheckoutUrl usa URL/searchParams, então os parâmetros de
     atribuição são somados a este ?coupon= sem apagá-lo.)              */
 export const CHECKOUT_URL = PROMO_VISIVEL
