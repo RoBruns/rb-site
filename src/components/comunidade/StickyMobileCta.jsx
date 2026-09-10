@@ -3,15 +3,16 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import {
-    PRECO_VIGENTE_CASH,
-    PRECO_VIGENTE_INSTALLMENT,
-    PROMO_VISIVEL,
-    VAGAS_RESTANTES,
-} from "./constants";
+import { useVagas } from "./useVagas";
 
 export function StickyMobileCta() {
     const [visible, setVisible] = useState(false);
+    const {
+        vagasRestantes,
+        promoVisivel,
+        precoVigenteCash,
+        precoVigenteInstallment,
+    } = useVagas();
 
     useEffect(() => {
         const onScroll = () => {
@@ -48,12 +49,12 @@ export function StickyMobileCta() {
                     >
                         <div className="min-w-0 leading-tight">
                             <p className="font-display text-sm font-bold uppercase leading-none text-ice">
-                                {PRECO_VIGENTE_INSTALLMENT}
+                                {precoVigenteInstallment}
                             </p>
                             <p className="mt-1 text-[10px] leading-none text-ice/45 sm:text-[11px]">
-                                {PROMO_VISIVEL
-                                    ? "ou " + PRECO_VIGENTE_CASH + " à vista · " + VAGAS_RESTANTES + " vagas"
-                                    : "ou " + PRECO_VIGENTE_CASH + " à vista · 6 meses"}
+                                {promoVisivel
+                                    ? "ou " + precoVigenteCash + " à vista · " + vagasRestantes + " vagas"
+                                    : "ou " + precoVigenteCash + " à vista · 6 meses"}
                             </p>
                         </div>
                         <CheckoutButton href="#oferta" size="sm" className="shrink-0">

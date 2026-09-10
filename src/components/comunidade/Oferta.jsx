@@ -13,13 +13,11 @@ import { CheckoutButton } from "./CheckoutButton";
 import {
     PRICE_CASH,
     PRICE_INSTALLMENT_VALUE,
-    PROMO_VISIVEL,
     PROMO_CUPOM,
     PROMO_PRICE_CASH,
     PROMO_PRICE_INSTALLMENT_VALUE,
-    VAGAS_RESTANTES,
-    VAGAS_TOTAIS,
 } from "./constants";
+import { useVagas } from "./useVagas";
 
 /*  Cada item carrega o próprio valor de referência. O total riscado
     ao lado é a soma de `valor` — mexeu aqui, o ancoramento acompanha
@@ -63,6 +61,9 @@ const totalInclui = inclui.reduce((soma, item) => soma + (item.valor || 0), 0);
 const brl = (n) => `R$ ${n.toLocaleString("pt-BR")}`;
 
 export function Oferta() {
+    // Vagas ao vivo: vêm da contagem de vendas no CRM, não do build.
+    const { vagasRestantes, vagasTotais, promoVisivel } = useVagas();
+
     return (
         <section
             id="oferta"
@@ -151,16 +152,16 @@ export function Oferta() {
                         <div className="flex flex-col items-center justify-center p-6 text-center sm:p-8 md:p-10">
 
                             {/* Selo de vagas: só aparece enquanto o lote existe */}
-                            {PROMO_VISIVEL && (
+                            {promoVisivel && (
                                 <div className="mb-5 flex items-center gap-2 rounded-full border border-electric-blue/40 bg-electric-blue/15 px-4 py-1.5">
                                     <span className="relative flex h-2 w-2 shrink-0">
                                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric-blue opacity-75" />
                                         <span className="relative inline-flex h-2 w-2 rounded-full bg-electric-blue" />
                                     </span>
                                     <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-electric-blue sm:text-xs">
-                                        {VAGAS_RESTANTES === 1
+                                        {vagasRestantes === 1
                                             ? "Última vaga com desconto"
-                                            : VAGAS_RESTANTES + " de " + VAGAS_TOTAIS + " vagas com desconto"}
+                                            : vagasRestantes + " de " + vagasTotais + " vagas com desconto"}
                                     </p>
                                 </div>
                             )}
@@ -171,11 +172,11 @@ export function Oferta() {
                                     {brl(totalInclui)}
                                 </p>
 
-                                {PROMO_VISIVEL ? (
+                                {promoVisivel ? (
                                     <>
                                         {/* Preço cheio, que passa a valer do 11º em diante */}
                                         <p className="mt-3 text-[13px] leading-relaxed text-ice/45 sm:text-sm">
-                                            Depois das {VAGAS_TOTAIS} primeiras vagas:{" "}
+                                            Depois das {vagasTotais} primeiras vagas:{" "}
                                             <span className="font-semibold text-ice/60 line-through decoration-ice/40">
                                                 {PRICE_CASH}
                                             </span>
@@ -209,7 +210,7 @@ export function Oferta() {
                             </div>
 
                             {/* O cupom precisa ficar óbvio: sem ele, não há desconto */}
-                            {PROMO_VISIVEL && (
+                            {promoVisivel && (
                                 <div className="mt-6 w-full max-w-xs">
                                     <div className="flex items-center justify-center gap-2.5 rounded-xl border border-dashed border-electric-blue/45 bg-electric-blue/[0.07] px-4 py-3">
                                         <Tag
@@ -250,7 +251,7 @@ export function Oferta() {
                                 Assinatura inicial de seis meses. Com renovação automática no cartão.
                                 Para pagamento no Pix, a renovação chegará por e-mail. Reembolso
                                 garantido nos primeiros 7 dias da sua primeira assinatura.
-                                {PROMO_VISIVEL &&
+                                {promoVisivel &&
                                     " O cupom vale apenas na primeira compra: passados os seis meses, a renovação é cobrada pelo preço cheio de " +
                                         PRICE_CASH + "."}
                             </p>

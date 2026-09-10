@@ -2,13 +2,12 @@
 
 import { motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import {
-    PRECO_VIGENTE_INSTALLMENT_VALUE,
-    PROMO_VISIVEL,
-    PROMO_CUPOM,
-} from "./constants";
+import { PROMO_CUPOM } from "./constants";
+import { useVagas } from "./useVagas";
 
 export function CtaFinal() {
+    const { promoVisivel, precoVigenteInstallmentValue } = useVagas();
+
     return (
         <section className="relative w-full py-12 sm:py-20 md:py-28">
 
@@ -48,10 +47,10 @@ export function CtaFinal() {
                     <p className="text-[13px] leading-relaxed text-ice/50 sm:text-sm">
                         Apenas{" "}
                         <strong className="text-ice">
-                            {PRECO_VIGENTE_INSTALLMENT_VALUE}
+                            {precoVigenteInstallmentValue}
                         </strong>{" "}
                         por mês
-                        {PROMO_VISIVEL && (
+                        {promoVisivel && (
                             <>
                                 {" "}com o cupom{" "}
                                 <strong className="font-display font-bold uppercase tracking-wide text-electric-blue">
