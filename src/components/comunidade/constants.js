@@ -60,3 +60,27 @@ export const PRECO_VIGENTE_INSTALLMENT = PROMO_VISIVEL
 export const CHECKOUT_URL = PROMO_VISIVEL
     ? CHECKOUT_URL_BASE + "?coupon=" + PROMO_CUPOM
     : CHECKOUT_URL_BASE;
+
+/* ------------------------------------------------------------------ */
+/*  Pós-compra: para onde o aluno vai depois de pagar.                 */
+/*  Usados na página /obrigado-comunidade.                             */
+/* ------------------------------------------------------------------ */
+
+/*  Área de membros da Hubla. O acesso é liberado pelo e-mail usado na
+    compra — daí o aviso na página, que evita a dúvida mais comum.     */
+export const AREA_MEMBROS_URL = "https://app.hub.la/m/bRuz6zk659j0j9AuykEc";
+
+/*  Convite do grupo de WhatsApp da comunidade.                        */
+export const GRUPO_WHATSAPP_URL =
+    "https://chat.whatsapp.com/CkFtn6boW16AGNGa7lq8qR?s=cl&p=i&mlu=4&ilr=4";
+
+/*  Suporte no WhatsApp, para quem não conseguir abrir um dos acessos.
+    SUPORTE_TELEFONE é o número como a pessoa lê; SUPORTE_WHATSAPP_URL
+    é o mesmo número no formato do wa.me (55 + DDD + número, só
+    dígitos), com uma mensagem pronta para o aluno só apertar enviar.  */
+export const SUPORTE_TELEFONE = "(11) 96507-1674";
+export const SUPORTE_WHATSAPP_URL =
+    "https://wa.me/5511965071674?text=" +
+    encodeURIComponent(
+        "Olá! Acabei de comprar a Comunidade PGAR e preciso de ajuda com o meu acesso."
+    );
