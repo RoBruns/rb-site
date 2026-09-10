@@ -29,14 +29,19 @@ import {
 /*  caso é mostrar o número do último deploy, como era antes.          */
 /* ------------------------------------------------------------------ */
 
-const VENDAS_URL = process.env.NEXT_PUBLIC_COMUNIDADE_VENDAS_URL;
+/*  URL fixa de propósito: o site é hospedado a partir do build, sem
+    painel onde definir variável de ambiente. Se isto dependesse de um
+    NEXT_PUBLIC_*, um build sem a variável geraria uma página que nunca
+    consulta nada — e o contador congelaria calado no valor do deploy.
+
+    Não é segredo: a rota é pública e devolve só uma contagem.          */
+const VENDAS_URL =
+    "https://swhexygjwqnfxlsrnnam.supabase.co/functions/v1/comunidade-vendas";
 
 export function useVagas() {
     const [vagasRestantes, setVagasRestantes] = useState(VAGAS_RESTANTES_BUILD);
 
     useEffect(() => {
-        if (!VENDAS_URL) return;
-
         const controller = new AbortController();
 
         fetch(VENDAS_URL, { signal: controller.signal })
