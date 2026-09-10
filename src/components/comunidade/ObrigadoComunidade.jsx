@@ -1,11 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, MessageCircle, LifeBuoy } from "lucide-react";
+import {
+    GraduationCap,
+    MessageCircle,
+    ShieldCheck,
+    LifeBuoy,
+} from "lucide-react";
 import "./ds.css";
 import {
     AREA_MEMBROS_URL,
-    GRUPO_WHATSAPP_URL,
     SUPORTE_TELEFONE,
     SUPORTE_WHATSAPP_URL,
 } from "./constants";
@@ -13,36 +17,43 @@ import {
 /* ------------------------------------------------------------------ */
 /*  Página de destino do checkout da Comunidade.                       */
 /*                                                                     */
-/*  Ela existe para uma coisa só: confirmar a compra e entregar os     */
-/*  dois acessos. Nada de venda, nada de rolagem longa — quem chega    */
-/*  aqui já comprou. Os dois links ficam sempre visíveis, porque esta  */
-/*  é a página que a pessoa reabre quando não consegue entrar em algo. */
+/*  Ela existe para uma coisa só: confirmar a compra e levar a pessoa  */
+/*  para dentro. Nada de venda, nada de rolagem longa — quem chega     */
+/*  aqui já comprou. É a página que a pessoa reabre quando não         */
+/*  consegue entrar em algo, então tudo tem de caber nela.             */
+/*                                                                     */
+/*  POR QUE O GRUPO NÃO TEM LINK DIRETO AQUI: a Hubla valida o número  */
+/*  de WhatsApp do aluno antes de liberar o convite, e essa validação  */
+/*  só acontece dentro da área de membros. Um link solto para o        */
+/*  convite deixaria a pessoa entrar sem o número validado — ou, mais  */
+/*  provável, bateria numa porta fechada. Por isso o único botão é o   */
+/*  da área de membros, e o grupo aparece como passo a passo.          */
 /*                                                                     */
 /*  Segue o design system da Comunidade (.cmn-*), então herda a mesma   */
 /*  atmosfera, o mesmo vidro e os mesmos botões pill da página de       */
 /*  vendas.                                                            */
 /* ------------------------------------------------------------------ */
 
-/*  Cada acesso é um cartão. `nota` é a letra miúda que responde à
-    dúvida mais comum de cada um antes que ela apareça.                */
-const acessos = [
+/*  O caminho do grupo, na ordem em que a pessoa vai encontrar as
+    telas. O passo 3 tem dois desfechos porque a Hubla mostra um modal
+    diferente para quem já validou o número antes — e é exatamente aí
+    que a pessoa trava se ninguém avisar.                              */
+const passosGrupo = [
     {
-        icon: GraduationCap,
-        titulo: "Área de membros",
-        desc: "Onde ficam a Metodologia CIMO, o Diagnóstico Profissional e todo material novo.",
-        nota: "Entre com o mesmo e-mail que você usou na compra.",
-        cta: "Acessar a área de membros",
-        href: AREA_MEMBROS_URL,
-        destaque: true,
+        titulo: "Abra a área de membros",
+        desc: "Use o botão acima e entre com o e-mail da compra.",
     },
     {
-        icon: MessageCircle,
-        titulo: "Grupo de WhatsApp",
-        desc: "O dia a dia da comunidade: é aqui que você tira dúvidas e troca com outros preparadores.",
-        nota: "O convite abre direto no WhatsApp.",
-        cta: "Entrar no grupo",
-        href: GRUPO_WHATSAPP_URL,
-        destaque: false,
+        titulo: 'Na página inicial, procure "Grupos"',
+        desc: 'Logo abaixo do vídeo de boas-vindas aparece "Comunidade PGAR · WhatsApp". Clique em Entrar.',
+    },
+    {
+        titulo: "Confirme seu número de WhatsApp",
+        desc: "Abre um modal pedindo o número. Se você ainda não confirmou, digite o seu e confirme. Se já confirmou antes, o número aparece na tela — confira se é o mesmo WhatsApp que você usa hoje e, se não for, toque em Editar número.",
+    },
+    {
+        titulo: 'Toque em "Abrir o convite"',
+        desc: "Aí sim o WhatsApp abre com o convite do grupo. Sem confirmar o número antes, o convite não é liberado.",
     },
 ];
 
@@ -146,74 +157,122 @@ export function ObrigadoComunidade() {
                         className="mx-auto mt-5 max-w-md text-[15px] leading-relaxed text-ice/65 sm:mt-7 sm:text-base"
                     >
                         Seu pagamento foi confirmado e seus seis meses começam agora.
-                        Faltam dois passos, e os dois estão logo abaixo.
+                        Comece pela área de membros — o grupo de WhatsApp você abre
+                        de dentro dela, e o passo a passo está logo abaixo.
                     </motion.p>
                 </div>
 
-                {/* ---------- Os dois acessos ---------- */}
-                <div className="mt-10 space-y-4 sm:mt-12 sm:space-y-5">
-                    {acessos.map((item, i) => {
-                        const Icon = item.icon;
-                        return (
-                            <motion.div
-                                key={item.titulo}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{
-                                    duration: 0.8,
-                                    delay: 0.85 + i * 0.12,
-                                    ease: [0.16, 1, 0.3, 1],
-                                }}
-                                className={
-                                    item.destaque
-                                        ? "cmn-glass-glow p-6 sm:p-8"
-                                        : "cmn-glass-lit p-6 sm:p-8"
-                                }
-                            >
-                                <div className="flex items-start gap-4">
-                                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-electric-blue/25 bg-electric-blue/10">
-                                        <Icon
-                                            className="h-5 w-5 text-electric-blue"
-                                            strokeWidth={2}
-                                        />
-                                    </span>
-                                    <div className="min-w-0 flex-1">
-                                        <p className="font-display text-base font-bold uppercase leading-tight tracking-tight text-ice sm:text-lg">
-                                            {item.titulo}
-                                        </p>
-                                        <p className="mt-1.5 text-[13px] leading-relaxed text-ice/60 sm:text-sm">
-                                            {item.desc}
-                                        </p>
-                                    </div>
-                                </div>
+                {/* ---------- Acesso: um só, a área de membros ----------
+                    Tudo passa por aqui, inclusive o grupo. */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.85, ease: [0.16, 1, 0.3, 1] }}
+                    className="cmn-glass-glow mt-10 p-6 sm:mt-12 sm:p-8"
+                >
+                    <div className="flex items-start gap-4">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-electric-blue/25 bg-electric-blue/10">
+                            <GraduationCap
+                                className="h-5 w-5 text-electric-blue"
+                                strokeWidth={2}
+                            />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                            <p className="font-display text-base font-bold uppercase leading-tight tracking-tight text-ice sm:text-lg">
+                                Área de membros
+                            </p>
+                            <p className="mt-1.5 text-[13px] leading-relaxed text-ice/60 sm:text-sm">
+                                Seu ponto de partida. É onde ficam a Metodologia CIMO, o
+                                Diagnóstico Profissional, todo material novo — e o convite
+                                do grupo de WhatsApp.
+                            </p>
+                        </div>
+                    </div>
 
-                                <a
-                                    href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={
-                                        "cmn-btn group mt-5 flex min-h-[52px] w-full items-center justify-center gap-2 px-6 py-4 text-[15px] font-semibold tracking-wide sm:gap-2.5" +
-                                        (item.destaque
-                                            ? " cmn-btn-primary bg-electric-blue text-obsidian hover:bg-white"
-                                            : " cmn-pill text-ice hover:border-white/25 hover:bg-white/10")
-                                    }
+                    <a
+                        href={AREA_MEMBROS_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="cmn-btn cmn-btn-primary group mt-5 flex min-h-[52px] w-full items-center justify-center gap-2 bg-electric-blue px-6 py-4 text-[15px] font-semibold tracking-wide text-obsidian hover:bg-white sm:gap-2.5"
+                    >
+                        Acessar a área de membros
+                        <span
+                            aria-hidden="true"
+                            className="transition-transform duration-400 group-hover:translate-x-1"
+                        >
+                            →
+                        </span>
+                    </a>
+
+                    <p className="mt-3 text-center text-[11px] leading-relaxed text-ice/45">
+                        Entre com o mesmo e-mail que você usou na compra.
+                    </p>
+                </motion.div>
+
+                {/* ---------- Como entrar no grupo ----------
+                    O convite só existe dentro da área de membros, depois
+                    da validação do número. Aqui a pessoa vê o caminho
+                    inteiro antes de percorrê-lo, para não travar no modal
+                    de confirmação. */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.97, ease: [0.16, 1, 0.3, 1] }}
+                    className="cmn-glass-lit mt-4 p-6 sm:mt-5 sm:p-8"
+                >
+                    <div className="flex items-start gap-4">
+                        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-electric-blue/25 bg-electric-blue/10">
+                            <MessageCircle
+                                className="h-5 w-5 text-electric-blue"
+                                strokeWidth={2}
+                            />
+                        </span>
+                        <div className="min-w-0 flex-1">
+                            <p className="font-display text-base font-bold uppercase leading-tight tracking-tight text-ice sm:text-lg">
+                                Como entrar no grupo
+                            </p>
+                            <p className="mt-1.5 text-[13px] leading-relaxed text-ice/60 sm:text-sm">
+                                O grupo de WhatsApp é o dia a dia da comunidade. O convite
+                                sai de dentro da área de membros, porque o seu número
+                                precisa ser confirmado antes.
+                            </p>
+                        </div>
+                    </div>
+
+                    <ol className="mt-6 space-y-4 sm:mt-7 sm:space-y-5">
+                        {passosGrupo.map((passo, i) => (
+                            <li key={passo.titulo} className="flex items-start gap-4">
+                                <span
+                                    aria-hidden="true"
+                                    className="mt-0.5 font-display text-base font-bold leading-none tracking-tight text-electric-blue"
                                 >
-                                    {item.cta}
-                                    <span
-                                        aria-hidden="true"
-                                        className="transition-transform duration-400 group-hover:translate-x-1"
-                                    >
-                                        →
-                                    </span>
-                                </a>
+                                    {String(i + 1).padStart(2, "0")}
+                                </span>
+                                <div className="min-w-0 flex-1">
+                                    <p className="text-[14px] font-semibold leading-snug text-ice/90 sm:text-[15px]">
+                                        {passo.titulo}
+                                    </p>
+                                    <p className="mt-1 text-[13px] leading-relaxed text-ice/55 sm:text-sm">
+                                        {passo.desc}
+                                    </p>
+                                </div>
+                            </li>
+                        ))}
+                    </ol>
 
-                                <p className="mt-3 text-center text-[11px] leading-relaxed text-ice/45">
-                                    {item.nota}
-                                </p>
-                            </motion.div>
-                        );
-                    })}
-                </div>
+                    {/* O erro mais caro do fluxo: pular a confirmação. */}
+                    <div className="mt-6 flex items-start gap-3 rounded-xl border border-dashed border-electric-blue/40 bg-electric-blue/[0.07] px-4 py-3.5 sm:mt-7">
+                        <ShieldCheck
+                            className="mt-0.5 h-4 w-4 shrink-0 text-electric-blue"
+                            strokeWidth={2}
+                        />
+                        <p className="text-[12px] leading-relaxed text-ice/65 sm:text-[13px]">
+                            Confirme o número no WhatsApp que você realmente usa. É por ele
+                            que o grupo vai te reconhecer — e é o mesmo número que usamos
+                            se precisarmos te reinserir depois.
+                        </p>
+                    </div>
+                </motion.div>
 
                 {/* ---------- Saída para quem travou ----------
                     A página serve de porto seguro: se um dos acessos não
@@ -227,8 +286,8 @@ export function ObrigadoComunidade() {
                     <div className="cmn-hairline" />
                     <div className="mt-6 flex flex-col items-center gap-4 text-center">
                         <p className="text-[13px] leading-relaxed text-ice/50">
-                            Não conseguiu entrar em algum dos dois? Guarde esta página e
-                            chame o suporte no WhatsApp.
+                            Travou em algum passo ou não conseguiu entrar no grupo?
+                            Guarde esta página e chame o suporte no WhatsApp.
                         </p>
                         <a
                             href={SUPORTE_WHATSAPP_URL}
