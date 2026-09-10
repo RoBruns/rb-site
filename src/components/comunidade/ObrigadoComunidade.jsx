@@ -46,10 +46,18 @@ const passosGrupo = [
     {
         titulo: 'Na página inicial, procure "Grupos"',
         desc: 'Logo abaixo do vídeo de boas-vindas aparece "Comunidade PGAR · WhatsApp". Clique em Entrar.',
+        print: {
+            src: "/hubla-grupos.png",
+            alt: 'Área de membros da Hubla: abaixo do vídeo de boas-vindas, o bloco "Grupos" traz "Comunidade PGAR · WhatsApp" com o botão Entrar destacado.',
+        },
     },
     {
         titulo: "Confirme seu número de WhatsApp",
         desc: "Abre um modal pedindo o número. Se você ainda não confirmou, digite o seu e confirme. Se já confirmou antes, o número aparece na tela — confira se é o mesmo WhatsApp que você usa hoje e, se não for, toque em Editar número.",
+        print: {
+            src: "/hubla-confirmar-numero.jpeg",
+            alt: 'Modal da Hubla dizendo "Você já confirmou este número", com o número cadastrado, o botão Editar número e, embaixo, o botão Abrir o convite destacado.',
+        },
     },
     {
         titulo: 'Toque em "Abrir o convite"',
@@ -255,6 +263,20 @@ export function ObrigadoComunidade() {
                                     <p className="mt-1 text-[13px] leading-relaxed text-ice/55 sm:text-sm">
                                         {passo.desc}
                                     </p>
+
+                                    {/* A captura da tela que o passo descreve. Some
+                                        para leitor de tela quando o alt já diria o
+                                        que o texto acima diz — aqui o alt descreve
+                                        a tela, então fica. */}
+                                    {passo.print && (
+                                        <img
+                                            src={passo.print.src}
+                                            alt={passo.print.alt}
+                                            loading="lazy"
+                                            decoding="async"
+                                            className="mt-3 w-full max-w-[280px] rounded-xl border border-white/10 shadow-[0_12px_40px_-8px_rgba(5,10,20,0.55)]"
+                                        />
+                                    )}
                                 </div>
                             </li>
                         ))}
