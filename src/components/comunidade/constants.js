@@ -29,7 +29,7 @@ export const PRICE_INSTALLMENT_VALUE = "R$ 92,33";
 
 export const PROMO_ATIVA = true;
 export const VAGAS_TOTAIS = 10;
-export const VAGAS_RESTANTES = 10;
+export const VAGAS_RESTANTES = 9;
 
 export const PROMO_CUPOM = "PGAR397";
 export const PROMO_PRICE_CASH = "R$ 397";
