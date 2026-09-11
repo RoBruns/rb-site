@@ -5,7 +5,9 @@
 
 export const CHECKOUT_URL_BASE = "https://pay.hub.la/SWYwhjMGcTtwMN8YuBu2";
 
-/*  Preço cheio — vale a partir do 11º aluno.                         */
+/*  O preço, único e fixo. O lote dos 10 primeiros com o cupom PGAR397
+    foi encerrado em 2026-09-11: não há mais camada promocional nem
+    contagem de vagas, e o checkout vai limpo, sem cupom na URL.       */
 export const PRICE_CASH = "R$ 497";
 export const PRICE_INSTALLMENT = "6x de R$ 92,33";
 export const PRICE_FULL_LABEL = "R$ 497 à vista ou 6x de R$ 92,33";
@@ -14,52 +16,22 @@ export const PRICE_FULL_LABEL = "R$ 497 à vista ou 6x de R$ 92,33";
     "por mês" e repetir o prefixo ficaria redundante.                  */
 export const PRICE_INSTALLMENT_VALUE = "R$ 92,33";
 
-/* ------------------------------------------------------------------ */
-/*  Lote promocional dos 10 primeiros.                                 */
-/*                                                                     */
-/*  Como funciona: os 10 primeiros usam o cupom PGAR397 no checkout e  */
-/*  pagam R$ 397 na PRIMEIRA compra (os seis meses iniciais). O cupom  */
-/*  vale só nessa primeira assinatura — a renovação, ao fim dos seis   */
-/*  meses, sai no preço cheio de R$ 497.                               */
-/*                                                                     */
-/*  Manutenção: baixe VAGAS_RESTANTES a cada venda. Chegou a zero (ou  */
-/*  PROMO_ATIVA = false), toda a camada promocional some da página      */
-/*  sozinha e fica só o preço cheio de R$ 497.                         */
-/* ------------------------------------------------------------------ */
+/*  Selo de lançamento: enquadra os R$ 497 como preço de entrada, e
+    não como o preço definitivo. É o que abre margem para subir mais
+    adiante sem parecer aumento arbitrário — quem entrar agora terá
+    pago o preço de lançamento, e isso fica dito desde já.
 
-export const PROMO_ATIVA = true;
-export const VAGAS_TOTAIS = 10;
-export const VAGAS_RESTANTES = 9;
+    Quando o preço subir: troque PRICE_* acima e apague LANCAMENTO_ATIVO
+    (ou ponha false), que o selo some da página inteira sozinho.       */
+export const LANCAMENTO_ATIVO = true;
+export const LANCAMENTO_SELO = "Preço de lançamento";
+export const LANCAMENTO_NOTA =
+    "Valor de lançamento da Comunidade. Quem entra agora paga este preço.";
 
-export const PROMO_CUPOM = "PGAR397";
-export const PROMO_PRICE_CASH = "R$ 397";
-export const PROMO_PRICE_INSTALLMENT = "6x de R$ 73,75";
-export const PROMO_PRICE_INSTALLMENT_VALUE = "R$ 73,75";
-
-/*  Um único ponto decide se a camada promocional aparece. Todo
-    componente pergunta por aqui, para não haver página mostrando
-    R$ 397 enquanto outra já mostra R$ 497.                            */
-export const PROMO_VISIVEL = PROMO_ATIVA && VAGAS_RESTANTES > 0;
-
-/*  O que o visitante paga hoje, de fato. Use estes dois em qualquer
-    lugar que anuncie "o preço" sem falar de lote.                     */
-export const PRECO_VIGENTE_CASH = PROMO_VISIVEL ? PROMO_PRICE_CASH : PRICE_CASH;
-export const PRECO_VIGENTE_INSTALLMENT_VALUE = PROMO_VISIVEL
-    ? PROMO_PRICE_INSTALLMENT_VALUE
-    : PRICE_INSTALLMENT_VALUE;
-export const PRECO_VIGENTE_INSTALLMENT = PROMO_VISIVEL
-    ? PROMO_PRICE_INSTALLMENT
-    : PRICE_INSTALLMENT;
-
-/*  Enquanto houver vaga, o botão leva ao checkout com o cupom já
-    aplicado — ninguém perde o desconto por esquecer de digitar.
-    O desconto incide só na primeira compra; a renovação volta ao
-    preço cheio. Acabou o lote, o link volta ao checkout limpo.
-    (buildCheckoutUrl usa URL/searchParams, então os parâmetros de
-    atribuição são somados a este ?coupon= sem apagá-lo.)              */
-export const CHECKOUT_URL = PROMO_VISIVEL
-    ? CHECKOUT_URL_BASE + "?coupon=" + PROMO_CUPOM
-    : CHECKOUT_URL_BASE;
+/*  Checkout sem parâmetro de cupom. buildCheckoutUrl usa
+    URL/searchParams, então os parâmetros de atribuição entram aqui
+    sem conflito.                                                      */
+export const CHECKOUT_URL = CHECKOUT_URL_BASE;
 
 /* ------------------------------------------------------------------ */
 /*  Pós-compra: para onde o aluno vai depois de pagar.                 */

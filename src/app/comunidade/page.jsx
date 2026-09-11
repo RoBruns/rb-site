@@ -1,21 +1,13 @@
 import { ComunidadePage } from "../../components/comunidade/ComunidadePage";
 import {
-    PROMO_VISIVEL,
-    PROMO_PRICE_CASH,
-    PROMO_PRICE_INSTALLMENT,
     PRICE_CASH,
     PRICE_INSTALLMENT,
-    VAGAS_TOTAIS,
 } from "../../components/comunidade/constants";
 
-/*  A description acompanha o lote: enquanto houver vaga promocional ela
-    anuncia o preço com cupom; depois, o preço cheio. Sem isso, o Google
-    e o preview do WhatsApp continuariam prometendo um valor que já
-    acabou.                                                             */
-const descricaoPreco = PROMO_VISIVEL
-    ? "As " + VAGAS_TOTAIS + " primeiras vagas saem por " + PROMO_PRICE_CASH +
-      " à vista ou " + PROMO_PRICE_INSTALLMENT + " com cupom."
-    : PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + ".";
+/*  O preço entra na description para o Google e o preview do WhatsApp
+    não prometerem um valor diferente do que a página mostra.           */
+const descricaoPreco =
+    "Valor de lançamento: " + PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + ".";
 
 export const metadata = {
     metadataBase: new URL("https://rodrigobruns.com.br"),

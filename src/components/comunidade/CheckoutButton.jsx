@@ -3,7 +3,7 @@
 import { useCallback, useSyncExternalStore } from "react";
 import { cn } from "../../utils/cn";
 import { buildCheckoutUrl, sendTouch } from "../../utils/attribution";
-import { useVagas } from "./useVagas";
+import { CHECKOUT_URL } from "./constants";
 
 /* ------------------------------------------------------------------ */
 /*  CTA da Comunidade. Por padrão vai direto ao checkout da Hubla.     */
@@ -24,11 +24,9 @@ export function CheckoutButton({
     className,
     href,
 }) {
-    /*  Sem href explícito, o botão vai ao checkout vigente — que perde o
-        cupom sozinho assim que o lote acaba. Passe href="#oferta" para
-        apenas rolar até a seção de preço.                              */
-    const { checkoutUrl } = useVagas();
-    const destino = href ?? checkoutUrl;
+    /*  Sem href explícito, o botão vai ao checkout. Passe href="#oferta"
+        para apenas rolar até a seção de preço.                        */
+    const destino = href ?? CHECKOUT_URL;
     const isExternal = destino.startsWith("http");
     // useSyncExternalStore mantém o HTML estático sem JS e atualiza o href na hidratação, sem useEffect.
     const getSnapshot = useCallback(() => {

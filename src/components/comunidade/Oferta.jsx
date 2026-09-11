@@ -7,17 +7,16 @@ import {
     GraduationCap,
     Infinity as InfinityIcon,
     ShieldCheck,
-    Tag,
+    Sparkles,
 } from "lucide-react";
 import { CheckoutButton } from "./CheckoutButton";
 import {
     PRICE_CASH,
     PRICE_INSTALLMENT_VALUE,
-    PROMO_CUPOM,
-    PROMO_PRICE_CASH,
-    PROMO_PRICE_INSTALLMENT_VALUE,
+    LANCAMENTO_ATIVO,
+    LANCAMENTO_SELO,
+    LANCAMENTO_NOTA,
 } from "./constants";
-import { useVagas } from "./useVagas";
 
 /*  Cada item carrega o próprio valor de referência. O total riscado
     ao lado é a soma de `valor` — mexeu aqui, o ancoramento acompanha
@@ -62,7 +61,6 @@ const brl = (n) => `R$ ${n.toLocaleString("pt-BR")}`;
 
 export function Oferta() {
     // Vagas ao vivo: vêm da contagem de vendas no CRM, não do build.
-    const { vagasRestantes, vagasTotais, promoVisivel } = useVagas();
 
     return (
         <section
@@ -151,17 +149,16 @@ export function Oferta() {
                         {/* Preço */}
                         <div className="flex flex-col items-center justify-center p-6 text-center sm:p-8 md:p-10">
 
-                            {/* Selo de vagas: só aparece enquanto o lote existe */}
-                            {promoVisivel && (
+                            {/* Selo de lançamento: enquadra o valor como preço
+                                de entrada, não como o preço definitivo. */}
+                            {LANCAMENTO_ATIVO && (
                                 <div className="mb-5 flex items-center gap-2 rounded-full border border-electric-blue/40 bg-electric-blue/15 px-4 py-1.5">
-                                    <span className="relative flex h-2 w-2 shrink-0">
-                                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-electric-blue opacity-75" />
-                                        <span className="relative inline-flex h-2 w-2 rounded-full bg-electric-blue" />
-                                    </span>
+                                    <Sparkles
+                                        className="h-3.5 w-3.5 shrink-0 text-electric-blue"
+                                        strokeWidth={2.2}
+                                    />
                                     <p className="text-[11px] font-bold uppercase tracking-[0.1em] text-electric-blue sm:text-xs">
-                                        {vagasRestantes === 1
-                                            ? "Última vaga com desconto"
-                                            : vagasRestantes + " de " + vagasTotais + " vagas com desconto"}
+                                        {LANCAMENTO_SELO}
                                     </p>
                                 </div>
                             )}
@@ -172,63 +169,24 @@ export function Oferta() {
                                     {brl(totalInclui)}
                                 </p>
 
-                                {promoVisivel ? (
-                                    <>
-                                        {/* Preço cheio, que passa a valer do 11º em diante */}
-                                        <p className="mt-3 text-[13px] leading-relaxed text-ice/45 sm:text-sm">
-                                            Depois das {vagasTotais} primeiras vagas:{" "}
-                                            <span className="font-semibold text-ice/60 line-through decoration-ice/40">
-                                                {PRICE_CASH}
-                                            </span>
-                                        </p>
-
-                                        <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.18em] text-electric-blue/80 sm:text-xs sm:tracking-[0.2em]">
-                                            Com o cupom
-                                        </p>
-                                        <p className="mt-3 text-sm font-medium text-ice/50">6x de</p>
-                                        <p className="font-display text-[clamp(3rem,14vw,3.75rem)] font-bold leading-none text-electric-blue md:text-7xl">
-                                            {PROMO_PRICE_INSTALLMENT_VALUE}
-                                        </p>
-                                        <p className="mt-4 text-[15px] text-ice/65">
-                                            ou {PROMO_PRICE_CASH} à vista
-                                        </p>
-                                    </>
-                                ) : (
-                                    <>
-                                        <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-electric-blue/80 sm:text-xs sm:tracking-[0.2em]">
-                                            Por
-                                        </p>
-                                        <p className="mt-3 text-sm font-medium text-ice/50">6x de</p>
-                                        <p className="font-display text-[clamp(3rem,14vw,3.75rem)] font-bold leading-none text-electric-blue md:text-7xl">
-                                            {PRICE_INSTALLMENT_VALUE}
-                                        </p>
-                                        <p className="mt-4 text-[15px] text-ice/65">
-                                            ou {PRICE_CASH} à vista
-                                        </p>
-                                    </>
-                                )}
+                                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-electric-blue/80 sm:text-xs sm:tracking-[0.2em]">
+                                    Por
+                                </p>
+                                <p className="mt-3 text-sm font-medium text-ice/50">6x de</p>
+                                <p className="font-display text-[clamp(3rem,14vw,3.75rem)] font-bold leading-none text-electric-blue md:text-7xl">
+                                    {PRICE_INSTALLMENT_VALUE}
+                                </p>
+                                <p className="mt-4 text-[15px] text-ice/65">
+                                    ou {PRICE_CASH} à vista
+                                </p>
                             </div>
 
-                            {/* O cupom precisa ficar óbvio: sem ele, não há desconto */}
-                            {promoVisivel && (
-                                <div className="mt-6 w-full max-w-xs">
-                                    <div className="flex items-center justify-center gap-2.5 rounded-xl border border-dashed border-electric-blue/45 bg-electric-blue/[0.07] px-4 py-3">
-                                        <Tag
-                                            className="h-4 w-4 shrink-0 text-electric-blue"
-                                            strokeWidth={2}
-                                        />
-                                        <p className="text-[13px] leading-tight text-ice/70">
-                                            Cupom{" "}
-                                            <strong className="font-display font-bold uppercase tracking-wide text-electric-blue">
-                                                {PROMO_CUPOM}
-                                            </strong>
-                                        </p>
-                                    </div>
-                                    <p className="mt-2 text-[11px] leading-relaxed text-ice/45">
-                                        Já aplicado no checkout. O desconto vale só na
-                                        primeira compra: a renovação sai por {PRICE_CASH}.
-                                    </p>
-                                </div>
+                            {/* Por que este valor e não outro: deixa explícito
+                                que o preço de hoje é o de entrada. */}
+                            {LANCAMENTO_ATIVO && (
+                                <p className="mt-6 max-w-xs text-[12px] leading-relaxed text-ice/50">
+                                    {LANCAMENTO_NOTA}
+                                </p>
                             )}
 
                             <div className="mt-8 w-full">
@@ -251,9 +209,6 @@ export function Oferta() {
                                 Assinatura inicial de seis meses. Com renovação automática no cartão.
                                 Para pagamento no Pix, a renovação chegará por e-mail. Reembolso
                                 garantido nos primeiros 7 dias da sua primeira assinatura.
-                                {promoVisivel &&
-                                    " O cupom vale apenas na primeira compra: passados os seis meses, a renovação é cobrada pelo preço cheio de " +
-                                        PRICE_CASH + "."}
                             </p>
                         </div>
                     </div>

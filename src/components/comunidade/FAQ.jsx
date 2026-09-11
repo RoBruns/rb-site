@@ -2,29 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import {
-    PROMO_CUPOM,
-    PROMO_PRICE_CASH,
-    PROMO_PRICE_INSTALLMENT,
-    PRICE_CASH,
-    VAGAS_TOTAIS,
-} from "./constants";
-import { useVagas } from "./useVagas";
+import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
 
-/*  A pergunta do cupom só existe enquanto o lote promocional estiver
-    de pé. Acabaram as vagas, ela some junto com o resto da camada.   */
-const perguntaCupom = {
-    q: "Como funciona o cupom " + PROMO_CUPOM + "?",
-    a:
-        "As " + VAGAS_TOTAIS + " primeiras vagas saem por " + PROMO_PRICE_CASH +
-        " à vista ou " + PROMO_PRICE_INSTALLMENT + " com o cupom " + PROMO_CUPOM +
-        ", que já vai aplicado quando você clica em entrar. Depois delas, a assinatura passa a " + PRICE_CASH +
-        ". O desconto vale só na primeira compra, ou seja, nos seis meses " +
-        "iniciais: quando esse período terminar, a renovação é cobrada pelo " +
-        "preço cheio de " + PRICE_CASH + ".",
-};
-
-const perguntasBase = [
+const perguntas = [
     {
         q: "Sou iniciante. Vou conseguir acompanhar?",
         a: "Vai. Tem gente começando agora e gente que já trabalha há anos, e o ponto de partida é sempre o contexto de cada um. Ninguém precisa chegar sabendo.",
@@ -39,8 +19,9 @@ const perguntasBase = [
     },
     {
         q: "Posso renovar depois dos seis meses?",
-        // O trecho sobre o cupom depende do lote, então entra em montarPerguntas.
-        a: null,
+        a:
+            "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail. " +
+            "O valor de hoje é o de lançamento (" + PRICE_CASH + "); se ele subir mais adiante, avisamos antes da renovação.",
     },
     {
         q: "Posso cancelar quando quiser?",
@@ -55,37 +36,18 @@ const perguntasBase = [
         a: "Contexto, Intensidade, Mentalidade e Organização. São os quatro módulos do curso e, na prática, a ordem em que você pensa antes de montar um treino.",
     },
     {
+        q: "O preço vai mudar?",
+        a:
+            PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + " é o valor de lançamento da Comunidade. " +
+            "Ele tende a subir conforme o conteúdo e a base crescem, e quem entrar depois vai pagar o preço da época.",
+    },
+    {
         q: "O que exatamente está incluído?",
         a: "Grupo de WhatsApp da comunidade, um encontro em grupo por mês, um encontro individual dentro dos seis meses, o curso CIMO, o Diagnóstico Profissional e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
     },
 ];
 
-/*  As perguntas que falam de lote são montadas na hora, porque o número
-    de vagas chega depois do carregamento — não dá para congelá-las no
-    build como o resto.                                                 */
-function montarPerguntas(promoVisivel) {
-    return [
-        ...perguntasBase.map((pergunta) =>
-            pergunta.a !== null
-                ? pergunta
-                : {
-                      ...pergunta,
-                      a:
-                          "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail." +
-                          (promoVisivel
-                              ? " O cupom do lote promocional vale só na primeira compra, então a renovação sai pelo preço cheio de " +
-                                PRICE_CASH + "."
-                              : ""),
-                  }
-        ),
-        ...(promoVisivel ? [perguntaCupom] : []),
-    ];
-}
-
 export function FAQ() {
-    const { promoVisivel } = useVagas();
-    const perguntas = montarPerguntas(promoVisivel);
-
     return (
         <section className="relative w-full py-12 sm:py-20 md:py-28">
             <div className="relative z-10 mx-auto max-w-3xl px-5 sm:px-6">
