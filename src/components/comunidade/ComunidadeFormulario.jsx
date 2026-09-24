@@ -6,6 +6,7 @@ import "./ds.css";
 import { COUNTRIES, PhoneInput } from "../form/PhoneInput";
 import { SuccessScreen } from "../form/SuccessScreen";
 import { EASE, stepVariants } from "../form/motion";
+import { getTrackingId } from "../../utils/attribution";
 
 const WEBHOOK_URL =
     process.env.NEXT_PUBLIC_COMUNIDADE_FORM_WEBHOOK ||
@@ -112,17 +113,15 @@ export function ComunidadeFormulario() {
             const response = await fetch(WEBHOOK_URL, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
+                // O n8n repassa para a RPC registrar_lead_comunidade (funil
+                // Comunidade, etapa Lead). O rb_tid liga este lead a uma
+                // venda futura pela atribuição (ver crm/atribuicao.md).
                 body: JSON.stringify({
                     nome: nome.trim(),
                     whatsapp: whatsappE164,
-                    telefone: whatsappE164,
                     email: email.trim().toLowerCase(),
                     contextos,
-                    contexto_trabalho: contextos,
-                    origem: "comunidade-formulario",
-                    funil: "comunidade",
-                    etapa: "lead",
-                    enviado_em: new Date().toISOString(),
+                    rb_tid: getTrackingId(),
                 }),
             });
 
@@ -236,7 +235,7 @@ export function ComunidadeFormulario() {
                                             }}
                                             className="space-y-7"
                                         >
-                                            <div className="[&>div>button]:rounded-l-2xl [&>div>input]:rounded-r-2xl [&>div>input]:rounded-l-none">
+                                            <div className="[&>div>button]:rounded-l-2xl [&>div>button]:bg-white/[0.07] [&>div>input]:rounded-r-2xl [&>div>input]:rounded-l-none [&>div>input]:bg-white/[0.045] [&>div>input]:py-4 [&>div>input]:text-base [&>div>input]:focus:bg-white/[0.065]">
                                                 <PhoneInput
                                                     country={country}
                                                     onCountry={setCountry}
