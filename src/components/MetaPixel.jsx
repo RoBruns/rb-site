@@ -19,7 +19,8 @@ export function MetaPixel() {
     // Não carregamos o pixel global nessas rotas para não misturar tráfego.
     if (
         pathname?.startsWith("/masterclass") ||
-        pathname?.startsWith("/obrigado-masterclass")
+        pathname?.startsWith("/obrigado-masterclass") ||
+        pathname?.startsWith("/comunidade-formulario")
     ) {
         return null;
     }
