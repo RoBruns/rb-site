@@ -8,16 +8,16 @@ export const CHECKOUT_URL_BASE = "https://pay.hub.la/SWYwhjMGcTtwMN8YuBu2";
 /*  O preço, único e fixo. O lote dos 10 primeiros com o cupom PGAR397
     foi encerrado em 2026-09-11: não há mais camada promocional nem
     contagem de vagas, e o checkout vai limpo, sem cupom na URL.
-    Subiu de R$ 497 para R$ 805 em 2026-09-29. A parcela é a que a
-    Hubla cobra com juros (pagos pelo cliente), por isso 6 × 149,54
-    passa de 805.                                                      */
-export const PRICE_CASH = "R$ 805";
-export const PRICE_INSTALLMENT = "6x de R$ 149,54";
-export const PRICE_FULL_LABEL = "R$ 805 à vista ou 6x de R$ 149,54";
+    Subiu de R$ 497 para R$ 797 em 2026-09-29, valores copiados da
+    tabela de parcelas da Hubla. A parcela inclui os juros (pagos pelo
+    cliente), por isso 6 × 148,06 passa de 797.                        */
+export const PRICE_CASH = "R$ 797";
+export const PRICE_INSTALLMENT = "6x de R$ 148,06";
+export const PRICE_FULL_LABEL = "R$ 797 à vista ou 6x de R$ 148,06";
 
 /*  Só o número da parcela, para quando a frase já diz "6x de" ou
     "por mês" e repetir o prefixo ficaria redundante.                  */
-export const PRICE_INSTALLMENT_VALUE = "R$ 149,54";
+export const PRICE_INSTALLMENT_VALUE = "R$ 148,06";
 
 /*  Selo de lançamento: enquadra os R$ 497 como preço de entrada, e
     não como o preço definitivo. É o que abre margem para subir mais
