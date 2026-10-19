@@ -2,43 +2,51 @@
 
 import { motion } from "framer-motion";
 import { MessagesSquare, Video, GraduationCap } from "lucide-react";
+import { CheckoutButton } from "./CheckoutButton";
 
 /* Layout: cursos e encontros lado a lado, mais altos; comunidade
    embaixo, largo e mais baixo. Mantém o fundo escuro (o design
    system de vidro precisa de escuro para funcionar). */
 
+/* Ordem pelo que pesa na decisão (call de vendas de 2026-10-13): o
+   encontro individual e os encontros ao vivo primeiro, os cursos depois. */
 const pilaresTopo = [
+    {
+        icon: Video,
+        titulo: "Os encontros",
+        chamada: "Onde você leva o seu caso e conversa ao vivo.",
+        subcards: [
+            {
+                titulo: "Encontro individual",
+                texto:
+                    "Cerca de uma hora só eu e você. A pauta é sua: seu método, sua carreira, seu momento.",
+            },
+            {
+                titulo: "Encontros em grupo",
+                texto:
+                    "Uma vez por mês, ao vivo, com temas do dia a dia, como microciclo, carreira e metodologia. Tudo fica gravado.",
+            },
+            {
+                titulo: "Convidados",
+                texto:
+                    "Profissionais de clubes grandes num café com o grupo, para contar como chegaram e como se mantêm.",
+            },
+        ],
+    },
     {
         icon: GraduationCap,
         titulo: "Os cursos",
         chamada: "A base do que você vai aplicar no campo.",
         texto:
-            "Enquanto você estiver na comunidade, terá acesso à metodologia CIMO, o Diagnóstico Profissional e todo material novo que for lançado.",
+            "Acesso imediato à metodologia CIMO, ao Diagnóstico Profissional e a todo material novo lançado enquanto você estiver na comunidade.",
         subcards: [
-            {
-                titulo: "Metodologia CIMO",
-                texto: "Construa uma base para o seu processo.",
-            },
             {
                 titulo: "Diagnóstico Profissional",
                 texto: "Prepare o próximo passo da sua trajetória.",
             },
-        ],
-    },
-    {
-        icon: Video,
-        titulo: "Os encontros",
-        chamada: "Onde você aprende e tira dúvidas ao vivo.",
-        subcards: [
             {
-                titulo: "Encontros em grupo",
-                texto:
-                    "Uma vez por mês, ao vivo, para você tirar dúvidas e aprender comigo e com outros profissionais.",
-            },
-            {
-                titulo: "Encontro individual",
-                texto:
-                    "Esse é o momento em que entendo seu caso e te dou o direcionamento necessário.",
+                titulo: "Metodologia CIMO",
+                texto: "Compare o seu processo com o de quem está no alto rendimento.",
             },
         ],
     },
@@ -46,10 +54,10 @@ const pilaresTopo = [
 
 const pilarComunidade = {
     icon: MessagesSquare,
-    titulo: "A comunidade e o WhatsApp",
+    titulo: "O grupo e o contato direto",
     chamada: "Onde a dúvida do dia a dia é resolvida.",
     texto:
-        "Grupo de preparadores trocando dúvidas de treino, rotina e carreira. O que nenhum curso gravado dá.",
+        "Grupo de WhatsApp com preparadores do profissional, da base, do feminino, de escolas de goleiros e do exterior, e contato direto comigo para trocar mensagem. O que nenhum curso gravado dá.",
 };
 
 const aulasDiagnostico = [
@@ -100,7 +108,7 @@ export function ComoFunciona() {
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-4 font-display text-[clamp(1.95rem,8.6vw,2.75rem)] font-bold uppercase leading-[1] tracking-tight text-ice sm:mt-5 md:text-6xl md:leading-[0.98]"
                     >
-                        Estude, pergunte e aplique.
+                        Converse, aplique e ajuste.
                     </motion.h2>
 
                     <motion.p
@@ -155,9 +163,9 @@ export function ComoFunciona() {
 
                                     <div
                                         className={
-                                            i === 0
+                                            p.texto
                                                 ? "mt-auto grid gap-3 pt-6 sm:grid-cols-2"
-                                                : "mt-6 grid gap-5"
+                                                : "mt-6 grid gap-4"
                                         }
                                     >
                                         {p.subcards.map((s) => (
@@ -268,8 +276,9 @@ export function ComoFunciona() {
                                 Quatro pilares que formam a metodologia.
                             </h3>
                             <p className="mt-4 text-sm leading-relaxed text-ice/60">
-                                Não é treino pronto. É a ordem em que você pensa
-                                antes de escolher o que fazer.
+                                Não é treino pronto nem um recorte de aula. É o
+                                módulo inteiro: a ordem em que eu penso antes de
+                                escolher o que fazer, da base ao profissional.
                             </p>
                         </div>
 
@@ -295,6 +304,12 @@ export function ComoFunciona() {
                         </div>
                     </div>
                 </motion.div>
+
+                <div className="mt-10 flex justify-center sm:mt-14">
+                    <CheckoutButton href="#oferta" className="w-full sm:w-auto">
+                        Quero entrar na Comunidade
+                    </CheckoutButton>
+                </div>
             </div>
         </section>
     );

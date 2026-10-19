@@ -3,11 +3,14 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+/* O clube vai como fato biográfico, sem logo e sem sugerir parceria.
+   "Professor" vem de membros que foram alunos do Rodrigo em cursos de
+   licença (CBF, FPF, ABTG), segundo as respostas de candidatura. */
 const credenciais = [
-    { valor: "Ex-atleta", label: "profissional" },
+    { valor: "Red Bull", label: "Bragantino, preparação de goleiros" },
     { valor: "Licença A", label: "Treinador de Goleiros CBF" },
-    { valor: "Pós-graduado", label: "em Treinamento, Técnica e Tática Desportiva" },
-    { valor: "Bacharel", label: "em Educação Física" },
+    { valor: "Professor", label: "em cursos de licença de treinador de goleiros" },
+    { valor: "Ex-atleta", label: "goleiro profissional" },
 ];
 
 export function QuemResponde() {
@@ -93,13 +96,17 @@ export function QuemResponde() {
                             className="mt-6 text-[14px] leading-relaxed text-ice/70 sm:mt-7 sm:text-sm md:text-base"
                         >
                             <p>
-                                São mais de 20 anos de experiência. Como
-                                coordenador da preparação de goleiros, tenho trabalhado lado a
-                                lado com goleiros e preparadores, e hoje trago esse
-                                conhecimento para ajudar quem enfrenta a mesma
-                                dificuldade que eu já enfrentei, quem se sente perdido
-                                como eu já me senti. E dar aquele direcionamento que faz a
-                                diferença na sua carreira e na sua metodologia.
+                                São mais de 20 anos formando goleiros, da base ao
+                                profissional. Hoje coordeno a preparação de goleiros do
+                                Red Bull Bragantino e dou aula em cursos de licença para
+                                treinadores de goleiros.
+                            </p>
+                            <p className="mt-4">
+                                Tenho 48 anos. Sei o que é estar no melhor momento da
+                                cabeça e, ao mesmo tempo, precisar planejar os próximos dez.
+                                Meu trabalho aqui é usar o que eu vivo no alto rendimento
+                                para te ajudar a dar o próximo passo, na carreira e na
+                                metodologia.
                             </p>
                         </motion.div>
 

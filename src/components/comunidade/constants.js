@@ -19,17 +19,26 @@ export const PRICE_FULL_LABEL = "R$ 797 à vista ou 6x de R$ 148,06";
     "por mês" e repetir o prefixo ficaria redundante.                  */
 export const PRICE_INSTALLMENT_VALUE = "R$ 148,06";
 
-/*  Selo de lançamento: enquadra os R$ 497 como preço de entrada, e
-    não como o preço definitivo. É o que abre margem para subir mais
-    adiante sem parecer aumento arbitrário — quem entrar agora terá
-    pago o preço de lançamento, e isso fica dito desde já.
-
-    Quando o preço subir: troque PRICE_* acima e apague LANCAMENTO_ATIVO
-    (ou ponha false), que o selo some da página inteira sozinho.       */
-export const LANCAMENTO_ATIVO = true;
+/*  Selo de lançamento: desligado em 2026-10-19. O preço já subiu duas
+    vezes (397, 497, 797), então chamar o atual de "lançamento" contradiz
+    o histórico e é o tipo de anúncio que o CDC (art. 37) trata como
+    enganoso. Religar só num lançamento de verdade.                    */
+export const LANCAMENTO_ATIVO = false;
 export const LANCAMENTO_SELO = "Preço de lançamento";
 export const LANCAMENTO_NOTA =
     "Valor de lançamento da Comunidade. Quem entra agora paga este preço.";
+
+/*  Âncora real: o nível acima existe e tem este preço. Substitui o
+    "valor separado" riscado, que nunca foi praticado.                 */
+export const PRICE_MENTORIA_GRUPO = "R$ 2.497";
+
+/*  Para quem prefere conversar antes de comprar. O formulário cria o
+    card no funil da Comunidade e a conversa acontece por lá.          */
+export const FORMULARIO_URL = "/comunidade-formulario";
+
+/*  Tamanho do grupo, para a prova social. 29 clientes em 2026-10-19;
+    "+25" continua verdadeiro enquanto o grupo cresce.                 */
+export const MEMBROS_LABEL = "+25 preparadores";
 
 /*  Checkout sem parâmetro de cupom. buildCheckoutUrl usa
     URL/searchParams, então os parâmetros de atribuição entram aqui
@@ -42,7 +51,7 @@ export const CHECKOUT_URL = CHECKOUT_URL_BASE;
 /* ------------------------------------------------------------------ */
 
 /*  Área de membros da Hubla. O acesso é liberado pelo e-mail usado na
-    compra — daí o aviso na página, que evita a dúvida mais comum.     */
+    compra; daí o aviso na página, que evita a dúvida mais comum.     */
 export const AREA_MEMBROS_URL = "https://app.hub.la/m/bRuz6zk659j0j9AuykEc";
 
 /*  Convite do grupo de WhatsApp da comunidade.                        */

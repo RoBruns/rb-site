@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
-import { PRICE_INSTALLMENT_VALUE } from "./constants";
+import { PRICE_CASH, PRICE_INSTALLMENT_VALUE, FORMULARIO_URL } from "./constants";
 
 export function CtaFinal() {
     return (
@@ -39,15 +39,19 @@ export function CtaFinal() {
                     className="mt-9 flex w-full flex-col items-center gap-4 sm:mt-11"
                 >
                     <CheckoutButton className="w-full sm:w-auto">
-                        Entrar na Comunidade
+                        Quero entrar na Comunidade
                     </CheckoutButton>
                     <p className="text-[13px] leading-relaxed text-ice/50 sm:text-sm">
-                        Apenas{" "}
-                        <strong className="text-ice">
-                            {PRICE_INSTALLMENT_VALUE}
-                        </strong>{" "}
-                        por mês.
+                        6x de{" "}
+                        <strong className="text-ice">{PRICE_INSTALLMENT_VALUE}</strong>{" "}
+                        ou {PRICE_CASH} à vista. 7 dias para desistir.
                     </p>
+                    <a
+                        href={FORMULARIO_URL}
+                        className="text-[13px] font-medium text-ice/55 underline decoration-ice/25 underline-offset-4 transition-colors duration-300 hover:text-ice sm:text-sm"
+                    >
+                        Prefere conversar antes? Fale com a gente
+                    </a>
                 </motion.div>
             </div>
         </section>

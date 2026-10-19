@@ -3,8 +3,11 @@
 import { motion } from "framer-motion";
 import {
     MessagesSquare,
+    MessageCircle,
     Video,
+    UserRound,
     GraduationCap,
+    Compass,
     Infinity as InfinityIcon,
     ShieldCheck,
     Sparkles,
@@ -13,55 +16,53 @@ import { CheckoutButton } from "./CheckoutButton";
 import {
     PRICE_CASH,
     PRICE_INSTALLMENT_VALUE,
+    PRICE_MENTORIA_GRUPO,
     LANCAMENTO_ATIVO,
     LANCAMENTO_SELO,
     LANCAMENTO_NOTA,
 } from "./constants";
 
-/*  Cada item carrega o próprio valor de referência. O total riscado
-    ao lado é a soma de `valor` — mexeu aqui, o ancoramento acompanha
-    sozinho. `valor: null` fica fora da conta (caso dos bônus).          */
+/*  Na ordem do que pesa na decisão. Sem valores riscados: a âncora
+    é o nível acima, que existe e tem preço público.                   */
 const inclui = [
     {
+        icon: UserRound,
+        titulo: "Encontro individual",
+        desc: "Cerca de uma hora com o Rodrigo. A pauta é sua.",
+    },
+    {
+        icon: MessageCircle,
+        titulo: "Contato direto com o Rodrigo",
+        desc: "WhatsApp para trocar mensagem durante os seis meses.",
+    },
+    {
         icon: MessagesSquare,
-        titulo: "Grupo de WhatsApp",
-        desc: "O dia a dia da comunidade, com preparadores de contextos diferentes do seu.",
-        valor: 200,
+        titulo: "Grupo de preparadores",
+        desc: "Profissional, base, feminino, escolas de goleiros e exterior no mesmo grupo.",
     },
     {
         icon: Video,
         titulo: "Encontros ao vivo",
-        desc: "Um encontro individual mais encontros mensais em grupo.",
-        valor: 500,
+        desc: "Um por mês, com temas do dia a dia e convidados. Tudo gravado.",
+    },
+    {
+        icon: Compass,
+        titulo: "Diagnóstico Profissional",
+        desc: "Onde você está, onde quer chegar e o plano para chegar lá.",
     },
     {
         icon: GraduationCap,
         titulo: "Metodologia CIMO",
-        desc: "Os quatro pilares do método: Contexto, Intensidade, Mentalidade e Organização.",
-        valor: 1000,
-    },
-    {
-        icon: GraduationCap,
-        titulo: "Diagnóstico Profissional",
-        desc: "Um raio-x do mercado para te guiar ao próximo nível.",
-        valor: 500,
+        desc: "Contexto, Intensidade, Mentalidade e Organização, o módulo inteiro.",
     },
     {
         icon: InfinityIcon,
-        titulo: "+ Bônus",
-        desc: "Acesso a todo material lançado enquanto você for assinante.",
-        valor: null,
-        valorLabel: "Sem preço",
+        titulo: "O que for lançado",
+        desc: "Todo material novo enquanto você for assinante.",
     },
 ];
 
-const totalInclui = inclui.reduce((soma, item) => soma + (item.valor || 0), 0);
-
-const brl = (n) => `R$ ${n.toLocaleString("pt-BR")}`;
-
 export function Oferta() {
-    // Vagas ao vivo: vêm da contagem de vendas no CRM, não do build.
-
     return (
         <section
             id="oferta"
@@ -81,6 +82,9 @@ export function Oferta() {
                         alt="PGAR"
                         className="mx-auto h-7 w-auto opacity-85 sm:h-8 md:h-10"
                     />
+                    <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.2em] text-ice/45 sm:text-xs">
+                        Preparação de Goleiros de Alto Rendimento
+                    </p>
                     <h2 className="mt-6 font-display text-[clamp(1.95rem,8.6vw,2.75rem)] font-bold uppercase leading-[1] tracking-tight text-ice sm:mt-7 md:text-6xl md:leading-[0.98]">
                         Seis meses,{" "}
                         <span className="text-electric-blue">tudo junto.</span>
@@ -102,8 +106,8 @@ export function Oferta() {
                             </p>
 
                             <p className="mt-4 text-sm leading-relaxed text-ice/60">
-                                Seis meses que começam no dia da sua compra. No fim do
-                                período você decide se renova.
+                                Seis meses que começam no dia da sua compra. Sem turma e
+                                sem data de início. No fim do período você decide se renova.
                             </p>
 
                             <ul className="mt-6 space-y-4 sm:mt-7 sm:space-y-5">
@@ -118,14 +122,9 @@ export function Oferta() {
                                                 />
                                             </span>
                                             <div className="min-w-0 flex-1">
-                                                <div className="flex items-baseline justify-between gap-3">
-                                                    <p className="font-display text-[15px] font-bold uppercase leading-tight tracking-tight text-ice sm:text-base">
-                                                        {item.titulo}
-                                                    </p>
-                                                    <p className="shrink-0 font-display text-[13px] font-bold leading-none tracking-tight text-ice/35 line-through decoration-ice/25 sm:text-sm">
-                                                        {item.valor ? brl(item.valor) : item.valorLabel}
-                                                    </p>
-                                                </div>
+                                                <p className="font-display text-[15px] font-bold uppercase leading-tight tracking-tight text-ice sm:text-base">
+                                                    {item.titulo}
+                                                </p>
                                                 <p className="mt-1 text-[13px] leading-relaxed text-ice/55 sm:text-sm">
                                                     {item.desc}
                                                 </p>
@@ -134,23 +133,11 @@ export function Oferta() {
                                     );
                                 })}
                             </ul>
-
-                            {/* Fecha a conta: soma dos itens acima */}
-                            <div className="mt-6 flex items-baseline justify-between gap-3 border-t border-white/10 pt-5 sm:mt-7">
-                                <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-ice/40 sm:text-xs sm:tracking-[0.2em]">
-                                    Valor separado
-                                </p>
-                                <p className="font-display text-lg font-bold leading-none tracking-tight text-ice/40 line-through decoration-ice/30 sm:text-xl">
-                                    {brl(totalInclui)}
-                                </p>
-                            </div>
                         </div>
 
                         {/* Preço */}
                         <div className="flex flex-col items-center justify-center p-6 text-center sm:p-8 md:p-10">
 
-                            {/* Selo de lançamento: enquadra o valor como preço
-                                de entrada, não como o preço definitivo. */}
                             {LANCAMENTO_ATIVO && (
                                 <div className="mb-5 flex items-center gap-2 rounded-full border border-electric-blue/40 bg-electric-blue/15 px-4 py-1.5">
                                     <Sparkles
@@ -163,16 +150,11 @@ export function Oferta() {
                                 </div>
                             )}
 
+                            {/* Parcela e total sempre juntos: a parcela tem
+                                juros (pagos pelo cliente) e o total à vista
+                                precisa estar visível ao lado dela. */}
                             <div>
-                                {/* Âncora: valor separado dos itens */}
-                                <p className="font-display text-lg font-bold leading-none tracking-tight text-ice/30 line-through decoration-ice/25 sm:text-xl">
-                                    {brl(totalInclui)}
-                                </p>
-
-                                <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-electric-blue/80 sm:text-xs sm:tracking-[0.2em]">
-                                    Por
-                                </p>
-                                <p className="mt-3 text-sm font-medium text-ice/50">6x de</p>
+                                <p className="text-sm font-medium text-ice/50">6x de</p>
                                 <p className="font-display text-[clamp(3rem,14vw,3.75rem)] font-bold leading-none text-electric-blue md:text-7xl">
                                     {PRICE_INSTALLMENT_VALUE}
                                 </p>
@@ -181,17 +163,21 @@ export function Oferta() {
                                 </p>
                             </div>
 
-                            {/* Por que este valor e não outro: deixa explícito
-                                que o preço de hoje é o de entrada. */}
+                            <p className="mt-6 max-w-xs text-[13px] leading-relaxed text-ice/55">
+                                Menos de R$ 150 por mês, mais ou menos o preço de um livro
+                                técnico. A Mentoria em grupo, com o dobro de encontros e três
+                                individuais, custa {PRICE_MENTORIA_GRUPO}.
+                            </p>
+
                             {LANCAMENTO_ATIVO && (
-                                <p className="mt-6 max-w-xs text-[12px] leading-relaxed text-ice/50">
+                                <p className="mt-4 max-w-xs text-[12px] leading-relaxed text-ice/50">
                                     {LANCAMENTO_NOTA}
                                 </p>
                             )}
 
                             <div className="mt-8 w-full">
                                 <CheckoutButton className="w-full">
-                                    Entrar na Comunidade
+                                    Quero entrar na Comunidade
                                 </CheckoutButton>
                             </div>
 
@@ -201,14 +187,15 @@ export function Oferta() {
                                     strokeWidth={2}
                                 />
                                 <p className="text-[11px] font-semibold uppercase tracking-[0.08em] text-electric-blue sm:text-xs">
-                                    7 dias de garantia, reembolso total
+                                    7 dias para desistir, reembolso total
                                 </p>
                             </div>
 
                             <p className="mt-4 max-w-xs text-[11px] leading-relaxed text-ice/40 sm:text-xs">
-                                Assinatura inicial de seis meses. Com renovação automática no cartão.
-                                Para pagamento no Pix, a renovação chegará por e-mail. Reembolso
-                                garantido nos primeiros 7 dias da sua primeira assinatura.
+                                Nos primeiros 7 dias, você pede o dinheiro de volta sem
+                                precisar explicar o motivo. Assinatura de seis meses, com
+                                renovação automática no cartão. No Pix, a renovação chega
+                                por e-mail.
                             </p>
                         </div>
                     </div>

@@ -7,27 +7,29 @@ import { ArrowRight } from "lucide-react";
    chegada, então cada card fala de "como o seu trabalho passa a ser",
    e não de "o que você conquista até tal mês". */
 
+/* Ordem pelo que o público mais busca (pesquisa de 2026-09): carreira e
+   rede vêm antes do método, que entra como validação do que ele já faz. */
 const itens = [
     {
         numero: "01",
-        antes: "Decide sozinho e fica com a dúvida se acertou.",
-        depois: "Mais confiança para decidir",
+        antes: "Vai tocando a vida e espera a oportunidade aparecer.",
+        depois: "Carreira com plano",
         detalhe:
-            "Tenha mais de 20 anos de experiência do seu lado, te dando o suporte necessário.",
+            "Saiba onde você está, onde quer chegar e qual é o próximo passo, no clube ou fora dele, como escola de goleiros e personal.",
     },
     {
         numero: "02",
-        antes: "Aplica exercícios sem saber exatamente o porquê.",
-        depois: "Mais clareza e método para treinar",
+        antes: "Conhece pouca gente e não gosta de se mostrar.",
+        depois: "Uma rede que trabalha no mercado",
         detalhe:
-            "Aprenda como ler o goleiro, definir prioridades e montar o treino com propósito.",
+            "Troque no dia a dia com preparadores do profissional, da base, do feminino e do exterior, e com convidados de clubes grandes.",
     },
     {
         numero: "03",
-        antes: "Espera a oportunidade aparecer para então correr atrás.",
-        depois: "Mais preparação para evoluir na carreira",
+        antes: "Seu método nunca foi colocado à prova por alguém de fora.",
+        depois: "Método validado",
         detalhe:
-            "Conheça as competências que o alto rendimento cobra, para estar pronto quando a vaga aparecer.",
+            "Leve o seu jeito de trabalhar para o Rodrigo e compare com o que se faz no alto rendimento, da base ao profissional.",
     },
 ];
 
@@ -54,9 +56,8 @@ export function Transformacoes() {
                         transition={{ duration: 1, delay: 0.12, ease: "easeOut" }}
                         className="mt-5 text-[15px] leading-relaxed text-ice/65 sm:mt-6 sm:text-base md:text-lg"
                     >
-                        A Comunidade não tem linha de chegada: você estuda, aplica no
-                        seu clube e volta para ajustar. É esse ciclo que move as três
-                        coisas abaixo.
+                        Você leva o seu caso, conversa, aplica no seu clube e volta para
+                        ajustar. É esse ciclo que move as três coisas abaixo.
                     </motion.p>
                 </div>
 

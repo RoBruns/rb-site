@@ -1,33 +1,80 @@
 import { ComunidadePage } from "../../components/comunidade/ComunidadePage";
-import {
-    PRICE_CASH,
-    PRICE_INSTALLMENT,
-} from "../../components/comunidade/constants";
+import { perguntas } from "../../components/comunidade/faq-data";
+import { PRICE_CASH } from "../../components/comunidade/constants";
 
-/*  O preço entra na description para o Google e o preview do WhatsApp
-    não prometerem um valor diferente do que a página mostra.           */
-const descricaoPreco =
-    "Valor de lançamento: " + PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + ".";
+const SITE = "https://rodrigobruns.com.br";
+const URL_PAGINA = SITE + "/comunidade";
 
+/*  Sem "mentoria" no título: na escada de produtos, mentoria é o nível 2.
+    Sem preço na description: preço muda, e o snippet fica desatualizado. */
 export const metadata = {
-    metadataBase: new URL("https://rodrigobruns.com.br"),
-    title: "Comunidade PGAR | Método para preparadores de goleiros",
+    metadataBase: new URL(SITE),
+    title: "Comunidade PGAR para Preparadores de Goleiros | Rodrigo Bruns",
     description:
-        "Comunidade de preparadores de goleiros com Rodrigo Bruns, do Red Bull Bragantino. Método CIMO, encontros ao vivo e um grupo para trocar o dia a dia. " +
-        descricaoPreco,
+        "Comunidade para preparadores de goleiros com Rodrigo Bruns, do Red Bull Bragantino. Encontro individual, rede de preparadores e plano de carreira.",
     alternates: {
-        canonical: "https://rodrigobruns.com.br/comunidade",
+        canonical: URL_PAGINA,
     },
     icons: { icon: "/favico.ico" },
     openGraph: {
-        title: "Comunidade PGAR | Treino não é só chute, aprenda com direção",
+        title: "Pare de construir sua carreira de preparador sozinho",
         description:
-            "Mais de 20 anos formando goleiros e preparadores, agora reunidos em dois cursos e num grupo onde você pergunta, discorda e testa.",
+            "Seis meses perto de Rodrigo Bruns e de uma rede de preparadores de goleiros do profissional, da base, do feminino e do exterior.",
         images: ["/comunidade-banner.png"],
         type: "website",
+        url: URL_PAGINA,
+        locale: "pt_BR",
     },
 };
 
+/*  Dados estruturados: sinal semântico para buscadores e IAs. O rich
+    result de FAQ não aparece mais no Google, mas a marcação não atrapalha
+    e ajuda a página a ser citada em respostas de IA.                    */
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": SITE + "/#rodrigo",
+            name: "Rodrigo Bruns",
+            jobTitle: "Preparador de goleiros",
+            url: SITE,
+            sameAs: ["https://www.instagram.com/rodrigo.bruns/"],
+        },
+        {
+            "@type": "Product",
+            name: "Comunidade PGAR",
+            description:
+                "Assinatura de seis meses para preparadores de goleiros: encontro individual com Rodrigo Bruns, encontros mensais ao vivo, grupo de preparadores, Diagnóstico Profissional e metodologia CIMO.",
+            brand: { "@type": "Brand", name: "PGAR" },
+            url: URL_PAGINA,
+            offers: {
+                "@type": "Offer",
+                price: PRICE_CASH.replace(/\D/g, ""),
+                priceCurrency: "BRL",
+                availability: "https://schema.org/InStock",
+                url: URL_PAGINA,
+            },
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: perguntas.map((p) => ({
+                "@type": "Question",
+                name: p.q,
+                acceptedAnswer: { "@type": "Answer", text: p.a },
+            })),
+        },
+    ],
+};
+
 export default function Comunidade() {
-    return <ComunidadePage />;
+    return (
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <ComunidadePage />
+        </>
+    );
 }

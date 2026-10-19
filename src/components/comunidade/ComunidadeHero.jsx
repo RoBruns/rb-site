@@ -2,6 +2,14 @@
 
 import { motion } from "framer-motion";
 import { CheckoutButton } from "./CheckoutButton";
+import { FORMULARIO_URL, MEMBROS_LABEL } from "./constants";
+
+const provas = [
+    "Red Bull Bragantino",
+    "Licença A CBF",
+    "+20 anos formando goleiros",
+    MEMBROS_LABEL + " dentro",
+];
 
 const rise = {
     hidden: { opacity: 0, y: 24 },
@@ -87,21 +95,21 @@ export function ComunidadeHero() {
                             <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-electric-blue" />
                         </span>
                         <span className="text-[10px] font-semibold uppercase leading-none tracking-[0.14em] text-ice/60 sm:text-[11px] sm:tracking-[0.24em]">
-                            Para preparadores de goleiros
+                            Para preparadores que já estão no campo
                         </span>
                     </motion.div>
 
+                    {/* A dor nº 1 dos membros (pesquisa e call de 2026-10):
+                        trabalhar sozinho, sem retorno e sem rede. */}
                     <motion.h1
                         initial="hidden"
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1.1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-6 font-display text-[clamp(1.9rem,8.4vw,3rem)] font-bold uppercase leading-[0.94] tracking-tight text-ice sm:mt-7 md:text-6xl md:leading-[0.92] lg:text-[66px]"
+                        className="mt-6 font-display text-[clamp(2.1rem,9.4vw,3.2rem)] font-bold uppercase leading-[0.94] tracking-tight text-ice sm:mt-7 md:text-6xl md:leading-[0.92] lg:text-[70px]"
                     >
-                        O próximo nível da sua carreira começa com{" "}
-                        <span className="text-electric-blue">
-                            MAIS MÉTODO e SEGURANÇA.
-                        </span>
+                        Pare de construir sua carreira{" "}
+                        <span className="text-electric-blue">sozinho.</span>
                     </motion.h1>
 
                     <motion.p
@@ -111,11 +119,10 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-6 max-w-xl text-[15px] leading-relaxed text-ice/70 sm:mt-7 sm:text-base md:text-lg"
                     >
-                        Ganhe segurança para tomar decisões, aprofunde seu conhecimento técnico
-                        e construa um trabalho que faça você evoluir na carreira. <br /> <br />
-                        Reuni mais de 20 anos formando goleiros e preparadores em um ecossistema
-                        onde você estuda, pergunta, discorda e testa. Aprenda a pensar o treino
-                        de uma forma moderna e que funciona na sua realidade.
+                        Seis meses perto de Rodrigo Bruns, preparador de goleiros do Red Bull
+                        Bragantino, e de uma rede de preparadores do profissional, da base, do
+                        feminino e do exterior. Para ter com quem trocar, validar o seu método e
+                        planejar o próximo passo.
                     </motion.p>
 
                     <motion.div
@@ -123,12 +130,35 @@ export function ComunidadeHero() {
                         animate="show"
                         variants={rise}
                         transition={{ duration: 1, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
-                        className="mt-8 flex flex-col items-stretch gap-4 sm:mt-9 sm:flex-row sm:items-center"
+                        className="mt-8 flex flex-col items-stretch gap-4 sm:mt-9 sm:flex-row sm:items-center sm:gap-6"
                     >
                         <CheckoutButton href="#oferta" className="w-full sm:w-auto">
-                            Entrar na Comunidade
+                            Quero entrar na Comunidade
                         </CheckoutButton>
+                        <a
+                            href={FORMULARIO_URL}
+                            className="text-center text-sm font-medium text-ice/60 underline decoration-ice/25 underline-offset-4 transition-colors duration-300 hover:text-ice sm:text-left"
+                        >
+                            Prefiro conversar antes
+                        </a>
                     </motion.div>
+
+                    {/* Faixa de prova: autoridade e tamanho do grupo, sem
+                        logo de clube e sem sugerir parceria. */}
+                    <motion.ul
+                        initial="hidden"
+                        animate="show"
+                        variants={rise}
+                        transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        className="mt-9 flex flex-wrap gap-x-5 gap-y-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-ice/45 sm:mt-10 sm:text-xs"
+                    >
+                        {provas.map((p) => (
+                            <li key={p} className="flex items-center gap-2">
+                                <span className="h-1 w-1 rounded-full bg-electric-blue" />
+                                {p}
+                            </li>
+                        ))}
+                    </motion.ul>
                 </div>
             </div>
         </section>

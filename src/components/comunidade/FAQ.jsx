@@ -2,50 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Plus } from "lucide-react";
-import { PRICE_CASH, PRICE_INSTALLMENT } from "./constants";
-
-const perguntas = [
-    {
-        q: "Sou iniciante. Vou conseguir acompanhar?",
-        a: "Vai. Tem gente começando agora e gente que já trabalha há anos, e o ponto de partida é sempre o contexto de cada um. Ninguém precisa chegar sabendo.",
-    },
-    {
-        q: "Trabalho em escolinha ou categorias de base. Serve para mim?",
-        a: "Serve. Os princípios se adaptam a realidades diferentes, e boa parte da troca no grupo é justamente sobre isso: como aplicar a mesma ideia com estruturas e tempos bem diferentes.",
-    },
-    {
-        q: "Por quanto tempo tenho acesso?",
-        a: "Seis meses, contados do dia da sua compra. Não existe turma nem data de início: o seu prazo é seu. Enquanto a assinatura estiver ativa, tudo o que está na lista fica liberado.",
-    },
-    {
-        q: "Posso renovar depois dos seis meses?",
-        a:
-            "Pode. A renovação é automática no cartão. Para pagamento no Pix, a renovação chegará por e-mail. " +
-            "O valor de hoje é o de lançamento (" + PRICE_CASH + "); se ele subir mais adiante, avisamos antes da renovação.",
-    },
-    {
-        q: "Posso cancelar quando quiser?",
-        a: "Sim, na primeira assinatura você possui 7 dias de garantia incondicional. Após esse período, não existe reembolso proporcional. Se cancelar, você continua com acesso até o fim do período que já pagou.",
-    },
-    {
-        q: "Como funciona o WhatsApp?",
-        a: "É o grupo da comunidade, onde a conversa corre entre todo mundo. É ali que você leva a dúvida do dia a dia e troca com preparadores de contextos diferentes do seu.",
-    },
-    {
-        q: "O que é a metodologia CIMO?",
-        a: "Contexto, Intensidade, Mentalidade e Organização. São os quatro módulos do curso e, na prática, a ordem em que você pensa antes de montar um treino.",
-    },
-    {
-        q: "O preço vai mudar?",
-        a:
-            PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + " é o valor de lançamento da Comunidade. " +
-            "Ele tende a subir conforme o conteúdo e a base crescem, e quem entrar depois vai pagar o preço da época.",
-    },
-    {
-        q: "O que exatamente está incluído?",
-        a: "Grupo de WhatsApp da comunidade, um encontro em grupo por mês, um encontro individual dentro dos seis meses, o curso CIMO, o Diagnóstico Profissional e todo curso ou módulo que for lançado enquanto a sua assinatura estiver ativa.",
-    },
-];
+import { perguntas } from "./faq-data";
 
 export function FAQ() {
     return (

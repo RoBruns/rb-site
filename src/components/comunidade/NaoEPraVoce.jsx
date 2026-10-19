@@ -7,12 +7,14 @@ const naoServe = [
     "Quer uma planilha pronta para copiar e colar no seu clube.",
     "Acha que existe fórmula infalível no alto rendimento.",
     "Está atrás de garantia de vaga, promoção ou indicação.",
+    "Não pretende participar dos encontros nem do grupo.",
 ];
 
 const serve = [
-    "Se sente estagnado e não sabe o que fazer para evoluir na carreira.",
-    "Se sente inseguro, pois não tem alguém qualificado para trocar ideias.",
-    "Quer conhecer uma metodologia moderna validada no alto rendimento.",
+    "Já atua em clube, escolinha ou como personal e quer subir de patamar.",
+    "Tem o seu jeito de trabalhar e quer validá-lo com quem está no alto rendimento.",
+    "Sente que a carreira depende de indicação e não tem com quem trocar.",
+    "Está numa transição, da base ao profissional ou para além do campo, e quer um plano.",
 ];
 
 export function NaoEPraVoce() {

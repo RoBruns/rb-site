@@ -7,7 +7,9 @@ import { AttributionTracker } from "../AttributionTracker";
 import { ComunidadeNav } from "./ComunidadeNav";
 import { ComunidadeHero } from "./ComunidadeHero";
 import { Virada } from "./Virada";
+import { FalsasSolucoes } from "./FalsasSolucoes";
 import { Transformacoes } from "./Transformacoes";
+import { QuemEstaDentro } from "./QuemEstaDentro";
 import { QuemResponde } from "./QuemResponde";
 import { ComoFunciona } from "./ComoFunciona";
 import { NaoEPraVoce } from "./NaoEPraVoce";
@@ -81,10 +83,15 @@ export function ComunidadePage() {
             <div className="relative z-10">
                 <ComunidadeNav />
                 <ComunidadeHero />
+                {/* Ordem (estudo de persona, 2026-10-19): dor, por que o
+                    que ele já tentou não basta, o que muda, como funciona,
+                    prova (quem está dentro e quem conduz), filtro e oferta. */}
                 <Virada />
+                <FalsasSolucoes />
                 <Transformacoes />
-                <QuemResponde />
                 <ComoFunciona />
+                <QuemEstaDentro />
+                <QuemResponde />
                 <NaoEPraVoce />
                 <Oferta />
                 <FAQ />
