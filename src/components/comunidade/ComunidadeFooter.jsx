@@ -2,7 +2,7 @@
 
 export function ComunidadeFooter() {
     return (
-        <footer className="relative w-full px-5 pb-28 pt-12 sm:px-6 sm:pb-14 sm:pt-16">
+        <footer className="relative w-full px-5 pb-12 pt-12 sm:px-6 sm:pb-14 sm:pt-16">
             <div className="mx-auto max-w-5xl">
                 <div className="cmn-hairline" />
 

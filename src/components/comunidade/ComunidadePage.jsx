@@ -16,7 +16,6 @@ import { NaoEPraVoce } from "./NaoEPraVoce";
 import { Oferta } from "./Oferta";
 import { FAQ } from "./FAQ";
 import { CtaFinal } from "./CtaFinal";
-import { StickyMobileCta } from "./StickyMobileCta";
 import { ComunidadeFooter } from "./ComunidadeFooter";
 
 export function ComunidadePage() {
@@ -96,7 +95,6 @@ export function ComunidadePage() {
                 <Oferta />
                 <FAQ />
                 <CtaFinal />
-                <StickyMobileCta />
                 <ComunidadeFooter />
             </div>
         </main>
