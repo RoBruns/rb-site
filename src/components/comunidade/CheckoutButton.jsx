@@ -18,7 +18,7 @@ const checkoutHrefCache = new Map();
 const subscribeToCheckoutHref = () => () => {};
 
 export function CheckoutButton({
-    children = "Entrar na Comunidade",
+    children = "Entrar no Ecossistema",
     variant = "solid",
     size = "lg",
     className,

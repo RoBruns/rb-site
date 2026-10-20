@@ -16,14 +16,12 @@ import { CheckoutButton } from "./CheckoutButton";
 import {
     PRICE_CASH,
     PRICE_INSTALLMENT_VALUE,
-    PRICE_MENTORIA_GRUPO,
     LANCAMENTO_ATIVO,
     LANCAMENTO_SELO,
     LANCAMENTO_NOTA,
 } from "./constants";
 
-/*  Na ordem do que pesa na decisão. Sem valores riscados: a âncora
-    é o nível acima, que existe e tem preço público.                   */
+/*  Na ordem do que pesa na decisão. Sem valores riscados.          */
 const inclui = [
     {
         icon: UserRound,
@@ -165,8 +163,7 @@ export function Oferta() {
 
                             <p className="mt-6 max-w-xs text-[13px] leading-relaxed text-ice/55">
                                 Menos de R$ 150 por mês, mais ou menos o preço de um livro
-                                técnico. A Mentoria em grupo, com o dobro de encontros e três
-                                individuais, custa {PRICE_MENTORIA_GRUPO}.
+                                técnico.
                             </p>
 
                             {LANCAMENTO_ATIVO && (
@@ -177,7 +174,7 @@ export function Oferta() {
 
                             <div className="mt-8 w-full">
                                 <CheckoutButton className="w-full">
-                                    Quero entrar na Comunidade
+                                    Quero entrar no Ecossistema
                                 </CheckoutButton>
                             </div>
 
@@ -193,9 +190,7 @@ export function Oferta() {
 
                             <p className="mt-4 max-w-xs text-[11px] leading-relaxed text-ice/40 sm:text-xs">
                                 Nos primeiros 7 dias, você pede o dinheiro de volta sem
-                                precisar explicar o motivo. Assinatura de seis meses, com
-                                renovação automática no cartão. No Pix, a renovação chega
-                                por e-mail.
+                                precisar explicar o motivo. Assinatura de seis meses.
                             </p>
                         </div>
                     </div>

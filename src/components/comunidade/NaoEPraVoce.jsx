@@ -13,8 +13,8 @@ const naoServe = [
 const serve = [
     "Já atua em clube, escolinha ou como personal e quer subir de patamar.",
     "Tem o seu jeito de trabalhar e quer validá-lo com quem está no alto rendimento.",
-    "Sente que a carreira depende de indicação e não tem com quem trocar.",
-    "Está numa transição, da base ao profissional ou para além do campo, e quer um plano.",
+    "Sente que sua carreira precisa de orientação, mas não tem com quem trocar.",
+    "Quer saber como se trabalha no alto nível.",
 ];
 
 export function NaoEPraVoce() {

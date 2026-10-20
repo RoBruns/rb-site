@@ -8,7 +8,7 @@ const provas = [
     "Red Bull Bragantino",
     "Licença A CBF",
     "+20 anos formando goleiros",
-    MEMBROS_LABEL + " dentro",
+    MEMBROS_LABEL + " mentorados e no Ecossistema",
 ];
 
 const rise = {
@@ -119,10 +119,11 @@ export function ComunidadeHero() {
                         transition={{ duration: 1, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="mt-6 max-w-xl text-[15px] leading-relaxed text-ice/70 sm:mt-7 sm:text-base md:text-lg"
                     >
-                        Seis meses perto de Rodrigo Bruns, preparador de goleiros do Red Bull
-                        Bragantino, e de uma rede de preparadores do profissional, da base, do
-                        feminino e do exterior. Para ter com quem trocar, validar o seu método e
-                        planejar o próximo passo.
+                        Seis meses perto de Rodrigo Bruns, coordenador da preparação de goleiros
+                        do Red Bull Bragantino, com experiência no suporte a treinadores da
+                        iniciação ao profissional, no feminino e no masculino, no Brasil e no
+                        exterior. Para ter com quem validar o seu método e planejar os próximos
+                        passos.
                     </motion.p>
 
                     <motion.div
@@ -133,7 +134,7 @@ export function ComunidadeHero() {
                         className="mt-8 flex flex-col items-stretch gap-4 sm:mt-9 sm:flex-row sm:items-center sm:gap-6"
                     >
                         <CheckoutButton href="#oferta" className="w-full sm:w-auto">
-                            Quero entrar na Comunidade
+                            Quero entrar no Ecossistema
                         </CheckoutButton>
                         <a
                             href={FORMULARIO_URL}

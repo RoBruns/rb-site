@@ -28,10 +28,6 @@ export const LANCAMENTO_SELO = "Preço de lançamento";
 export const LANCAMENTO_NOTA =
     "Valor de lançamento da Comunidade. Quem entra agora paga este preço.";
 
-/*  Âncora real: o nível acima existe e tem este preço. Substitui o
-    "valor separado" riscado, que nunca foi praticado.                 */
-export const PRICE_MENTORIA_GRUPO = "R$ 2.497";
-
 /*  Para quem prefere conversar antes de comprar. O formulário cria o
     card no funil da Comunidade e a conversa acontece por lá.          */
 export const FORMULARIO_URL = "/comunidade-formulario";

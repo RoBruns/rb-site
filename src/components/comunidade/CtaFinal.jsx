@@ -39,7 +39,7 @@ export function CtaFinal() {
                     className="mt-9 flex w-full flex-col items-center gap-4 sm:mt-11"
                 >
                     <CheckoutButton className="w-full sm:w-auto">
-                        Quero entrar na Comunidade
+                        Quero entrar no Ecossistema
                     </CheckoutButton>
                     <p className="text-[13px] leading-relaxed text-ice/50 sm:text-sm">
                         6x de{" "}

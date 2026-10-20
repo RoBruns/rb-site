@@ -9,9 +9,9 @@ const URL_PAGINA = SITE + "/comunidade";
     Sem preço na description: preço muda, e o snippet fica desatualizado. */
 export const metadata = {
     metadataBase: new URL(SITE),
-    title: "Comunidade PGAR para Preparadores de Goleiros | Rodrigo Bruns",
+    title: "Ecossistema PGAR para Preparadores de Goleiros | Rodrigo Bruns",
     description:
-        "Comunidade para preparadores de goleiros com Rodrigo Bruns, do Red Bull Bragantino. Encontro individual, rede de preparadores e plano de carreira.",
+        "Ecossistema para preparadores de goleiros com Rodrigo Bruns, do Red Bull Bragantino. Encontro individual, rede de preparadores e plano de carreira.",
     alternates: {
         canonical: URL_PAGINA,
     },
@@ -43,7 +43,7 @@ const jsonLd = {
         },
         {
             "@type": "Product",
-            name: "Comunidade PGAR",
+            name: "Ecossistema PGAR",
             description:
                 "Assinatura de seis meses para preparadores de goleiros: encontro individual com Rodrigo Bruns, encontros mensais ao vivo, grupo de preparadores, Diagnóstico Profissional e metodologia CIMO.",
             brand: { "@type": "Brand", name: "PGAR" },

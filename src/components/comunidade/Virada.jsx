@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
    compra estuda há anos, e "te falta método" soava como acusação. */
 const dores = [
     "Ninguém te dá retorno sobre o que você faz ou deixa de fazer.",
-    "Troca o treinador, troca a diretoria, e você volta à estaca zero.",
+    "Muda o treinador, muda a comissão, e você precisa provar seu valor novamente.",
     "A vaga boa aparece por indicação, e você não gosta de ligar pedindo emprego.",
     "Seu método está na sua cabeça. Mas como ele se compara ao de quem está no alto rendimento?",
 ];
@@ -66,7 +66,7 @@ export function Virada() {
                     className="cmn-glass-glow mx-auto mt-8 max-w-2xl px-6 py-7 sm:mt-12 sm:px-8 sm:py-8"
                 >
                     <p className="font-display text-lg font-bold uppercase leading-tight tracking-tight text-ice sm:text-xl md:text-2xl">
-                        Não te falta estudo. Você já fez curso, licença e leu livro.{" "}
+                        Não te falta estudo. Você já fez cursos, licenças e leu livros.{" "}
                         <span className="text-electric-blue">
                             Falta com quem conversar e um plano para o próximo passo.
                         </span>

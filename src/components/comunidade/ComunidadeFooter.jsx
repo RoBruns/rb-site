@@ -14,7 +14,7 @@ export function ComunidadeFooter() {
                             className="h-6 w-auto opacity-80"
                         />
                         <p className="mt-3 text-xs text-ice/35">
-                            Comunidade PGAR · Preparação de Goleiros de Alto Rendimento
+                            Ecossistema PGAR · Preparação de Goleiros de Alto Rendimento
                         </p>
                     </div>
 
@@ -23,7 +23,7 @@ export function ComunidadeFooter() {
                             href="#oferta"
                             className="text-[11px] font-semibold uppercase tracking-[0.2em] text-electric-blue transition-colors duration-400 hover:text-ice"
                         >
-                            Entrar na Comunidade →
+                            Entrar no Ecossistema →
                         </a>
                         <p className="text-[11px] text-ice/25">
                             © 2026 Rodrigo Bruns. Todos os direitos reservados.

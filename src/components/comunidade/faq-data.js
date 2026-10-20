@@ -30,19 +30,19 @@ export const perguntas = [
     },
     {
         q: "Vocês garantem vaga ou indicação?",
-        a: "Não. Ninguém honesto garante isso. O que a Comunidade entrega é acesso, rede e um plano de carreira construído por você no Diagnóstico Profissional.",
+        a: "Não. Ninguém honesto garante isso. O que o Ecossistema entrega é acesso, rede e um plano de carreira construído por você no Diagnóstico Profissional.",
     },
     {
         q: "Quando começa? Tem turma?",
         a: "Não tem turma nem data de início. Seus seis meses começam no dia da compra, e você entra direto na plataforma e no grupo.",
     },
     {
-        q: "Como funcionam pagamento, garantia e cancelamento?",
+        q: "Como funcionam pagamento e garantia?",
         a:
-            PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + " no cartão. Nos primeiros 7 dias da primeira assinatura, você pede o reembolso total sem precisar explicar o motivo. Depois disso não há reembolso proporcional, mas se cancelar você continua com acesso até o fim do período pago. A renovação é automática no cartão; no Pix, chega por e-mail.",
+            PRICE_CASH + " à vista ou " + PRICE_INSTALLMENT + " no cartão. Nos primeiros 7 dias da primeira assinatura, você pede o reembolso total sem precisar explicar o motivo. Depois disso, não há reembolso.",
     },
     {
         q: "O que é a metodologia CIMO?",
-        a: "Contexto, Intensidade, Mentalidade e Organização. São os quatro módulos do curso e, na prática, a ordem em que o Rodrigo pensa antes de montar um treino, da base ao profissional.",
+        a: "Contexto, Intensidade, Mentalidade e Organização. São os quatro pilares da metodologia de Rodrigo Bruns e a base de como ele pensa a preparação de goleiros.",
     },
 ];

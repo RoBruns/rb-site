@@ -80,7 +80,7 @@ export function QuemEstaDentro() {
                 >
                     <img
                         src="/comunidade-print-grupo.webp"
-                        alt="Mensagens de membros no grupo de WhatsApp da Comunidade depois de um encontro com convidado"
+                        alt="Mensagens de membros no grupo de WhatsApp do Ecossistema depois de um encontro com convidado"
                         loading="lazy"
                         className="w-full rounded-[28px] border border-electric-blue/30 shadow-[0_40px_90px_-24px_rgba(5,10,20,0.85),0_0_80px_-20px_rgba(127,179,255,0.35)]"
                     />

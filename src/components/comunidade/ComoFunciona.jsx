@@ -38,7 +38,7 @@ const pilaresTopo = [
         titulo: "Os cursos",
         chamada: "A base do que você vai aplicar no campo.",
         texto:
-            "Acesso imediato à metodologia CIMO, ao Diagnóstico Profissional e a todo material novo lançado enquanto você estiver na comunidade.",
+            "Acesso imediato à metodologia CIMO, ao Diagnóstico Profissional e a todo material novo lançado enquanto você estiver no Ecossistema.",
         subcards: [
             {
                 titulo: "Diagnóstico Profissional",
@@ -307,7 +307,7 @@ export function ComoFunciona() {
 
                 <div className="mt-10 flex justify-center sm:mt-14">
                     <CheckoutButton href="#oferta" className="w-full sm:w-auto">
-                        Quero entrar na Comunidade
+                        Quero entrar no Ecossistema
                     </CheckoutButton>
                 </div>
             </div>

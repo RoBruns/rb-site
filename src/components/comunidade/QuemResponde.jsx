@@ -47,7 +47,7 @@ export function QuemResponde() {
                     transition={{ duration: 1, ease: "easeOut" }}
                     className="text-[10px] font-semibold uppercase tracking-[0.2em] text-electric-blue sm:text-[11px] sm:tracking-[0.28em]"
                 >
-                    Quem conduz a comunidade
+                    Quem conduz o Ecossistema
                 </motion.p>
 
                 <div className="mt-8 grid items-start gap-6 sm:mt-10 lg:grid-cols-[0.8fr_1fr] lg:gap-16">
@@ -102,11 +102,10 @@ export function QuemResponde() {
                                 treinadores de goleiros.
                             </p>
                             <p className="mt-4">
-                                Tenho 48 anos. Sei o que é estar no melhor momento da
-                                cabeça e, ao mesmo tempo, precisar planejar os próximos dez.
-                                Meu trabalho aqui é usar o que eu vivo no alto rendimento
-                                para te ajudar a dar o próximo passo, na carreira e na
-                                metodologia.
+                                Já vivi muita coisa no alto rendimento, e meu trabalho
+                                aqui é usar essa experiência para te ajudar a dar o
+                                próximo passo, na sua metodologia e na sua própria
+                                carreira.
                             </p>
                         </motion.div>
 
