@@ -34,3 +34,6 @@ build/
 
 public/*
 
+
+# zips de build estatico gerados para deploy manual — regeneraveis
+build-*.zip
