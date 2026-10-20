@@ -32,9 +32,11 @@ export const LANCAMENTO_NOTA =
     card no funil da Comunidade e a conversa acontece por lá.          */
 export const FORMULARIO_URL = "/comunidade-formulario";
 
-/*  Tamanho do grupo, para a prova social. 29 clientes em 2026-10-19;
-    "+25" continua verdadeiro enquanto o grupo cresce.                 */
-export const MEMBROS_LABEL = "+25 preparadores";
+/*  Tamanho do grupo, para a prova social. Conta quem está no grupo, não
+    só quem pagou: em 2026-10-20 eram 29 clientes mais membros que
+    entraram como convidados, sem custo. "+30" segue verdadeiro
+    enquanto o grupo cresce.                                           */
+export const MEMBROS_LABEL = "+30 preparadores";
 
 /*  Checkout sem parâmetro de cupom. buildCheckoutUrl usa
     URL/searchParams, então os parâmetros de atribuição entram aqui
